@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "a3f11ba2-7436-4440-9ef4-a3abb5031258",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/Sequence.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

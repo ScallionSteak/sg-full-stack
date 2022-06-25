@@ -1,0 +1,35 @@
+{
+  "name": "tsrpc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "devDependencies": {
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^15.14.9",
+    "@types/uuid": "^8.3.4",
+    "cross-env": "^7.0.3",
+    "mocha": "^9.2.2",
+    "onchange": "^7.1.0",
+    "ts-node": "^10.7.0",
+    "tsrpc-cli": "^2.4.4",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "mongodb": "^4.4.0",
+    "pm2": "^5.2.0",
+    "tsrpc": "^3.4.0",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:gate": "tsrpc-cli dev --entry src/ServerGate.ts",
+    "dev:match": "tsrpc-cli dev --entry src/ServerMatch.ts",
+    "dev:room": "tsrpc-cli dev --entry src/ServerRoom.ts",
+    "dev:room2": "cross-env PORT=3002 tsrpc-cli dev --entry src/ServerRoom.ts",
+    "build": "tsrpc-cli build",
+    "doc": "tsrpc-cli doc",
+    "proto": "tsrpc-cli proto",
+    "sync": "tsrpc-cli sync",
+    "api": "tsrpc-cli api"
+  }
+}

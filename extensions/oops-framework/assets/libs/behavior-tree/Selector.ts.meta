@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "e7341c8b-f3aa-496b-b8bb-313fcf5c5fcd",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/Selector.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

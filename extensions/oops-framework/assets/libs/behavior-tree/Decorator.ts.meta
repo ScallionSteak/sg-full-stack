@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "cf3683a8-b822-43a1-b09f-8a411ce9926f",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/Decorator.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

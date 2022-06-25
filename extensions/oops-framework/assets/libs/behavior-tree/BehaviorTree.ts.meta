@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "e0fbce15-d346-4a01-8282-cdb44d07483c",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/BehaviorTree.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

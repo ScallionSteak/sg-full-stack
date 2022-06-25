@@ -1,0 +1,755 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TSRPC Open API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/admin/RoomServerJoin": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "operationId": "admin/RoomServerJoin",
+        "requestBody": {
+          "description": "Req<RoomServerJoin>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/admin_PtlRoomServerJoin_ReqRoomServerJoin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResRoomServerJoin>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/admin_PtlRoomServerJoin_ResRoomServerJoin"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/db/AddPost": {
+      "post": {
+        "tags": [
+          "db"
+        ],
+        "operationId": "db/AddPost",
+        "requestBody": {
+          "description": "Req<AddPost>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/db_PtlAddPost_ReqAddPost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddPost>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/db_PtlAddPost_ResAddPost"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/db/DelPost": {
+      "post": {
+        "tags": [
+          "db"
+        ],
+        "operationId": "db/DelPost",
+        "requestBody": {
+          "description": "Req<DelPost>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/db_PtlDelPost_ReqDelPost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResDelPost>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/db_PtlDelPost_ResDelPost"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/db/GetPost": {
+      "post": {
+        "tags": [
+          "db"
+        ],
+        "operationId": "db/GetPost",
+        "requestBody": {
+          "description": "Req<GetPost>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/db_PtlGetPost_ReqGetPost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetPost>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/db_PtlGetPost_ResGetPost"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/db/UpdatePost": {
+      "post": {
+        "tags": [
+          "db"
+        ],
+        "operationId": "db/UpdatePost",
+        "requestBody": {
+          "description": "Req<UpdatePost>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/db_PtlUpdatePost_ReqUpdatePost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResUpdatePost>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/db_PtlUpdatePost_ResUpdatePost"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/MatchStart": {
+      "post": {
+        "operationId": "MatchStart",
+        "requestBody": {
+          "description": "Req<MatchStart>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlMatchStart_ReqMatchStart"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResMatchStart>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlMatchStart_ResMatchStart"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/RoomCreate": {
+      "post": {
+        "operationId": "RoomCreate",
+        "requestBody": {
+          "description": "Req<RoomCreate>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlRoomCreate_ReqRoomCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResRoomCreate>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlRoomCreate_ResRoomCreate"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/RoomList": {
+      "post": {
+        "operationId": "RoomList",
+        "requestBody": {
+          "description": "Req<RoomList>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlRoomList_ReqRoomList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResRoomList>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlRoomList_ResRoomList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "admin_PtlRoomServerJoin_ReqRoomServerJoin": {
+        "type": "object",
+        "properties": {
+          "serverUrl": {
+            "type": "string",
+            "description": "RoomServer 的连接地址"
+          },
+          "adminToken": {
+            "type": "string",
+            "description": "Token 用于鉴权"
+          }
+        },
+        "required": [
+          "serverUrl",
+          "adminToken"
+        ]
+      },
+      "admin_PtlRoomServerJoin_ResRoomServerJoin": {
+        "type": "object",
+        "properties": {}
+      },
+      "db_PtlAddPost_ReqAddPost": {
+        "type": "object",
+        "properties": {
+          "newPost": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "string",
+                "description": "作者"
+              },
+              "title": {
+                "type": "string",
+                "description": "标题"
+              },
+              "content": {
+                "type": "string",
+                "description": "内容"
+              }
+            },
+            "required": [
+              "author",
+              "title",
+              "content"
+            ]
+          }
+        },
+        "required": [
+          "newPost"
+        ]
+      },
+      "______db_DbPost_DbPost": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "$ref": "#/components/schemas/?mongodb_ObjectId",
+            "description": "默认主键"
+          },
+          "author": {
+            "type": "string",
+            "description": "作者"
+          },
+          "title": {
+            "type": "string",
+            "description": "标题"
+          },
+          "content": {
+            "type": "string",
+            "description": "内容"
+          },
+          "visitedNum": {
+            "type": "number",
+            "description": "访问数量"
+          },
+          "create": {
+            "type": "object",
+            "properties": {
+              "uid": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "uid",
+              "time"
+            ],
+            "description": "创建信息"
+          },
+          "update": {
+            "type": "object",
+            "properties": {
+              "uid": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "uid",
+              "time"
+            ],
+            "description": "更新信息"
+          }
+        },
+        "required": [
+          "_id",
+          "author",
+          "title",
+          "content",
+          "visitedNum",
+          "create"
+        ],
+        "description": "数据表"
+      },
+      "db_PtlAddPost_ResAddPost": {
+        "type": "object",
+        "properties": {
+          "insertedId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "insertedId"
+        ]
+      },
+      "db_PtlDelPost_ReqDelPost": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "$ref": "#/components/schemas/?bson_ObjectId"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      },
+      "db_PtlDelPost_ResDelPost": {
+        "type": "object",
+        "properties": {}
+      },
+      "db_PtlGetPost_ReqGetPost": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "$ref": "#/components/schemas/?bson_ObjectId"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      },
+      "db_PtlGetPost_ResGetPost": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "$ref": "#/components/schemas/______db_DbPost_DbPost"
+          }
+        },
+        "required": [
+          "post"
+        ]
+      },
+      "db_PtlUpdatePost_ReqUpdatePost": {
+        "type": "object",
+        "properties": {
+          "update": {
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "$ref": "#/components/schemas/?mongodb_ObjectId",
+                    "description": "默认主键"
+                  }
+                },
+                "required": [
+                  "_id"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "标题"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "内容"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "update"
+        ]
+      },
+      "db_PtlUpdatePost_ResUpdatePost": {
+        "type": "object",
+        "properties": {
+          "matchedCount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "matchedCount"
+        ]
+      },
+      "PtlMatchStart_ReqMatchStart": {
+        "type": "object",
+        "properties": {}
+      },
+      "PtlMatchStart_ResMatchStart": {
+        "type": "object",
+        "properties": {
+          "serverUrl": {
+            "type": "string"
+          },
+          "roomId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "serverUrl",
+          "roomId"
+        ]
+      },
+      "PtlRoomCreate_ReqRoomCreate": {
+        "type": "object",
+        "properties": {
+          "roomName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "roomName"
+        ]
+      },
+      "PtlRoomCreate_ResRoomCreate": {
+        "type": "object",
+        "properties": {
+          "serverUrl": {
+            "type": "string"
+          },
+          "roomId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "serverUrl",
+          "roomId"
+        ]
+      },
+      "PtlRoomList_ReqRoomList": {
+        "type": "object",
+        "properties": {}
+      },
+      "PtlRoomList_ResRoomList": {
+        "type": "object",
+        "properties": {
+          "rooms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "房间名"
+                },
+                "playerNum": {
+                  "type": "integer",
+                  "description": "当前玩家数量"
+                },
+                "playerMax": {
+                  "type": "integer",
+                  "description": "最大玩家数量"
+                },
+                "serverUrl": {
+                  "type": "string",
+                  "description": "房间服务器地址"
+                },
+                "roomId": {
+                  "type": "string",
+                  "description": "房间编号"
+                }
+              },
+              "required": [
+                "name",
+                "playerNum",
+                "playerMax",
+                "serverUrl",
+                "roomId"
+              ]
+            }
+          }
+        },
+        "required": [
+          "rooms"
+        ]
+      },
+      "?bson_ObjectID": {
+        "type": "string"
+      },
+      "?bson_ObjectId": {
+        "type": "string"
+      },
+      "?mongodb_ObjectID": {
+        "type": "string"
+      },
+      "?mongodb_ObjectId": {
+        "type": "string"
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "API 错误",
+              "description": "业务错误（ApiError）返回 HTTP 状态码 200，其它错误返回 HTTP 状态码 500",
+              "properties": {
+                "isSucc": {
+                  "type": "boolean",
+                  "enum": [
+                    false
+                  ],
+                  "default": false
+                },
+                "err": {
+                  "type": "object",
+                  "description": "TsrpcError",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "ApiError",
+                        "NetworkError",
+                        "ServerError",
+                        "ClientError"
+                      ]
+                    },
+                    "code": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "type"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

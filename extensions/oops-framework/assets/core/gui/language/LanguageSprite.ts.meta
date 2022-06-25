@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "054bed37-7a39-41ae-80ad-3edcfbe35f60",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/language/LanguageSprite.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

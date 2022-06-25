@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "7847de8d-cb02-414a-b233-f8c90eca7940",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/layer/LayerPopup.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "4a83fbb5-2df4-4faf-98f7-4104fe6d7e38",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/Task.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

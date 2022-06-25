@@ -1,0 +1,28 @@
+{
+  "general": {
+    "designResolution": {
+      "width": 1440,
+      "height": 900,
+      "fitHeight": true,
+      "fitWidth": false
+    }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "GAME_OBJECT_SELECT"
+      },
+      {
+        "index": 2,
+        "name": "GAME_OWNER"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 7,
+      "1": 3,
+      "2": 1
+    }
+  },
+  "__version__": "1.0.2"
+}

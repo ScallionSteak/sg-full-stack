@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "7b5ad73c-7864-4dc7-8699-4484a89177fe",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/libs/behavior-tree/BranchNode.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

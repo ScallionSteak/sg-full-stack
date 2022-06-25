@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "6f0d4987-4a1b-46bb-a259-01ceed0a8ece",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/label/LabelTime.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

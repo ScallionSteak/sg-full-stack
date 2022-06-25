@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "d1ff7f5c-1a48-4d89-baf2-d01d878a4b2d",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/language/LanguagePack.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

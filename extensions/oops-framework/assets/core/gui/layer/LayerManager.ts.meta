@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "ab9eb7db-0a95-4a62-aa81-f4f800e87b65",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/layer/LayerManager.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

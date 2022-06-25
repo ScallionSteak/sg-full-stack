@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "09667741-99a2-47d6-a030-87451ff3e7c7",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/gui/label/LabelNumber.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

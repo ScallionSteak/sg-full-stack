@@ -1,0 +1,14 @@
+{
+  "creator": {
+    "version": "3.5.2"
+  },
+  "dependencies": {
+    "mongodb": "^4.4.0",
+    "tsrpc-browser": "^3.4.0",
+    "tsrpc-miniapp": "^3.4.0"
+  },
+  "description": "全栈开发演示",
+  "name": "oops-full-stack",
+  "uuid": "dd3bb6a5-a8e2-4095-95c7-80710684efc3",
+  "version": "3.5.2"
+}
