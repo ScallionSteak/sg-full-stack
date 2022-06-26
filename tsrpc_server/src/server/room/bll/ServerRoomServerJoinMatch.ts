@@ -28,18 +28,16 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
     async joinMatchServer(e: ServerRoom) {
         let rm = e.ServerRoomModel;
         let logger = rm.wsSrever.logger;
-        let serverRoomUrl = process.env['SERVER_URL_ROOM'] || Config.room.default_match_server_url_ws;
-        let serverRoomPort = parseInt(process.env['PORT'] || Config.room.default_port);
 
         // 房间服务器的地址通知匹配服务器，建立 WebSocket 连接
         let ret = await rm.hcMatch.callApi('admin/RoomServerJoin', {
             adminToken: Config.adminToken,
-            serverUrl: `${Config.wss ? "wss" : "ws"}://${serverRoomUrl}:${serverRoomPort}`
+            serverUrl: Config.room.default_match_server_url_ws
         });
 
         // 添加匹配服务器失败时，延时5秒继续尝试加入
         if (!ret.isSucc) {
-            logger.error(`通知匹配服务器链接地址[${serverRoomUrl}]失败,3秒后尝试再次加入匹配服务器`, ret.err);
+            logger.error(`通知匹配服务器链接地址[${Config.room.default_match_server_url_ws}]失败,3秒后尝试再次加入匹配服务器`, ret.err);
             setTimeout(this.joinMatchServer.bind(this, e), 3000);
             return;
         }

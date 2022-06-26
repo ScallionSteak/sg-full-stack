@@ -16,8 +16,8 @@ import { MapViewControl } from "../view/MapViewControl";
 
 /** 后续修改点:演示只有两张地图，到时候通过key来映射tilemap的资源名 */
 var data: any = {
-    "自定义房间": "oops",
-    "系统房间": "oops"
+    "自定义房间": "A-Public Space",
+    "系统房间": "PublicSpace----"
 }
 
 /** 加载地形资源（放在其它模块加载，有进度条） */
@@ -74,10 +74,10 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         var mm = e.MapModel;
         mm.tiledmap = e.MapView.tiledmap;
 
-        mm.floor = e.MapView.tiledmap.getLayer("floor")!;
-        mm.barrier = e.MapView.tiledmap.getLayer("barrier")!;
+        mm.floor = e.MapView.tiledmap.getLayer("plants")!;
+        mm.barrier = e.MapView.tiledmap.getLayer("road")!;
         mm.game = e.MapView.tiledmap.getObjectGroup("game")!;
-        mm.game.node.active = true;
+        mm.game.node.active = true; //强制打开，以防不当心别的地方或者调试的时候关掉了
 
         mm.tiledXCount = e.MapView.tiledmap.getMapSize().width;
         mm.tiledYCount = e.MapView.tiledmap.getMapSize().height;

@@ -1,10 +1,10 @@
 import { ObjectId } from "bson";
-import { DbUser } from "../../../db/DbUser";
+import { DbPost } from "../../../db/DbPost";
 
 export interface ReqGetPost {
     _id: ObjectId;
 }
 
 export interface ResGetPost {
-    post: DbUser;
+    post: DbPost;
 }

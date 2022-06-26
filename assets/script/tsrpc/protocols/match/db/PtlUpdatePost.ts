@@ -1,7 +1,7 @@
-import { DbUser } from "../../../db/DbUser";
+import { DbPost } from "../../../db/DbPost";
 
 export interface ReqUpdatePost {
-    update: Pick<DbUser, '_id'> & Partial<Pick<DbUser, 'title' | 'content'>>;
+    update: Pick<DbPost, '_id'> & Partial<Pick<DbPost, 'title' | 'content'>>;
 }
 
 export interface ResUpdatePost {

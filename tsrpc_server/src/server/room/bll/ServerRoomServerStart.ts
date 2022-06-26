@@ -32,7 +32,7 @@ export class ServerRoomServerStartSystem extends ecs.ComblockSystem implements e
 
     async entityEnter(e: ServerRoom) {
         // 创建房间服务器 WebSocket 服务器
-        let serverRoomPort = parseInt(process.env['PORT'] || Config.room.default_port);
+        let serverRoomPort = parseInt(Config.room.default_port);
         let options: Partial<WsServerOptions<ServiceType>> = {
             port: serverRoomPort,
             logMsg: Config.room.logMsg,
@@ -43,9 +43,12 @@ export class ServerRoomServerStartSystem extends ecs.ComblockSystem implements e
         e.ServerRoomModel.wsSrever = wsSrever;
 
         // 创建请求匹配服务器 HTTP 客户端
-        let serverUrlMatch = `${Config.https ? "https" : "http"}://${process.env['SERVER_URL_MATCH'] || Config.room.default_match_server_url_http}/`;
-        let hcMatch = new HttpClient(ServiceProtoMatch, { server: serverUrlMatch });
+        // let serverUrlMatch = `${Config.https ? "https" : "http"}://${Config.room.default_match_server_url_http}/`;
+        let hcMatch = new HttpClient(ServiceProtoMatch, { server: Config.room.default_match_server_url_http });
         e.ServerRoomModel.hcMatch = hcMatch;
+
+        wsSrever.logger.log("匹配服务器HTTP地址", Config.room.default_match_server_url_http);
+        wsSrever.logger.log("房间服务器Websocket地址", Config.room.default_match_server_url_ws);
 
         // 自定义管线
         e.add(CommonAdminTokenComp).server = wsSrever;
