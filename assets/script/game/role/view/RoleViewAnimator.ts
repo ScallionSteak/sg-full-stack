@@ -10,27 +10,18 @@ export class RoleViewAnimator extends Component {
     player: Node = null;
 
     //0 播放中，1 未播放中
-    private animaDone = 1;
+    private walkLeftAnimaDone = 1;
+    private walkRightAnimaDone = 1;
+    private walkDownAnimaDone = 1;
+    private walkUpAnimaDone = 1;
+
+    start() {
+
+    }
 
     /** 待机动画 */
     idle() {
-        // switch (dir) {
-        //     case 'A':
-        //         this.player.getComponent(Animation).play('idleLeft');
-        //         break;
-        //     case 'W':
-        //         this.player.getComponent(Animation).play('idleUp');
-        //         break;
-        //     case 'S':
-        //         this.player.getComponent(Animation).play('idleDown');
-        //         break;
-        //     case 'D':
-        //         this.player.getComponent(Animation).play('idleRight');
-        //         break;
-
-        //     default:
-        //         break;
-        // }
+        this.player.getComponent(Animation).stop();
     }
 
     // 
@@ -46,19 +37,10 @@ export class RoleViewAnimator extends Component {
         } else if (data.vector.y == 1) {
             var animaName = 'roleWalkUp';
         }
-
         var animaComponent = this.player.getComponent(Animation);
         var animaState = animaComponent.getState(animaName);
-        animaComponent.on(Animation.EventType.FINISHED, (type, animaState) => {
-            this.animaDone = 1;
-            console.log(`State finished.`);
-        });
-        animaComponent.on(Animation.EventType.PLAY, (type, animaState) => {
-            this.animaDone = 0;
-            console.log(`playing`);
-        });
-        if (this.animaDone == 1) {
-            animaComponent.play(animaName);
+        if (!animaState.isPlaying) {
+            this.player.getComponent(Animation).play(animaName);
         }
 
     }
