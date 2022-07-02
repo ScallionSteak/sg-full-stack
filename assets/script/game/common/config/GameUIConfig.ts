@@ -20,6 +20,8 @@ export enum UIID {
     Demo_Role_Controller,
     /** 匹配界面 */
     Demo_Match,
+    /** 选角界面 */
+    Demo_CreateRole,
 }
 
 /** 打开界面方式的配置数据 */
@@ -30,4 +32,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_Gate]: { layer: LayerType.UI, prefab: "gui/gate/game_login" },
     [UIID.Demo_Role_Controller]: { layer: LayerType.UI, prefab: "gui/game/role_controller" },
     [UIID.Demo_Match]: { layer: LayerType.UI, prefab: "gui/match/match" },
+    [UIID.Demo_CreateRole]: { layer: LayerType.UI, prefab: "gui/gate/createRole" },
 }

@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-06-22 09:41:10
  */
-import { Component, Vec3, _decorator } from "cc";
+import { Component, Vec3, _decorator, Node, Label } from "cc";
 import { MoveTo } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTo";
 import { MoveTranslate } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTranslate";
 import { RoleModelComp } from "../model/RoleModelComp";
@@ -18,12 +18,17 @@ const { ccclass, property } = _decorator;
 /** 角色显示组件 */
 @ccclass('RoleViewCharactor')
 export class RoleViewCharactor extends Component {
+    
+    @property({ type: Node })
+    roleTempName: Node = null!;
+
     /** 角色动画组件 */
     rva: RoleViewAnimator = null!;
     /** 角色键盘控制 */
     rkb: RoleKeyboard = null!;
 
     start() {
+        this.roleTempName.getComponent(Label).string = localStorage.getItem("walletAddress");
         this.rva = this.getComponent(RoleViewAnimator);
         this.rkb = this.getComponent(RoleKeyboard);
     }

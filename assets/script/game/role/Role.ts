@@ -1,9 +1,13 @@
 import { Node } from "cc";
 import { Logger } from "../../../../extensions/oops-framework/assets/core/common/log/Logger";
+import { UICallbacks } from "../../../../extensions/oops-framework/assets/core/gui/layer/Defines";
+import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
 import { ViewUtil } from "../../../../extensions/oops-framework/assets/core/utils/ViewUtil";
 import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { UIID } from "../common/config/GameUIConfig";
 import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
+import { RoleViewUIComp } from "./view/RoleViewUIComp";
 
 /** Player 模块 */
 export class Role extends ecs.Entity {
@@ -41,6 +45,17 @@ export class Role extends ecs.Entity {
                 node.destroy();
             }
         });
+    }
+
+    /** 加载空间的界面，分公共空间和DAO专属空间，未来还可能有私人房间 */
+    loadSpaceUI() {
+        var uic: UICallbacks = {
+            onAdded: (node: Node, params: any) => {
+                var comp = node.getComponent(RoleViewUIComp) as ecs.Comp;
+                this.add(comp);
+            }
+        };
+        oops.gui.open(UIID.Demo_Role_Controller, null, uic);
     }
 }
 

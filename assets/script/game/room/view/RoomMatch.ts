@@ -42,7 +42,8 @@ export class RoomMatch extends GameComponent {
     start() {
         this.labelRoomSummary.string = '';
         this.labelNoRoom.active = false;
-        this.inputNickname.string = RANDOM_NAMES[RANDOM_NAMES.length * Math.random() | 0];
+        // this.inputNickname.string = RANDOM_NAMES[RANDOM_NAMES.length * Math.random() | 0];
+        this.inputNickname.string = localStorage.getItem("walletAddress");
 
         // 轮询刷新房间列表
         this.schedule(() => {

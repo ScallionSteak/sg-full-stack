@@ -67,6 +67,9 @@ export class RoomOwnerJoinSystem extends ecs.ComblockSystem implements ecs.IEnti
                         node.addComponent(RoleViewPlayerState);
                         // 角色控制器
                         node.addComponent(RoleKeyboard);
+                        
+                        //加载房间UI
+                        owner.loadSpaceUI();
 
                         // 设置跟随摄像机
                         var mvc = smc.scene.MapView.node.getComponent(MapViewControl);

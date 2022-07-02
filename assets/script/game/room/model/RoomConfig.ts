@@ -12,5 +12,5 @@ export class RoomConfig {
     /** 匹配服务器 */
     static ServerMatch: string = `${true ?
         ((RoomConfig.https ? "https" : "http") + "://127.0.0.1:3000") :
-        ((RoomConfig.https ? "https" : "http") + "://127.0.0.1:3000")}`;     // 如果使用强制 HTTPS，这里的IP要修改为证书中的域名，默认是作者外网测试服务器
+        ((RoomConfig.https ? "https" : "http") + "://47.241.9.181:3000")}`;     // 如果使用强制 HTTPS，这里的IP要修改为证书中的域名，默认是作者外网测试服务器
 }
