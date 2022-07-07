@@ -6,9 +6,15 @@
  */
 
 import chalk from "chalk";
+import { PrefixLogger } from "tsrpc";
+import * as uuid from 'uuid';
 import { ecs } from "../../../core/ecs/ECS";
 import { Config } from "../../../module/config/Config";
+import { Room } from "../../../module/room/Room";
+import { MatchUtil } from "../../match/bll/MatchUtil";
 import { ServerRoom } from "../ServerRoom";
+import {sr} from "../../../ServerRoom";
+import { ApiRoomJoin } from "../api/ApiRoomJoin";
 
 /** 房间服务器加入匹配服务器 */
 @ecs.register('ServerRoomJoinMathServer')
@@ -44,5 +50,27 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
 
         logger.log(chalk.green('房间服务器开始服务'));
         e.remove(ServerRoomJoinMathServerComp);
+
+        /** 以下是新增的创建初始房间的代码 */
+        let room = ecs.getEntity<Room>(Room);
+        let rm1 = room.RoomModel;
+        console.log("create here----------------------------------");
+        rm1.data = {
+            id: uuid.v4(),
+            playerMax: Config.room.max_user_num,
+            name: '自定义房间',
+            players: [],
+            messages: [],
+            timeStartMatch: Date.now(),
+            timeUpdate: Date.now()
+        };
+
+        rm1.logger = new PrefixLogger({
+            logger: sr.ServerRoomModel.wsSrever.logger,
+            prefixs: [`[Room ${rm1.data.id}]`],
+        });
+
+        sr.ServerRoomModel.rooms.set(room.RoomModel.data.id, room);
+        var roomId = room.RoomModel.data.id;
     }
 }

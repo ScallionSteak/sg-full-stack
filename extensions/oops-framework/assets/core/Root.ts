@@ -13,7 +13,8 @@ import { GameManager } from "./game/GameManager";
 import { GUI } from "./gui/GUI";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
-import { HttpRequest } from "./network/HttpRequest"; 
+// import { HttpRequest } from "./network/HttpRequest"; //原作httprequest所在位置
+import { HttpRequestForDS } from "./network/http";
 import { oops, version } from "./Oops";
 
 const { ccclass, property } = _decorator;
@@ -41,7 +42,7 @@ export class Root extends Component {
         oops.language = new LanguageManager();
         oops.timer = new TimerManager(this);
         oops.audio = AudioManager.instance;
-        oops.http = new HttpRequest();
+        oops.http = new HttpRequestForDS();
         oops.gui = new LayerManager(this.gui!);
         oops.game = new GameManager(this.game!);
 

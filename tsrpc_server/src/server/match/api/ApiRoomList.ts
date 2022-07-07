@@ -27,5 +27,5 @@ export async function ApiRoomList(call: ApiCall<ReqRoomList, ResRoomList>) {
     }, [] as (ResRoomList['rooms'][0] & { updateTime: number })[]);
 
     // 返回最近更新状态的100条房间信息
-    call.succ({ rooms: rooms.orderByDesc(v => v.updateTime).filter(v => v.playerNum > 0).slice(0, 100) });
+    call.succ({ rooms: rooms.orderByDesc(v => v.updateTime).filter(v => v.playerNum >= 0).slice(0, 100) });
 }

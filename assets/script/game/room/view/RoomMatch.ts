@@ -7,18 +7,18 @@
 
 import { EditBox, instantiate, Label, Node, Prefab, ScrollView, _decorator } from 'cc';
 import { GameComponent } from '../../../../../extensions/oops-framework/assets/core/game/GameComponent';
+import { HttpRequestForDS } from '../../../../../extensions/oops-framework/assets/core/network/http';
 import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
 import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
 import { UIID } from '../../common/config/GameUIConfig';
 import { smc } from '../../common/ecs/SingletonModuleComp';
+import { createRoleComp } from '../../initialize/view/createRole';
 import { LoadingViewComp } from '../../initialize/view/LoadingViewComp';
 import { Room } from '../Room';
 import { RoomEvent } from '../RoomEvent';
 import { RoomListItem } from './RoomListItem';
 
 const { ccclass, property } = _decorator;
-
-const RANDOM_NAMES = ['刘备', '诸葛亮', '关羽', '张飞', '赵云', '黄忠', '马超', '曹操', '夏侯敦', '夏侯渊', '曹仁', '曹洪', '孙权', '周瑜', '周泰', '吕布']
 
 @ccclass('RoomMatch')
 export class RoomMatch extends GameComponent {
@@ -40,45 +40,41 @@ export class RoomMatch extends GameComponent {
     }
 
     start() {
-        this.labelRoomSummary.string = '';
-        this.labelNoRoom.active = false;
-        // this.inputNickname.string = RANDOM_NAMES[RANDOM_NAMES.length * Math.random() | 0];
-        this.inputNickname.string = localStorage.getItem("walletAddress");
-
-        // 轮询刷新房间列表
-        this.schedule(() => {
-            this.reloadRoomList();
-        }, 1);
-        this.reloadRoomList();
+        this.loadRoomList();
     }
 
     /** 刷新房间列表 */
-    async reloadRoomList() {
+    async loadRoomList() {
         let ret = await smc.room.RoomModelNet.hc.callApi('RoomList', {});
         if (ret.isSucc) {
             try {
-                this.labelNoRoom.active = ret.res.rooms.length === 0;
-                this.labelRoomSummary.string = `${ret.res.rooms.sum(v => v.playerNum)} 人在线`;
-
-                this.roomList.content!.removeAllChildren();
-
-                for (let roomInfo of ret.res.rooms) {
+                var walletAddress = { walletAddress: oops.storage.get('walletAddress') };
+                walletAddress = { walletAddress: 'bbbaaa' };
+                var _http = new HttpRequestForDS();
+                var url = '/queryUserConfigByWalletAddress';
+                _http.postJSON(url, walletAddress, (res) => {
+                    console.log("length of res:", res.length);
+                    let roomInfo = ret.res.rooms[0];
                     let node = instantiate(this.prefabRoomListItem);
-                    this.roomList.content!.addChild(node);
+                    this.node.addChild(node);
+                    if (res.length > 2) {
+                        //老用户
+                        node.getComponent(RoomListItem)!.isNew = false;
+                    } else {
+                        //新用户
+                        node.getComponent(RoomListItem)!.isNew = true;
+                    }
+                    node.getComponent(RoomListItem)!.manageUIByUserType();
                     node.getComponent(RoomListItem)!.options = {
                         room: roomInfo,
                         onClick: v => {
-                            if (!this.inputNickname.string) {
-                                return oops.gui.toast('先给自己取个名字吧!');
-                            }
-
                             smc.room.RoomModel.roomId = v.roomId;
                             smc.room.RoomModel.serverUrl = v.serverUrl;
-                            smc.room.RoomModel.playerName = this.inputNickname.string;
+                            smc.room.RoomModel.playerName = String(Math.random());
                             this.enter();
                         }
                     };
-                }
+                });
             }
             catch (e) {
                 console.log("登录界面已释放")
@@ -98,21 +94,5 @@ export class RoomMatch extends GameComponent {
         var node = await oops.gui.openAsync(UIID.Loading);
         if (node) smc.initialize.add(node.getComponent(LoadingViewComp) as ecs.Comp);
         oops.gui.remove(UIID.Demo_Match);
-    }
-
-    async onBtnCreateRoom() {
-        if (!this.inputNickname.string) {
-            return oops.gui.toast('先给自己取个名字吧!');
-        }
-
-        smc.room.create("自定义房间", this.inputNickname.string);
-    }
-
-    async onBtnMatch() {
-        if (!this.inputNickname.string) {
-            return oops.gui.toast('先给自己取个名字吧!');
-        }
-
-        smc.room.matchStart(this.inputNickname.string);
     }
 }

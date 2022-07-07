@@ -16,7 +16,6 @@ import { ReqRoomCreate, ResRoomCreate } from "../../../../tsrpc/protocols/room/a
 export async function ApiRoomCreate(call: ApiCall<ReqRoomCreate, ResRoomCreate>) {
     let room = ecs.getEntity<Room>(Room);
     let rm = room.RoomModel;
-
     rm.data = {
         id: uuid.v4(),
         playerMax: Config.room.max_user_num,
@@ -26,6 +25,7 @@ export async function ApiRoomCreate(call: ApiCall<ReqRoomCreate, ResRoomCreate>)
         timeStartMatch: Date.now(),
         timeUpdate: Date.now()
     };
+    console.log("create here----------------------------------", call);
 
     rm.logger = new PrefixLogger({
         logger: sr.ServerRoomModel.wsSrever.logger,

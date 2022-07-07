@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | <%= projectName %></title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="<%= cssUrl %>"/>
+
+</head>
+<body>
+  <div id="GameDiv">
+      <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+      </div>
+    </div>
+  <%- include(cocosTemplate, {}) %>
+
+  <script type="text/javascript">
+  function GetMainUrl(){
+    var url=document.URL
+    if(url.indexOf("?")!=-1){
+      url=url.split("?")[0];
+    }
+    return url;
+  }
+
+  function GetRequest() {  
+    var url = location.search; //获取url中包含"?"符以及其后的字串 
+    console.log("getRequest:"+url);
+    var theRequest = new Object();  
+    if (url.indexOf("?") != -1) {  
+      var str = url.substr(1);  
+      strs = str.split("&");  
+      for(var i = 0; i < strs.length; i ++) {  
+          theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+      }  
+    }  
+    else
+    {
+      return "";
+    }
+    return theRequest;  
+  } 
+</script>
+
+<script type="text/javascript">
+( 
+function () {
+    localStorage.setItem("mainURL",GetMainUrl());
+	
+	var url=document.URL;
+	console.log("url:"+url);
+	//var url2=decodeURI(url);
+	//console.log("url2:"+url2);
+	
+	var url2=GetRequest();
+	if(url2!="")
+	{
+		console.log("url2"+url2);
+		console.log("url2.diy"+	url2.diy);
+		
+		localStorage.setItem("diy",1);
+		localStorage.setItem("diyJson",url2.diy);
+    var walletAddress = location.search;
+    walletAddress = walletAddress.replace("?","");
+    localStorage.setItem('walletAddress',walletAddress);
+    console.log("wallet", walletAddress);
+ }
+ else
+ {
+ console.log("无透传参数");
+ localStorage.setItem("diy",0)
+ }
+}
+)();
+</script>
+
+</body>
+</html>

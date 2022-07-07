@@ -5,7 +5,9 @@
  * @LastEditTime: 2022-05-19 16:24:14
  */
 
-import { Component, Label, _decorator } from 'cc';
+import { Component, Node, EditBox, Label, _decorator, Vec3 } from 'cc';
+import { timeStamp } from 'console';
+import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops';
 import { ResRoomList } from '../../../tsrpc/protocols/match/PtlRoomList';
 const { ccclass, property } = _decorator;
 
@@ -20,10 +22,21 @@ export type RoomListItemOptions = {
 
 @ccclass('RoomListItem')
 export class RoomListItem extends Component {
-    @property(Label)
-    labelName!: Label;
-    @property(Label)
-    labelInfo!: Label;
+
+    @property(Node)
+    userName: Node = null;
+
+    @property(Node)
+    userModelParent: Node = null;
+
+    @property(Node)
+    createRoleLayer: Node = null;
+
+    @property(Node)
+    enterPbBtn: Node = null;
+
+    private selectedUserModel: string = '1';
+    public isNew: Boolean = true;
 
     private _options!: RoomListItemOptions;
     public get options(): RoomListItemOptions {
@@ -31,9 +44,26 @@ export class RoomListItem extends Component {
     }
     public set options(v: RoomListItemOptions) {
         this._options = v;
+    }
 
-        this.labelName.string = v.room.name;
-        this.labelInfo.string = `人数:${v.room.playerNum}/${v.room.playerMax} 服务器:${v.room.serverUrl}`;
+    updateUserModel(event: any, customEventData: string) {
+        this.selectedUserModel = customEventData;
+    }
+
+    saveUserInfo() {
+        var jsonfile = { username: this.userName.getComponent(EditBox).string, walletAddress: oops.storage.get('walletAddress'), userModel: this.selectedUserModel };
+        oops.http.postJSON('/insertUserConfig', jsonfile, (res) => {
+            console.log('test res', res);
+        });
+    }
+
+    manageUIByUserType() {
+        if (this.isNew) {
+            this.createRoleLayer.active = true;
+        } else {
+            this.createRoleLayer.active = false;
+            this.enterPbBtn.setPosition(0,0,0);
+        }
     }
 
     onBtnJoin() {
@@ -41,6 +71,9 @@ export class RoomListItem extends Component {
             serverUrl: this._options.room.serverUrl,
             roomId: this._options.room.roomId
         })
+        if (this.isNew) {
+            this.saveUserInfo();
+        }
     }
 
 }

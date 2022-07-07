@@ -80,8 +80,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
     private onComplete(queue: AsyncQueue) {
         queue.complete = () => {
             // oops.gui.open(UIID.Demo_Gate);      // 打开登录界面
-            oops.gui.open(UIID.Demo_Match);        // 原来的打开匹配界面，要挪到选角界面之后
-            // oops.gui.open(UIID.Demo_CreateRole);    //打开选角界面，要加一个是否选过角的判断
+            oops.gui.open(UIID.Demo_Match);
         };
     }
 }

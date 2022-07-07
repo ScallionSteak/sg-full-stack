@@ -22,6 +22,8 @@ export enum UIID {
     Demo_Match,
     /** 选角界面 */
     Demo_CreateRole,
+    /** 临时双用户区分界面 */
+    Temp_DiffUserWindow,
 }
 
 /** 打开界面方式的配置数据 */
@@ -33,4 +35,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_Role_Controller]: { layer: LayerType.UI, prefab: "gui/game/role_controller" },
     [UIID.Demo_Match]: { layer: LayerType.UI, prefab: "gui/match/match" },
     [UIID.Demo_CreateRole]: { layer: LayerType.UI, prefab: "gui/gate/createRole" },
+    [UIID.Temp_DiffUserWindow]: { layer: LayerType.UI, prefab: "gui/gate/diffUserWindow" },
 }

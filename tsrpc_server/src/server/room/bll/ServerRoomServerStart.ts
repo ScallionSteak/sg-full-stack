@@ -13,6 +13,7 @@ import { CommonUtil } from "../../../module/common/CommonUtil";
 import { Config } from "../../../module/config/Config";
 import { serviceProto as ServiceProtoMatch } from "../../../tsrpc/protocols/ServiceProtoMatch";
 import { serviceProto as ServiceProtoRoom, ServiceType } from "../../../tsrpc/protocols/ServiceProtoRoom";
+import { MatchUtil } from "../../match/bll/MatchUtil";
 import { ServerRoom } from "../ServerRoom";
 import { ServerRoomCheckLoginComp } from "./ServerRoomCheckLogin";
 import { ServerRoomDisconnectComp } from "./ServerRoomDisconnect";
@@ -71,8 +72,9 @@ export class ServerRoomServerStartSystem extends ecs.ComblockSystem implements e
         e.add(ServerRoomJoinMathServerComp);
 
         // 定时清除闲置的房间
-        e.add(ServerRoomEmptyClearComp);
+        // e.add(ServerRoomEmptyClearComp); //原有的代码，为了默认创建房间注释掉，如果要改回原流程，要重新打开
 
-        e.remove(ServerRoomServerStartComp);
+        // e.remove(ServerRoomServerStartComp);  //原有的代码，为了默认创建房间注释掉，如果要改回原流程，要重新打开       
+
     }
 }

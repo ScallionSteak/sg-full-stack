@@ -7,6 +7,7 @@
 import { ecs } from "./core/ecs/ECS";
 import { CommonUtil } from "./module/common/CommonUtil";
 import { Config } from "./module/config/Config";
+import { MatchUtil } from "./server/match/bll/MatchUtil";
 import { ServerRoom } from "./server/room/ServerRoom";
 import { ServerRoomSystem } from "./server/room/ServerRoomSystem";
 

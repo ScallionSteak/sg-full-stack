@@ -11,7 +11,8 @@ import { storage } from "./common/storage/StorageManager";
 import { GameManager } from "./game/GameManager";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
-import { HttpRequest } from "./network/HttpRequest";
+// import { HttpRequest } from "./network/HttpRequest";  //原作httprequest所在位置
+import { HttpRequestForDS } from "./network/http";
 
 /** 框架版本 */
 export var version: string = "1.0.5";
@@ -30,7 +31,7 @@ export class oops {
     /** 三维游戏世界管理 */
     static game: GameManager;
     /** HTTP */
-    static http: HttpRequest;
+    static http: HttpRequestForDS;
     /** 本地存储 */
     static storage = storage;
 }

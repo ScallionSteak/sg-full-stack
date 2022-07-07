@@ -2240,7 +2240,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btnCreateRoom",
+    "_name": "btnMatch",
     "_objFlags": 0,
     "_parent": {
       "__id__": 102
@@ -2270,7 +2270,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -181.9545453811189,
+      "x": 182.955,
       "y": 10,
       "z": 0
     },
@@ -2369,7 +2369,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "e70wpk5iVIEoIoyAZGbZT9"
+    "fileId": "2bJcCEd1RCuY5BuVjFaw9z"
   },
   {
     "__type__": "cc.Label",
@@ -2393,7 +2393,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "创建房间",
+    "_string": "随机匹配",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -2414,7 +2414,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "0brH1IsrtP3ZnnyYMLr2uG"
+    "fileId": "d86ykWJFhGmqapRJCtZq2w"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2424,7 +2424,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "00SY3cVcRMQ7FKDOm7hLH4"
+    "fileId": "cfvHOgludEB7bSKZqitk14"
   },
   {
     "__type__": "cc.UITransform",
@@ -2440,7 +2440,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 332.0909092377622,
+      "width": 334.09090937412594,
       "height": 100
     },
     "_anchorPoint": {
@@ -2452,7 +2452,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "fdk9GBqqVLHpp2MIh2tUTv"
+    "fileId": "47JtaI579IDo2SV47m+3gw"
   },
   {
     "__type__": "cc.Sprite",
@@ -2498,13 +2498,12 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "adNhEoOs5HMJMF7PU2Mnc7"
+    "fileId": "61vLP2329DzJYBHApQgQgE"
   },
   {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
-    "__editorExtras__": {},
     "node": {
       "__id__": 103
     },
@@ -2561,7 +2560,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "40DTLlQhJISISDT1cytAUk"
+    "fileId": "e5IRe6q5VP96s8BTo016lM"
   },
   {
     "__type__": "cc.ClickEvent",
@@ -2570,7 +2569,7 @@
     },
     "component": "",
     "_componentId": "ca79fj/rmhI9oXAGRRaHcJh",
-    "handler": "onBtnCreateRoom",
+    "handler": "onBtnMatch",
     "customEventData": ""
   },
   {
@@ -2586,14 +2585,14 @@
     },
     "_alignFlags": 40,
     "_target": null,
-    "_left": 2,
-    "_right": 0.5227272725174825,
+    "_left": 0.5227279218756243,
+    "_right": -0.0004546870629553723,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": false,
+    "_isAbsLeft": false,
+    "_isAbsRight": true,
     "_isAbsTop": true,
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
@@ -2606,7 +2605,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "67Qd/cWjRNX7/HHPmlLxmG"
+    "fileId": "efibpraHFJRKTYNW7oqCgX"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2616,12 +2615,13 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "a6Su1nnjNLT7fC/ENvdcLI"
+    "fileId": "6dlWKsTRpO8rCgCVEBRWDe"
   },
   {
     "__type__": "cc.Node",
-    "_name": "btnMatch",
+    "_name": "prefabEnterPbBtn",
     "_objFlags": 0,
+    "__editorExtras__": {},
     "_parent": {
       "__id__": 102
     },
@@ -2650,8 +2650,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 182.955,
-      "y": 10,
+      "x": 96.96148986017872,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -2749,7 +2749,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "2bJcCEd1RCuY5BuVjFaw9z"
+    "fileId": "8c0Gp0z7JH2a6EW28QdA+Y"
   },
   {
     "__type__": "cc.Label",
@@ -2773,7 +2773,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "随机匹配",
+    "_string": "创建房间",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -2794,7 +2794,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "d86ykWJFhGmqapRJCtZq2w"
+    "fileId": "8f+iJDkwtEzJ49kOnws4HG"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2804,7 +2804,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "cfvHOgludEB7bSKZqitk14"
+    "fileId": "66J1VY9l1NA7sQW+IjeVC9"
   },
   {
     "__type__": "cc.UITransform",
@@ -2820,7 +2820,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 334.09090937412594,
+      "width": 139.19570729518256,
       "height": 100
     },
     "_anchorPoint": {
@@ -2832,7 +2832,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "47JtaI579IDo2SV47m+3gw"
+    "fileId": "bfTf5wHSRDeZtzbrae1ZY4"
   },
   {
     "__type__": "cc.Sprite",
@@ -2878,12 +2878,13 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "61vLP2329DzJYBHApQgQgE"
+    "fileId": "29nrVBsjVMgJYHQQwC+kbm"
   },
   {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
+    "__editorExtras__": {},
     "node": {
       "__id__": 120
     },
@@ -2940,16 +2941,16 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "e5IRe6q5VP96s8BTo016lM"
+    "fileId": "af/IxuyvlEhbKxJEu/do6D"
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 1
+      "__id__": 120
     },
     "component": "",
-    "_componentId": "ca79fj/rmhI9oXAGRRaHcJh",
-    "handler": "onBtnMatch",
+    "_componentId": "46a27iIpw9PZbHCF7Tw4LIk",
+    "handler": "onBtnJoin",
     "customEventData": ""
   },
   {
@@ -2965,14 +2966,14 @@
     },
     "_alignFlags": 40,
     "_target": null,
-    "_left": 0.5227279218756243,
-    "_right": -0.0004546870629553723,
+    "_left": 377.36363621258744,
+    "_right": 0.2620580807031857,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
-    "_isAbsLeft": false,
-    "_isAbsRight": true,
+    "_isAbsLeft": true,
+    "_isAbsRight": false,
     "_isAbsTop": true,
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
@@ -2985,7 +2986,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "efibpraHFJRKTYNW7oqCgX"
+    "fileId": "01rJmCIohJc6lCGP1bjZyT"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2995,7 +2996,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "6dlWKsTRpO8rCgCVEBRWDe"
+    "fileId": "29y8Ib23RAnoJ+/znaWUDb"
   },
   {
     "__type__": "cc.UITransform",
@@ -3159,6 +3160,10 @@
     },
     "prefabRoomListItem": {
       "__uuid__": "b019de5a-7dfa-4bec-9c23-d657f32cf608",
+      "__expectedType__": "cc.Prefab"
+    },
+    "prefabCreateRole": {
+      "__uuid__": "e2c4593c-33e0-43ee-97f1-d8168bbe3b41",
       "__expectedType__": "cc.Prefab"
     },
     "_id": ""
