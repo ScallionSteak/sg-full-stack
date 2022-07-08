@@ -27,9 +27,6 @@ export class RoomListItem extends Component {
     userName: Node = null;
 
     @property(Node)
-    userModelParent: Node = null;
-
-    @property(Node)
     createRoleLayer: Node = null;
 
     @property(Node)
@@ -51,7 +48,8 @@ export class RoomListItem extends Component {
     }
 
     saveUserInfo() {
-        var jsonfile = { username: this.userName.getComponent(EditBox).string, walletAddress: oops.storage.get('walletAddress'), userModel: this.selectedUserModel };
+        var jsonfile = { username: this.userName.getComponent(EditBox).string, walletAddress: localStorage.getItem('walletAddress'), userModel: this.selectedUserModel };
+        console.log('jsonfile is ---------', jsonfile);
         oops.http.postJSON('/insertUserConfig', jsonfile, (res) => {
             console.log('test res', res);
         });

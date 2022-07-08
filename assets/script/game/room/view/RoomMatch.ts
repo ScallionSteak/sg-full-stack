@@ -12,7 +12,6 @@ import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops"
 import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
 import { UIID } from '../../common/config/GameUIConfig';
 import { smc } from '../../common/ecs/SingletonModuleComp';
-import { createRoleComp } from '../../initialize/view/createRole';
 import { LoadingViewComp } from '../../initialize/view/LoadingViewComp';
 import { Room } from '../Room';
 import { RoomEvent } from '../RoomEvent';
@@ -48,17 +47,17 @@ export class RoomMatch extends GameComponent {
         let ret = await smc.room.RoomModelNet.hc.callApi('RoomList', {});
         if (ret.isSucc) {
             try {
-                var walletAddress = { walletAddress: oops.storage.get('walletAddress') };
-                walletAddress = { walletAddress: 'bbbaaa' };
+                var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
+                console.log('walletaddress is ---------', walletAddress);
                 var _http = new HttpRequestForDS();
                 var url = '/queryUserConfigByWalletAddress';
                 _http.postJSON(url, walletAddress, (res) => {
-                    console.log("length of res:", res.length);
+                    console.log("content of res:", res);
                     let roomInfo = ret.res.rooms[0];
                     let node = instantiate(this.prefabRoomListItem);
                     this.node.addChild(node);
-                    if (res.length > 2) {
-                        //老用户
+                    if (res == '1') {
+                        //老用户，这个1是服务端定的，万一要修改，需要客户端服务端互相告知
                         node.getComponent(RoomListItem)!.isNew = false;
                     } else {
                         //新用户

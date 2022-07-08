@@ -30,13 +30,13 @@ module.exports = {
       env_develop: {
         "NODE_ENV": "develop",
         "PORT": "3001",
-        "SERVER_URL_ROOM": "ws://127.0.0.1:3001",
-        "SERVER_URL_MATCH": "http://127.0.0.1:3000/"
+        "SERVER_URL_ROOM": "ws://47.241.9.181:3001",
+        "SERVER_URL_MATCH": "http://47.241.9.181:3000/"
       }
     },
     {
       name: "dataServer",
-      script: "./scripts/dataServer.js",
+      script: "./dist/dataServer.js",
       env: {
         "NODE_ENV": "production"
       },

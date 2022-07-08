@@ -36,16 +36,6 @@ app.all('*', function (req, res, next) {
 
 app.listen(3009);
 
-function selectUserConfigByWalletAddress(walletAddress) {
-    var sql = "select * from userconfig where walletaddress = " + walletAddress + ";";
-    connection.query(sql, function (err, result) {
-        if (err) {
-            console.log('[select error]:', err.message);
-        }
-        str = JSON.stringify(result);
-    });
-}
-
 function insertUserConfig(userInfo) {
     var sql = "INSERT INTO userconfig(ID, username, walletAddress, userModel) VALUES (?,?,?,?)";
     connection.query(sql, [0, userInfo.username, userInfo.walletAddress, userInfo.userModel], function (err, result) {
@@ -63,7 +53,6 @@ app.get('/getSomething', function (req, res) {
     var walletAddress = req.query.walletAddress;
     walletAddress = walletAddress.replace("?", "");
     walletAddress = "'" + walletAddress + "'";
-    selectUserConfigByWalletAddress(walletAddress);
     res.send(str);
 });
 
@@ -116,8 +105,19 @@ app.post('/insertUserConfig', upload.any(), function (req, res, next) {
 app.post('/queryUserConfigByWalletAddress', upload.any(), function (req, res, next) {
     //get要用req.query（待核实，但post要用req.body）
     var walletAddress = req.body.walletAddress;
-    walletAddress = "'" + walletAddress + "'";
-    selectUserConfigByWalletAddress(walletAddress);
-    res.send(str);
-    console.log("this is the query result ========================", str);
+    console.log("wallet from dataserver", req.body);
+    // walletAddress = "'" + walletAddress + "'";
+    var sql = "select * from userconfig where walletaddress = '" + walletAddress + "';";
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[select error]:', err.message);
+        }
+        console.log("this is the query result ========================", result);
+        if (JSON.stringify(result).length > 2) {
+            str = '1';
+        } else {
+            str = '0';
+        }
+        res.send(str);
+    });
 });
