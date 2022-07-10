@@ -24,21 +24,25 @@ export class RoleKeyboard extends Component {
     onKeyDown(event: EventKeyboard) {
         switch (event.keyCode) {
             case KeyCode.KEY_A:
+            case KeyCode.ARROW_LEFT:
                 this.data.vector.x = -1;
                 this.role.RoleView.moveJoystick(this.data);
                 smc.room.playerMove(this.data.vector, 0);
                 break;
             case KeyCode.KEY_D:
+            case KeyCode.ARROW_RIGHT:
                 this.data.vector.x = 1;
                 this.role.RoleView.moveJoystick(this.data);
                 smc.room.playerMove(this.data.vector, 0);
                 break;
             case KeyCode.KEY_W:
+            case KeyCode.ARROW_UP:
                 this.data.vector.y = 1;
                 this.role.RoleView.moveJoystick(this.data);
                 smc.room.playerMove(this.data.vector, 0);
                 break;
             case KeyCode.KEY_S:
+            case KeyCode.ARROW_DOWN:
                 this.data.vector.y = -1;
                 this.role.RoleView.moveJoystick(this.data);
                 smc.room.playerMove(this.data.vector, 0);
@@ -49,21 +53,25 @@ export class RoleKeyboard extends Component {
     onKeyUp(event: EventKeyboard) {
         switch (event.keyCode) {
             case KeyCode.KEY_A:
+            case KeyCode.ARROW_LEFT:
                 this.data.vector.x = 0;
                 this.role.RoleView.stop();
                 smc.room.playerMove();
                 break;
             case KeyCode.KEY_D:
+            case KeyCode.ARROW_RIGHT:
                 this.data.vector.x = 0;
                 this.role.RoleView.stop();
                 smc.room.playerMove();
                 break;
             case KeyCode.KEY_W:
+            case KeyCode.ARROW_UP:
                 this.data.vector.y = 0;
                 this.role.RoleView.stop();
                 smc.room.playerMove();
                 break;
             case KeyCode.KEY_S:
+            case KeyCode.ARROW_DOWN:
                 this.data.vector.y = 0;
                 this.role.RoleView.stop();
                 smc.room.playerMove();

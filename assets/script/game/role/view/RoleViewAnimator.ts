@@ -1,4 +1,4 @@
-import { Component, _decorator, Node, Animation, Prefab } from "cc";
+import { Component, _decorator, Node, Animation, Prefab, SpriteAtlas, Sprite } from "cc";
 
 const { ccclass, property } = _decorator;
 
@@ -9,13 +9,14 @@ export class RoleViewAnimator extends Component {
     @property(Node)
     player: Node = null;
 
-    //0 播放中，1 未播放中
-    private walkLeftAnimaDone = 1;
-    private walkRightAnimaDone = 1;
-    private walkDownAnimaDone = 1;
-    private walkUpAnimaDone = 1;
+    @property(SpriteAtlas)
+    playerAtlas: SpriteAtlas = null;
+
+    private roleModelID: string = '1'; //默认第一个模型
 
     start() {
+        this.roleModelID = localStorage.getItem('roleModelID');
+        this.player.getComponent(Sprite).spriteFrame = this.playerAtlas.getSpriteFrame('R0' + this.roleModelID + '/R0' + this.roleModelID + '_24');
 
     }
 
@@ -28,20 +29,19 @@ export class RoleViewAnimator extends Component {
     /** 四方向移动动画 */
     run(data: any) {
         if (data.vector.x == -1) {
-            var animaName = 'roleWalkLeft';
+            var animaName = 'role0' + this.roleModelID + 'Left';
         } else if (data.vector.x == 1) {
-            var animaName = 'roleWalkRight';
+            var animaName = 'role0' + this.roleModelID + 'Right';
         }
         if (data.vector.y == -1) {
-            var animaName = 'roleWalkDown';
+            var animaName = 'role0' + this.roleModelID + 'Down';
         } else if (data.vector.y == 1) {
-            var animaName = 'roleWalkUp';
+            var animaName = 'role0' + this.roleModelID + 'Up';
         }
         var animaComponent = this.player.getComponent(Animation);
         var animaState = animaComponent.getState(animaName);
         if (!animaState.isPlaying) {
             this.player.getComponent(Animation).play(animaName);
         }
-
     }
 }

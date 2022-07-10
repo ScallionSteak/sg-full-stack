@@ -18,13 +18,15 @@ export class Notify extends Component {
     private animation: Animation | null = null;
 
     onLoad() {
-        if (this.animation)
-            this.animation.on(Animation.EventType.FINISHED, this.onFinished, this);
+        // if (this.animation)
+        //     this.animation.on(Animation.EventType.FINISHED, this.onFinished, this);
+        var node = this.node.parent;
+        console.log(node.parent);
     }
 
-    private onFinished() {
-        this.node.destroy();
-    }
+    // private onFinished() {
+    //     this.node.destroy();
+    // }
 
     /**
      * 显示提示

@@ -43,7 +43,7 @@ export class RoleModelComp extends ecs.Comp {
     }
 
     /** 移动速度 */
-    speed: number = 120;
+    speed: number = 240;
 
     reset() {
         this.id = null;

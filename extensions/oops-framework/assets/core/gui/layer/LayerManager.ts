@@ -83,6 +83,13 @@ export class LayerManager {
     }
 
     /**
+     * SS 新加的聊天时使用的方法
+     */
+    public singleChat(username: string, chatContent: string, fromSelf: boolean, useI18n: boolean = false) {
+        this.notify.showChat(username, chatContent, fromSelf, useI18n)
+    }
+
+    /**
      * 设置界面配置
      * @param uiId   要设置的界面id
      * @param config 要设置的配置

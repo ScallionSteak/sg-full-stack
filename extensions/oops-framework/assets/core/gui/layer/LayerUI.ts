@@ -10,7 +10,7 @@
  * size         : 当前层上显示的所有Node节点数。
  * clear        : 清除所有Node节点，队列当中未创建的任务也会被清除。
  */
-import { error, instantiate, isValid, Node, Prefab, warn, Widget } from "cc";
+import { error, instantiate, isValid, Node, Prefab, Size, UITransform, warn, Widget } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
 import { UICallbacks, ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
@@ -114,6 +114,31 @@ export class LayerUI extends Node {
         let childNode: Node | null = viewParams!.node!;
         let comp: DelegateComponent | null = childNode.getComponent(DelegateComponent);
         childNode.parent = this;
+        comp!.add();
+
+        return childNode;
+    }
+
+    /**
+     * 聊天专用
+     * @param prefab 
+     * @param viewParams 
+     * @returns 
+     */
+    protected createChatNode(prefab: Prefab | null, viewParams: ViewParams) {
+        viewParams.valid = true;
+        let childNode: Node | null = viewParams!.node!;
+        let comp: DelegateComponent | null = childNode.getComponent(DelegateComponent);
+        let layerUINode: Node = this.parent.children[2];
+        let chatNode: Node = layerUINode.getChildByName('chat');
+        let viewNode: Node = chatNode.getChildByName('dialogScrollView').children[0];
+        let contentNode: Node = viewNode.children[0];
+        contentNode.insertChild(childNode,0);
+        //以下写法纯粹demo写法，一旦UI确定了，再看怎么写合适
+        if (contentNode.children.length > 7) {
+            contentNode.getComponent(UITransform).setContentSize(new Size(260, contentNode.children.length * 100));
+        }    
+        
         comp!.add();
 
         return childNode;

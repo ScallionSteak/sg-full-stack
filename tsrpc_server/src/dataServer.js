@@ -114,7 +114,7 @@ app.post('/queryUserConfigByWalletAddress', upload.any(), function (req, res, ne
         }
         console.log("this is the query result ========================", result);
         if (JSON.stringify(result).length > 2) {
-            str = '1';
+            str = result;
         } else {
             str = '0';
         }

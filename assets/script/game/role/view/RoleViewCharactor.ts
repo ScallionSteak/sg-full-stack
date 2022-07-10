@@ -28,7 +28,7 @@ export class RoleViewCharactor extends Component {
     rkb: RoleKeyboard = null!;
 
     start() {
-        this.roleTempName.getComponent(Label).string = localStorage.getItem("walletAddress");
+        this.roleTempName.getComponent(Label).string = localStorage.getItem("username");
         this.rva = this.getComponent(RoleViewAnimator);
         this.rkb = this.getComponent(RoleKeyboard);
     }

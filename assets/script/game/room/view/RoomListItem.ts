@@ -16,7 +16,8 @@ export type RoomListItemOptions = {
 
     onClick: (v: {
         serverUrl: string,
-        roomId: string
+        roomId: string,
+        playerName: string
     }) => void
 };
 
@@ -67,7 +68,8 @@ export class RoomListItem extends Component {
     onBtnJoin() {
         this._options.onClick({
             serverUrl: this._options.room.serverUrl,
-            roomId: this._options.room.roomId
+            roomId: this._options.room.roomId,
+            playerName: this.userName.getComponent(EditBox).string
         })
         if (this.isNew) {
             this.saveUserInfo();

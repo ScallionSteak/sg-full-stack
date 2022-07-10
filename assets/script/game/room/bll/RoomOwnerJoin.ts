@@ -58,6 +58,7 @@ export class RoomOwnerJoinSystem extends ecs.ComblockSystem implements ecs.IEnti
                     // 玩家使用网格坐标，记录到服务器
                     d.pos.z = 0;
                     RoomUtil.playerInited(player, d.pos, d.rotation);
+                    console.log(player);
 
                     if (data.playerInfo.id == d.id) {
                         let owner = player;

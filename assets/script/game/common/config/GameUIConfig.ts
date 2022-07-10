@@ -18,12 +18,14 @@ export enum UIID {
     Demo_Gate,
     /** 角色控制器 */
     Demo_Role_Controller,
-    /** 匹配界面 */
+    /** 匹配界面（现用为选角界面） */
     Demo_Match,
-    /** 选角界面 */
-    Demo_CreateRole,
-    /** 临时双用户区分界面 */
-    Temp_DiffUserWindow,
+    /** 聊天界面 */
+    Demo_Chat,
+    /** 单条聊天记录-自己 */
+    Demo_ChatTextFromSelf,
+    /** 单条聊天记录-其他人 */
+    Demo_ChatTextFromOthers,
 }
 
 /** 打开界面方式的配置数据 */
@@ -34,6 +36,7 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_Gate]: { layer: LayerType.UI, prefab: "gui/gate/game_login" },
     [UIID.Demo_Role_Controller]: { layer: LayerType.UI, prefab: "gui/game/role_controller" },
     [UIID.Demo_Match]: { layer: LayerType.UI, prefab: "gui/match/match" },
-    [UIID.Demo_CreateRole]: { layer: LayerType.UI, prefab: "gui/gate/createRole" },
-    [UIID.Temp_DiffUserWindow]: { layer: LayerType.UI, prefab: "gui/gate/diffUserWindow" },
+    [UIID.Demo_Chat]: { layer: LayerType.UI, prefab: "gui/game/chat" },
+    [UIID.Demo_ChatTextFromSelf]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromSelf" },
+    [UIID.Demo_ChatTextFromOthers]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromOthers" },
 }

@@ -171,10 +171,7 @@
       "b": 255,
       "a": 255
     },
-    "_spriteFrame": {
-      "__uuid__": "88775e0f-9ccd-4458-9148-4f1b72b92c02@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_fillType": 0,
     "_sizeMode": 0,
@@ -208,42 +205,103 @@
     "playOnLoad": false,
     "_clips": [
       {
-        "__uuid__": "b313dd87-f1eb-45b9-a936-d7761ba92ace",
+        "__uuid__": "122b196c-c0b0-4d68-981f-3923e94b77f9",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "cd25c454-5aa9-4549-9670-71374b8615cb",
+        "__uuid__": "a869232e-4dbf-40ef-93d2-f53dbdb6a1e5",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "9dee11c3-9a99-40d2-837d-8e497a8c63d2",
+        "__uuid__": "c4ce430c-741b-4c5c-9a04-b6bdf3f2c4fc",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "0939c339-f357-436f-a14a-5bac4d8beb0a",
+        "__uuid__": "f65f8022-d154-4636-a593-57071355147b",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "fa0b7bbd-edab-475a-bb3e-e0366d2e61b8",
+        "__uuid__": "c6619179-380d-4f59-b7b8-703816e93cb1",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "48abb89c-0962-4179-b4e1-93ff70b6ef5c",
+        "__uuid__": "0070e5f8-d9ee-479a-8e20-7e3bcb54ae6f",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "d272baa8-8017-4c81-bd09-03fa071a1ac4",
+        "__uuid__": "599addb4-77fa-4afb-838e-0ce8caa94e67",
         "__expectedType__": "cc.AnimationClip"
       },
       {
-        "__uuid__": "458cb546-31da-43a7-ae82-f670815a6b93",
+        "__uuid__": "8026cd35-69b6-46af-8e40-e35ccb679b07",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "a92e2b16-fe72-428a-b0f4-ca89bd516f43",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "ef139fac-a98e-459a-846a-55add3ec2b07",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "d4b9efe8-3661-495f-8a6f-a4757e542952",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "d6547560-f001-4030-aa39-e6f2e37db6af",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "d7745496-e8b1-4493-9a56-d23f17a701cd",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "c72f8142-b98c-4062-88b3-8f1a6a2d438b",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "62114441-a159-4406-8d78-ceccceb9c969",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "cb0e206d-1b9b-4e1d-8c2c-851687f31069",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "75cf2cf9-cb5c-414f-a3a3-7748aa8c0d55",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "6040c1b8-2178-406f-a8b6-385ac310a111",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "f86893c5-b2dd-4c40-aa09-79741fe3e000",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "1bdfa85e-2086-4d5f-b9ca-54e1334967ca",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "b350960e-2cf4-46bb-952c-53eb02f26434",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "a776b55c-48f6-4876-b669-f59fc7a08796",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "b433484e-1842-4516-ac2d-15a703f0bdc3",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "69711f5e-229b-4250-9d29-5096eb09025b",
         "__expectedType__": "cc.AnimationClip"
       }
     ],
-    "_defaultClip": {
-      "__uuid__": "b313dd87-f1eb-45b9-a936-d7761ba92ace",
-      "__expectedType__": "cc.AnimationClip"
-    },
+    "_defaultClip": null,
     "_id": ""
   },
   {
@@ -447,6 +505,10 @@
     },
     "player": {
       "__id__": 2
+    },
+    "playerAtlas": {
+      "__uuid__": "1e81b6a1-5ff9-41c6-9900-26d3843e6271",
+      "__expectedType__": "cc.SpriteAtlas"
     },
     "_id": ""
   },
