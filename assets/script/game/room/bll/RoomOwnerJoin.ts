@@ -40,7 +40,7 @@ export class RoomOwnerJoinSystem extends ecs.ComblockSystem implements ecs.IEnti
         // 记录房间名
         smc.scene.MapModel.name = data.room.name;
         
-        smc.scene.load("oops", () => {
+        smc.scene.load("spaceMap", () => {
             // 绑定显示数据
             e.RoomModel.vm = {
                 server: e.RoomModel.serverUrl,

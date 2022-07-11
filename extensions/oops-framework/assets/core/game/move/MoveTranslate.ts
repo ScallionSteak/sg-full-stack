@@ -5,7 +5,8 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-04-20 16:24:32
  */
-import { Component, Node, Vec3, _decorator } from "cc";
+import { Component, Node, v3, Vec3, _decorator } from "cc";
+import { smc } from "../../../../../../assets/script/game/common/ecs/SingletonModuleComp";
 import { Vec3Util } from "../../utils/Vec3Util";
 
 const { ccclass, property } = _decorator;
@@ -23,7 +24,14 @@ export class MoveTranslate extends Component {
     update(dt: number) {
         if (this.speed > 0) {
             Vec3.multiplyScalar(this.vector, this.velocity, this.speed * dt);
-            this.node.translate(this.vector, Node.NodeSpace.WORLD);
+            //如果node移动后的tile是障碍物，那就不移动
+            var curPosX = this.node.position.x;
+            var curPosY = this.node.position.y;
+            var newPos = v3(curPosX,curPosY,0).add(this.vector);
+            var tile = smc.scene.MapModel.getPosToTile(newPos);
+            if(!tile.barrier) {
+                this.node.translate(this.vector, Node.NodeSpace.WORLD);
+            }
         }
     }
 }

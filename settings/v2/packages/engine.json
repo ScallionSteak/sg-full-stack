@@ -13,7 +13,7 @@
       "marionette",
       "particle",
       "particle-2d",
-      "physics-2d-box2d",
+      "physics-2d-builtin",
       "physics-ammo",
       "primitive",
       "profiler",
@@ -25,7 +25,109 @@
       "ui",
       "video",
       "webview"
-    ]
+    ],
+    "cache": {
+      "base": {
+        "_value": true
+      },
+      "graphcis": {
+        "_value": true
+      },
+      "gfx-webgl": {
+        "_value": true
+      },
+      "gfx-webgl2": {
+        "_value": true
+      },
+      "animation": {
+        "_value": true
+      },
+      "skeletal-animation": {
+        "_value": true
+      },
+      "3d": {
+        "_value": true
+      },
+      "2d": {
+        "_value": true
+      },
+      "ui": {
+        "_value": true
+      },
+      "particle": {
+        "_value": true
+      },
+      "physics": {
+        "_value": true,
+        "_option": "physics-ammo"
+      },
+      "physics-ammo": {
+        "_value": true
+      },
+      "physics-cannon": {
+        "_value": true
+      },
+      "physics-physx": {
+        "_value": true
+      },
+      "physics-builtin": {
+        "_value": true
+      },
+      "physics-2d": {
+        "_value": true,
+        "_option": "physics-2d-builtin"
+      },
+      "physics-2d-box2d": {
+        "_value": true
+      },
+      "physics-2d-builtin": {
+        "_value": true
+      },
+      "intersection-2d": {
+        "_value": true
+      },
+      "primitive": {
+        "_value": true
+      },
+      "profiler": {
+        "_value": true
+      },
+      "particle-2d": {
+        "_value": true
+      },
+      "audio": {
+        "_value": true
+      },
+      "video": {
+        "_value": true
+      },
+      "webview": {
+        "_value": true
+      },
+      "tween": {
+        "_value": true
+      },
+      "terrain": {
+        "_value": true
+      },
+      "tiled-map": {
+        "_value": true
+      },
+      "spine": {
+        "_value": true
+      },
+      "dragon-bones": {
+        "_value": true
+      },
+      "marionette": {
+        "_value": true
+      }
+    },
+    "flags": {},
+    "noDeprecatedFeatures": {
+      "value": false,
+      "version": ""
+    }
   },
   "__version__": "1.0.6"
 }

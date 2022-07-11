@@ -1,4 +1,4 @@
-import { Component, EventKeyboard, input, Input, KeyCode, v3, Vec3, _decorator } from 'cc';
+import { Component, Node, EventKeyboard, input, Input, KeyCode, v3, Vec3, _decorator } from 'cc';
 import { smc } from '../../common/ecs/SingletonModuleComp';
 import { Role } from '../Role';
 import { RoleViewComp } from './RoleViewComp';
@@ -11,6 +11,8 @@ export class RoleKeyboard extends Component {
     private role: Role;
     /** 控制移动方向 */
     private data: any = {};
+    /** tiledmap数据 */
+    private tiledMap: [] = [];
 
     start() {
         this.role = this.getComponent(RoleViewComp).ent as Role;
@@ -19,6 +21,8 @@ export class RoleKeyboard extends Component {
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
         this.data.vector = new Vec3();
+        
+        // this.tiledMap = smc.scene.MapModel
     }
 
     onKeyDown(event: EventKeyboard) {
@@ -80,25 +84,26 @@ export class RoleKeyboard extends Component {
     }
 
     /** 后续修改点：移动边界验证与移动体验代码 */
-    move() {
+    barrierCheck() {
         var tile = smc.scene.MapModel.getPosToTile(this.node.position.clone());
+        return tile.barrier;
         // 边界
-        if (tile == null) {
-            this.node.setPosition(this.role.RoleModel.tile.px, this.role.RoleModel.tile.py);
-            return
-        }
+        // if (tile == null) {
+        //     this.node.setPosition(this.role.RoleModel.tile.px, this.role.RoleModel.tile.py);
+        //     return
+        // }
 
-        // 不在同一网格
-        if (tile != this.role.RoleModel.tile) {
-            this.role.RoleModel.tile = tile;
-            this.role.RoleView.move(v3(tile.px, tile.py));
-        }
+        // // 不在同一网格
+        // if (tile != this.role.RoleModel.tile) {
+        //     this.role.RoleModel.tile = tile;
+        //     this.role.RoleView.move(v3(tile.px, tile.py));
+        // }
     }
 
     // update(dt: number) {
-    //     if (this.vector.x != 0 || this.vector.y != 0) {
-    //         Vec3.multiplyScalar(this.vector, this.vector, this.role.RoleModel.speed * dt);
-    //         this.node.translate(this.vector, Node.NodeSpace.LOCAL);
+    //     if (this.data.vector.x != 0 || this.data.vector.y != 0) {
+    //         Vec3.multiplyScalar(this.data.vector, this.data.vector, this.role.RoleModel.speed * dt);
+    //         this.node.translate(this.data.vector, Node.NodeSpace.LOCAL);
     //     }
     // }
 }

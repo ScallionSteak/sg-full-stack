@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-06-21 16:45:43
  */
-import { find, macro, Node, TiledMap, TiledMapAsset, UITransform } from "cc";
+import { BoxCollider, Director, director, EPhysics2DDrawFlags, find, macro, Node, PhysicsSystem, PhysicsSystem2D, PhysicsSystem2D_base, RigidBody, TiledMap, TiledMapAsset, UITransform, v3, Vec3 } from "cc";
 import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
 import { ViewUtil } from "../../../../../extensions/oops-framework/assets/core/utils/ViewUtil";
@@ -29,13 +29,17 @@ export class MapLoadComp extends ecs.Comp {
 }
 
 export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
+
+    onLoad() {
+    }
+
     filter(): ecs.IMatcher {
         return ecs.allOf(MapLoadComp);
     }
 
     entityEnter(e: Scene): void {
         ViewUtil.loadPrefabNode(e.MapModel.path, (node: Node) => {
-            var url = `game/content/scene/${data[e.MapModel.name]}`;
+            var url = `game/content/scene/publicSpace/${data[e.MapModel.name]}`;
             resLoader.load(url, TiledMapAsset, (err: Error | null, tmx: TiledMapAsset) => {
                 if (err) {
                     console.error(`地图名为【${url}】的地图加载失败`);
@@ -74,8 +78,9 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         var mm = e.MapModel;
         mm.tiledmap = e.MapView.tiledmap;
 
-        mm.floor = e.MapView.tiledmap.getLayer("plants")!;
-        mm.barrier = e.MapView.tiledmap.getLayer("road")!;
+        let tiledSize = mm.tiledmap.getTileSize();
+        mm.floor = e.MapView.tiledmap.getLayer("Background")!;
+        mm.barrier = e.MapView.tiledmap.getLayer("collision")!;
         mm.game = e.MapView.tiledmap.getObjectGroup("game")!;
         mm.game.node.active = true; //强制打开，以防不当心别的地方或者调试的时候关掉了
 
@@ -90,6 +95,23 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         mm.widthHalf = mm.width / 2;
         mm.heightHalf = mm.height / 2;
 
+        /** 感觉是坐标系不对的问题，但效率也低，先不调试了 */
+        // let collisionLayerSize = mm.barrier.getLayerSize();
+        // for(let i = 0; i < collisionLayerSize.width; i++) {
+        //     for(let j = 0; j < collisionLayerSize.height; j++) {
+        //         let tiled = mm.barrier.getTiledTileAt(i, j, true);
+        //         if (tiled.grid != 0) {
+        //             let body = tiled.node.addComponent(RigidBody);
+        //             body.type = RigidBody.Type.STATIC;
+        //             let collider = tiled.node.addComponent(BoxCollider);
+        //             collider.center.x = tiledSize.width / 2;
+        //             collider.center.y = tiledSize.height / 2;
+        //             collider.size = v3(tiledSize.width, tiledSize.height, 1);                    
+        //         }
+        //     }
+        // }
+
+        /** 以下是一种判断碰撞的方式，先注掉用自己熟悉的，有问题再比较 */
         for (let x = 0; x < mm.tiledXCount; x++) {
             if (mm.tiles[x] == null) {
                 mm.tiles[x] = new Array<Tile>();
@@ -112,5 +134,6 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.tiles[x].push(tile);
             }
         }
+        console.log(mm.tiles[200][155]);
     }
 }

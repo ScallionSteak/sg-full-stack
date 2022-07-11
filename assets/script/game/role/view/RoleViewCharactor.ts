@@ -5,8 +5,10 @@
  * @LastEditTime: 2022-06-22 09:41:10
  */
 import { Component, Vec3, _decorator, Node, Label } from "cc";
+import { moveMessagePortToContext } from "worker_threads";
 import { MoveTo } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTo";
 import { MoveTranslate } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTranslate";
+import { ecs } from "../../../../../tsrpc_server/src/core/ecs/ECS";
 import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
 import { RoleKeyboard } from "./RoleKeyboard";
