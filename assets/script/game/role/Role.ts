@@ -57,16 +57,6 @@ export class Role extends ecs.Entity {
         };
         oops.gui.open(UIID.Demo_Role_Controller, null, uic);
     }
-
-    loadChatUI() {
-        var uic: UICallbacks = {
-            onAdded: (node: Node, params: any) => {
-                var comp = node.getComponent(RoleViewUIComp) as ecs.Comp;
-                this.add(comp);
-            }
-        };
-        oops.gui.open(UIID.Demo_Chat, null, uic);
-    }
 }
 
 /** Player 模块业务逻辑系统组件，如无业务逻辑处理可删除此对象 */

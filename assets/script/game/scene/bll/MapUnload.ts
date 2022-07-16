@@ -4,6 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-06-21 16:45:51
  */
+import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { Scene } from "../Scene";
@@ -25,8 +26,8 @@ export class MapUnloadSystem extends ecs.ComblockSystem implements ecs.IEntityEn
         e.remove(MapViewComp);
 
         // 释放地图资源
-        // resLoader.release(e.MapModel.path);
-        // resLoader.releaseDir("game");
+        resLoader.release(e.MapModel.path);
+        resLoader.releaseDir("game");
 
         Logger.logBusiness("【地图】释放地图资源");
     }

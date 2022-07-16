@@ -19,18 +19,12 @@ const { ccclass, property } = _decorator;
 
 /** 角色摇撼控制 */
 @ccclass("RoleViewChat")
-@ecs.register('RoleViewUIJoystick', false)
+@ecs.register('RoleViewUIChat', false)
 export class RoleViewChat extends CCComp {
 
     @property({ type: EditBox })
     chatContent: EditBox = null!;
 
-    /** 控制的目标角色 */
-    private target: Role = null!;
-
-    start() {
-        this.target = this.ent as Role;
-    }
 
     closeSelf() {
         oops.gui.remove(UIID.Demo_Chat);

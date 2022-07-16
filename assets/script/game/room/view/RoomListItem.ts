@@ -16,6 +16,7 @@ export type RoomListItemOptions = {
 
     onClick: (v: {
         serverUrl: string,
+        roomName: string,
         roomId: string,
         playerName: string
     }) => void
@@ -32,6 +33,9 @@ export class RoomListItem extends Component {
 
     @property(Node)
     enterPbBtn: Node = null;
+
+    @property(Node)
+    daoBtnLayer: Node = null;
 
     private selectedUserModel: string = '1';
     public isNew: Boolean = true;
@@ -59,21 +63,24 @@ export class RoomListItem extends Component {
     manageUIByUserType() {
         if (this.isNew) {
             this.createRoleLayer.active = true;
+            this.daoBtnLayer.active = false;
         } else {
             this.createRoleLayer.active = false;
             this.enterPbBtn.setPosition(0,0,0);
+            this.enterPbBtn.parent = this.daoBtnLayer;
+            this.daoBtnLayer.active = true;
         }
     }
 
     onBtnJoin() {
         this._options.onClick({
             serverUrl: this._options.room.serverUrl,
+            roomName: this._options.room.name,
             roomId: this._options.room.roomId,
-            playerName: this.userName.getComponent(EditBox).string
+            playerName: localStorage.getItem('username')
         })
         if (this.isNew) {
             this.saveUserInfo();
         }
     }
-
 }

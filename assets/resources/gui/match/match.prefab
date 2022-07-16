@@ -3295,6 +3295,10 @@
       "__uuid__": "b019de5a-7dfa-4bec-9c23-d657f32cf608",
       "__expectedType__": "cc.Prefab"
     },
+    "prefabEnterDaoBtnListItem": {
+      "__uuid__": "e503e472-4851-4b5e-9006-61e959c7530b",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": ""
   },
   {

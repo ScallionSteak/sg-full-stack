@@ -3,7 +3,7 @@
  * @Date: 2022-06-27
  */
 
-import { EditBox, EventTouch, Label, Node, Vec3, _decorator } from 'cc';
+import { EditBox, EventTouch, instantiate, Label, Node, Prefab, Sprite, SpriteAtlas, Vec3, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -17,11 +17,12 @@ import { RoleModelComp } from '../model/RoleModelComp';
 import { UIID } from '../../common/config/GameUIConfig';
 import { UICallbacks } from '../../../../../extensions/oops-framework/assets/core/gui/layer/Defines';
 import { RoomUtil } from '../../room/bll/RoomUtil';
+import { RoomReenterDaoBtnList } from '../../room/view/RoomReenterDaoBtnList';
 const { ccclass, property } = _decorator;
 
 /** 角色摇撼控制 */
 @ccclass("RoleViewUIComp")
-@ecs.register('RoleViewUIJoystick', false)
+@ecs.register('RoleViewUIComp', false)
 export class RoleViewUIComp extends CCComp {
 
     @property({ type: EditBox })
@@ -39,12 +40,16 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: EditBox })
     moveSpeedContent: EditBox = null!;
 
+    @property(Prefab)
+    prefabEnterDaoBtnListItem!: Prefab;
+
     /** 控制的目标角色 */
     private target: Role = null!;
 
     start() {
         this.displaySpeedValue();
         this.target = this.ent as Role;
+        this.loadRoomList();
     }
 
     displaySpeedValue() {
@@ -58,6 +63,23 @@ export class RoleViewUIComp extends CCComp {
 
     openChatWindow() {
         oops.gui.open(UIID.Demo_Chat);
+    }
+
+    /** 刷新房间列表 */
+    async loadRoomList() {
+        let ret = await smc.room.RoomModelNet.hc.callApi('RoomList', {});
+        if (ret.isSucc) {
+            try {
+                for (let roomInfo of ret.res.rooms) {
+                    let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
+                    btnNode.getComponent(RoomReenterDaoBtnList).initRoomInfo(roomInfo);
+                    btnNode.parent = this.node.getChildByName('daoListLayer');
+                }
+            }
+            catch (e) {
+                console.log("登录界面已释放")
+            }
+        }
     }
 
     private exit() {

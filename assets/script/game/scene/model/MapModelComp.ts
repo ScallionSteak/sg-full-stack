@@ -55,6 +55,8 @@ export class MapModelComp extends ecs.Comp {
     barrier: TiledLayer = null!;
     /** 游戏层 */
     game: TiledObjectGroup = null!;
+    /** 测试建筑物 */
+    testBountyBuilding: TiledLayer = null;
 
     /** 所有游戏网格数据 */
     tiles: Array<Array<Tile>> = [];
@@ -111,6 +113,8 @@ export class Tile {
     py_role: number = 0;
     /** 是否为障碍物 */
     barrier: boolean = false;
+    /** 建筑物ID */
+    buildingID: number = 0;
     /** 角色 */
     role: Role = null;
 

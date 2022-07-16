@@ -385,10 +385,12 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
+    "target": {
+      "__id__": 1
+    },
     "component": "",
-    "_componentId": "",
-    "handler": "",
+    "_componentId": "cb4ddAzfsBM1ZkT0KtbKn0p",
+    "handler": "closeSelf",
     "customEventData": ""
   },
   {

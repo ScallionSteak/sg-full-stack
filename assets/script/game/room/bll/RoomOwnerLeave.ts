@@ -38,14 +38,14 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         // 卸载地图
         smc.scene.unload();
 
+        // // 关闭角色只界面
+        oops.gui.remove(UIID.Demo_Role_Controller);
+
         // 后续修改：需要在这里添加转到下一个地图的逻辑 调用
-        // smc.room.join("", "", e.RoomModel.playerName);
+        smc.room.join(e.RoomModel.roomId, e.RoomModel.serverUrl, e.RoomModel.playerName);
 
         // // 打开匹配界面
         // oops.gui.open(UIID.Demo_Match);
-
-        // // 关闭角色只界面
-        // oops.gui.remove(UIID.Demo_Role_Controller);
 
         e.remove(RoomOwnerLeaveComp);
 

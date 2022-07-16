@@ -16,8 +16,8 @@ import { MapViewControl } from "../view/MapViewControl";
 
 /** 后续修改点:演示只有两张地图，到时候通过key来映射tilemap的资源名 */
 var data: any = {
-    "自定义房间": "A-Public Space",
-    "系统房间": "PublicSpace----"
+    "publicSpaceRoom": "A-Public Space",
+    "SeeDAORoom": "seeDaoMap"
 }
 
 /** 加载地形资源（放在其它模块加载，有进度条） */
@@ -78,7 +78,24 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         var mm = e.MapModel;
         mm.tiledmap = e.MapView.tiledmap;
 
-        let tiledSize = mm.tiledmap.getTileSize();
+        /**
+         * 根据不同的tmx文件名称取不同的layer
+         * 美术在tmx文件中，用建筑名称建layer，每个建筑一个layer，位置和collsion要完全一致
+         * 程序取到layer后，根据事先确定好的顺序定buildingID，用buildingID控制弹哪个窗口出来
+         * 每个DAO照理说拥有的building应该都一样，所以也可以考虑不用读tmx文件名，保证大家都有一样的层，也行，最多有的层是空的
+         * npc也用layer做，npc就一定要分不同地图了，做一个npcID，然后预设不同ID弹对应的窗口
+         */
+        switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
+            case 'A-Public Space':
+                //待建筑都确定后，要一个个的加，每个有互动的建筑一个layer
+                break;
+            case 'seeDaoMap':
+                mm.testBountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
+                break;
+            default:
+                break;
+        }
+        //共有的要读的layer放这里
         mm.floor = e.MapView.tiledmap.getLayer("Background")!;
         mm.barrier = e.MapView.tiledmap.getLayer("collision")!;
         mm.game = e.MapView.tiledmap.getObjectGroup("game")!;
@@ -111,7 +128,7 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         //     }
         // }
 
-        /** 以下是一种判断碰撞的方式，先注掉用自己熟悉的，有问题再比较 */
+        /** 效率比较高的记录碰撞层的方式 */
         for (let x = 0; x < mm.tiledXCount; x++) {
             if (mm.tiles[x] == null) {
                 mm.tiles[x] = new Array<Tile>();
@@ -131,6 +148,16 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 let barrier_gid = mm.barrier.getTileGIDAt(x, y);
                 tile.barrier = barrier_gid != 0;
 
+                //建筑数据
+                let bountyBuilding_gid = mm.testBountyBuilding.getTileGIDAt(x,y);
+                let buildingGidArr = [];
+                buildingGidArr.push(bountyBuilding_gid);
+                tile.buildingID = -1; //设定默认值，代表不是building，除非后面主动赋值了，不然就是没building
+                for (let i = 0; i< buildingGidArr.length; i++) {
+                    if (buildingGidArr[i] != 0) {
+                        tile.buildingID = i;  //所以building顺序不能变
+                    }
+                }
                 mm.tiles[x].push(tile);
             }
         }

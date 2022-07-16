@@ -34,7 +34,9 @@ export class RoomModelComp extends ecs.Comp {
     serverUrl: string = null!;
     /** 玩家自己名 */
     playerName: string = null;
-
+    /** 房间名称 */
+    roomName: string = null;
+    
     /** 玩家自己 */
     owner: Role = null!;
     /** 房间所有玩家 */
