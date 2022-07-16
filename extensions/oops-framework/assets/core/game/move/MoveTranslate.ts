@@ -5,7 +5,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-04-20 16:24:32
  */
-import { Component, Node, v3, Vec3, _decorator } from "cc";
+import { Component, instantiate, Node, v3, Vec3, _decorator } from "cc";
 import { smc } from "../../../../../../assets/script/game/common/ecs/SingletonModuleComp";
 import { Vec3Util } from "../../utils/Vec3Util";
 
@@ -31,6 +31,11 @@ export class MoveTranslate extends Component {
             var tile = smc.scene.MapModel.getPosToTile(newPos);
             if(!tile.barrier) {
                 this.node.translate(this.vector, Node.NodeSpace.WORLD);
+            } else {
+                //是障碍物的话，要进一步判断是哪个building
+                if (tile.buildingID >= 0) {
+                    //todo 这里没法直接调用oops.gui
+                }
             }
         }
     }

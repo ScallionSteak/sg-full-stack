@@ -3,7 +3,7 @@
  * @Date: 2022-06-27
  */
 
-import { EditBox, EventTouch, Label, Node, Vec3, _decorator } from 'cc';
+import { EditBox, EventTouch, Label, Node, v3, Vec3, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -15,6 +15,7 @@ import { CCComp } from '../../common/ecs/view/CCComp';
 import { Role } from '../Role';
 import { RoleModelComp } from '../model/RoleModelComp';
 import { UIID } from '../../common/config/GameUIConfig';
+import { MapViewControl } from '../../scene/view/MapViewControl';
 const { ccclass, property } = _decorator;
 
 /** 角色摇撼控制 */
@@ -28,6 +29,11 @@ export class RoleViewChat extends CCComp {
 
     closeSelf() {
         oops.gui.remove(UIID.Demo_Chat);
+    }
+
+    testMoveCamera() {
+        var mvc = smc.scene.MapView.node.getComponent(MapViewControl);
+        mvc.moveCameraForGuide(v3(1000, 300,0));
     }
 
     /** 聊天 */

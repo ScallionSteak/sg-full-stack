@@ -4,7 +4,7 @@
  * @LastEditors: luobao
  * @LastEditTime: 2022-06-17 20:15:51
  */
-import { Component, EventTouch, game, Node, Size, TiledMap, Touch, UITransform, v3, Vec2, Vec3, view, _decorator } from "cc";
+import { Component, EventTouch, game, Node, Prefab, Size, TiledMap, Touch, tween, UITransform, v3, Vec2, Vec3, view, _decorator } from "cc";
 import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
 import { Vec3Util } from "../../../../../extensions/oops-framework/assets/core/utils/Vec3Util";
 
@@ -46,6 +46,15 @@ export class MapViewControl extends Component {
     })
     moveOffset: number = 2;
 
+    @property(Node)
+    blinkFocus!: Node;
+
+    @property(Node)
+    maskHole!: Node;
+
+    @property(Node)
+    mask!: Node;
+
     /** 操作锁 */
     public locked: boolean = false;
     /** 点击回调事件 */
@@ -83,6 +92,9 @@ export class MapViewControl extends Component {
     /** 跟随目标的位置 */
     private follow_position: Vec3 = new Vec3();
 
+    /** 测试强制引导镜头移动 */
+    public isInGuide: boolean = false;
+
     /** 获取屏幕中心对应地图的位置 */
     getCenterPos(): Vec3 {
         return this.uitMap.convertToNodeSpaceAR(this.center3);
@@ -119,6 +131,25 @@ export class MapViewControl extends Component {
         this.onResize();
     }
 
+    /** 根据传进来的参数在指定位置播放闪烁动画 */
+    moveCameraForGuide(pos: Vec3) {
+        var moveDuration = 1;
+        var originX = this.follow_position.x;
+        var originY = this.follow_position.y;
+        this.isInGuide = true;
+        tween(this.map).to(moveDuration, {position: pos}).call(()=> {
+            this.maskHole.active = true;
+            this.blinkFocus.active = true;
+            tween(this.blinkFocus).hide().delay(0.5).show().delay(0.5).union().repeat(3).call(()=>{
+                this.maskHole.active = false;
+                this.blinkFocus.active = false;
+                tween(this.map).to(moveDuration, { position: new Vec3(originX, originY, 0) }).call(()=>{
+                    this.isInGuide = false;
+                }).start();
+            }).start();
+        }).start();
+    }
+
     /** 根据目标位置设置屏幕位置看到目标是正中心 */
     setMapByTarget(pos: Vec3) {
         this.follow_position.x = -pos.x;
@@ -130,29 +161,31 @@ export class MapViewControl extends Component {
 
     //#region update
     update(dt: number) {
-        // 跟随目标移动（战斗场景用）
-        if (this.target && this.target.isValid) {
-            this.follow_position.x = -this.target.position.x;
-            this.follow_position.y = -this.target.position.y;
-            var pos = this.checkPos(this.follow_position);
-            this.map!.position = Vec3Util.lerp(this.map!.position, pos, 0.5);
-        }
-
-        // 惯性移动
-        if (this.inertia) {
-            this.dir.set(this.inertiaVector.lerp(Vec3.ZERO, dt * 3));
-            this.dealPos();
-
-            if (this.inertiaVector.equals(Vec3.ZERO, Accuracy)) {
-                this.inertia = false;
-                this.dir.set(Vec3.ZERO);
-                this.inertiaVector.set(Vec3.ZERO);
+        if (!this.isInGuide) {
+            // 跟随目标移动（战斗场景用）
+            if (this.target && this.target.isValid) {
+                this.follow_position.x = -this.target.position.x;
+                this.follow_position.y = -this.target.position.y;
+                var pos = this.checkPos(this.follow_position);
+                this.map!.position = Vec3Util.lerp(this.map!.position, pos, 0.5);
             }
-        }
 
-        // 拖拽对象到边缘移动地图
-        if (this.isMapMove) {
-            this.dealPos();
+            // 惯性移动
+            if (this.inertia) {
+                this.dir.set(this.inertiaVector.lerp(Vec3.ZERO, dt * 3));
+                this.dealPos();
+
+                if (this.inertiaVector.equals(Vec3.ZERO, Accuracy)) {
+                    this.inertia = false;
+                    this.dir.set(Vec3.ZERO);
+                    this.inertiaVector.set(Vec3.ZERO);
+                }
+            }
+
+            // 拖拽对象到边缘移动地图
+            if (this.isMapMove) {
+                this.dealPos();
+            }
         }
     }
     //#endregion

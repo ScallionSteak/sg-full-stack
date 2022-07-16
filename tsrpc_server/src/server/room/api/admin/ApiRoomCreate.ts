@@ -25,7 +25,6 @@ export async function ApiRoomCreate(call: ApiCall<ReqRoomCreate, ResRoomCreate>)
         timeStartMatch: Date.now(),
         timeUpdate: Date.now()
     };
-    console.log("create here----------------------------------", call);
 
     rm.logger = new PrefixLogger({
         logger: sr.ServerRoomModel.wsSrever.logger,
