@@ -27,7 +27,34 @@ export class MsgPlayerAttackSystem extends ecs.ComblockSystem implements ecs.IEn
 
     entityEnter(e: Room): void {
         e.RoomModelNet.wsc.listenMsg(`server/PlayerAttack`, v => {
-            e.get(MsgPlayerAttackComp).data.push(v);
+            // e.get(MsgPlayerAttackComp).data.push(v);
+            let player = e.RoomModel.players.get(v.uid);
+            let target = e.RoomModel.players.get(v.targetId);
+            if (player && target) {
+                // 只让目标玩家看到提示
+                if (e.RoomModel.owner.RoleModel.id == v.targetId) {
+                    Notification.requestPermission(status => {
+                        if (status === 'granted') {
+                            let notify = new Notification('测试系统提示', {
+                                icon: '',
+                                body: '有人在找你哦'
+                            })
+
+                            // // 桌面消息显示时
+                            // notify.onshow = () => {
+                            //     this.notificationAudio.play();
+                            // }
+
+
+                            // 点击时桌面消息时触发
+                            notify.onclick = () => {
+                                // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
+                                window.focus()
+                            }
+                        }
+                    })
+                }
+            }
         });
     }
 
@@ -39,10 +66,7 @@ export class MsgPlayerAttackSystem extends ecs.ComblockSystem implements ecs.IEn
                 let player = e.RoomModel.players.get(d.uid);
                 let target = e.RoomModel.players.get(d.targetId);
                 if (player && target) {
-                    player.RoleModel.target = target;
-                    player.RoleView && player.RoleView.attack(d.skillId);
-
-                    Logger.logNet(`${player.RoleModel.nickname}攻击${target.RoleModel.nickname}`)
+                    // 用于解决传递消息
                 }
             });
         }

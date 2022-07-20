@@ -24,13 +24,17 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
     }
 
     entityEnter(e: Room): void {
-        e.remove(RoomNetMsgComp);
+        // e.remove(RoomNetMsgComp);
 
         // 清理地图上的玩家
         let players = e.RoomModel.players;
         players.forEach(r => {
             r.destroy();
         });
+
+        var playerName = e.RoomModel.playerName;
+        var roomId = e.RoomModel.roomId;
+        var serverUrl = e.RoomModel.serverUrl;
 
         // 房间数据清理
         e.RoomModel.reset();
@@ -41,14 +45,14 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         // // 关闭角色只界面
         oops.gui.remove(UIID.Demo_Role_Controller);
 
-        // 后续修改：需要在这里添加转到下一个地图的逻辑 调用
-        smc.room.join(e.RoomModel.roomId, e.RoomModel.serverUrl, e.RoomModel.playerName);
-
         // // 打开匹配界面
         // oops.gui.open(UIID.Demo_Match);
 
         e.remove(RoomOwnerLeaveComp);
 
         Logger.logBusiness("【房间】自己离开");
+
+        // 后续修改：需要在这里添加转到下一个地图的逻辑 调用s's
+        e.join2(roomId, serverUrl, playerName);
     }
 }

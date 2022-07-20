@@ -350,7 +350,7 @@
     },
     "component": "",
     "_componentId": "91aa8fHOvBGoq2uWMOwbTe1",
-    "handler": "onBtnJoin",
+    "handler": "onBtnSwitch",
     "customEventData": ""
   },
   {
@@ -371,7 +371,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "97JS5Y6qFIUrsT8FN7FQZw"
+    "fileId": "2a6JOXX11JP4Nop6bD7u/Z"
   },
   {
     "__type__": "cc.PrefabInfo",

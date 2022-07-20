@@ -60,7 +60,7 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
         rm1.data = {
             id: uuid.v4(),
             playerMax: Config.room.max_user_num,
-            name: 'publicSpaceRoom',
+            name: 'PublicSpaceRoom',
             players: [],
             messages: [],
             timeStartMatch: Date.now(),
@@ -71,7 +71,6 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
             logger: sr.ServerRoomModel.wsSrever.logger,
             prefixs: [`[Room ${rm1.data.id}]`],
         });
-        console.log("room.RoomModel.data.id 11111", room.RoomModel.data.id);
         sr.ServerRoomModel.rooms.set(room.RoomModel.data.id, room);
         
         let room2 = ecs.getEntity<Room>(Room);
@@ -91,7 +90,6 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
             logger: sr.ServerRoomModel.wsSrever.logger,
             prefixs: [`[Room ${rm2.data.id}]`],
         });
-        console.log("room.RoomModel.data.id 22222", room2.RoomModel.data.id);
         sr.ServerRoomModel.rooms.set(room2.RoomModel.data.id, room2);
 
     }

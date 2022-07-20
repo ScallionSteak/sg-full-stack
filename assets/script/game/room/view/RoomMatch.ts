@@ -84,7 +84,7 @@ export class RoomMatch extends GameComponent {
                         //创建各个DAO房间信息
                         console.log(ret.res.rooms);
                         for (let roomInfo of ret.res.rooms) {
-                            if (roomInfo.name != 'publicSpaceRoom') {
+                            if (roomInfo.name != 'PublicSpaceRoom') {
                                 //DAO私域创建
                                 let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
                                 btnNode.getComponent(RoomEnterDaoBtnList).initRoomName(roomInfo.name);

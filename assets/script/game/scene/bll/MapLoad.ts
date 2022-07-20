@@ -16,7 +16,7 @@ import { MapViewControl } from "../view/MapViewControl";
 
 /** 后续修改点:演示只有两张地图，到时候通过key来映射tilemap的资源名 */
 var data: any = {
-    "publicSpaceRoom": "A-Public Space",
+    "PublicSpaceRoom": "A-Public Space",
     "SeeDAORoom": "seeDaoMap"
 }
 

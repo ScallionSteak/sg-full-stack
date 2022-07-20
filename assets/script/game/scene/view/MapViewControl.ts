@@ -150,6 +150,11 @@ export class MapViewControl extends Component {
         }).start();
     }
 
+    /** 获得当前镜头的坐标 */
+    getFollowPosition() {
+        return this.follow_position;
+    }
+
     /** 根据目标位置设置屏幕位置看到目标是正中心 */
     setMapByTarget(pos: Vec3) {
         this.follow_position.x = -pos.x;

@@ -7,6 +7,7 @@
  */
 import { Component, instantiate, Node, v3, Vec3, _decorator } from "cc";
 import { smc } from "../../../../../../assets/script/game/common/ecs/SingletonModuleComp";
+import { oops } from "../../Oops";
 import { Vec3Util } from "../../utils/Vec3Util";
 
 const { ccclass, property } = _decorator;

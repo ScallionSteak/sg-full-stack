@@ -3,7 +3,7 @@
  * @Date: 2022-06-27
  */
 
-import { EditBox, EventTouch, Label, Node, v3, Vec3, _decorator } from 'cc';
+import { AudioSource, EditBox, EventTouch, Label, Node, v3, Vec3, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -26,14 +26,37 @@ export class RoleViewChat extends CCComp {
     @property({ type: EditBox })
     chatContent: EditBox = null!;
 
+    @property({ type: AudioSource })
+    notificationAudio: AudioSource = null!;
 
     closeSelf() {
         oops.gui.remove(UIID.Demo_Chat);
     }
 
-    testMoveCamera() {
-        var mvc = smc.scene.MapView.node.getComponent(MapViewControl);
-        mvc.moveCameraForGuide(v3(1000, 300,0));
+    testPlayAudio() {
+        this.notificationAudio.play();
+    }
+
+    testNotification() {
+        Notification.requestPermission(status => {
+            if (status === 'granted') {
+                let notify = new Notification('测试系统提示', {
+                    icon: '',
+                    body: '有人在找你哦'
+                })
+
+                // 桌面消息显示时
+                notify.onshow = () => {
+                    this.notificationAudio.play();
+                }
+
+                // 点击时桌面消息时触发
+                notify.onclick = () => {
+                    // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
+                    window.focus()
+                }
+            }
+        })
     }
 
     /** 聊天 */

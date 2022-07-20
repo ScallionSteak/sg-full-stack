@@ -2,6 +2,7 @@ import { Component, Node, EditBox, Label, _decorator, Vec3 } from 'cc';
 import { timeStamp } from 'console';
 import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops';
 import { ResRoomList } from '../../../tsrpc/protocols/match/PtlRoomList';
+import { smc } from '../../common/ecs/SingletonModuleComp';
 const { ccclass, property } = _decorator;
 
 export type RoomEnterDaoBtnListOptions = {
@@ -31,6 +32,10 @@ export class RoomEnterDaoBtnList extends Component {
 
     initRoomName(roomName: string) {
         this.roomName.getComponent(Label).string = 'Enter ' + roomName;
+    }
+
+    initRoomInfo(roomInfo) {
+        this.roomName.getComponent(Label).string = roomInfo.name;
     }
 
     onBtnJoin() {

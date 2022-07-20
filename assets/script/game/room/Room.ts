@@ -19,7 +19,7 @@ import { MsgRoomPlayerStateSystem } from "./bll/MsgRoomPlayerState";
 import { RoomNetFlowSystem } from "./bll/RoomNetFlow";
 import { RoomNetMsgSystem } from "./bll/RoomNetMsg";
 import { RoomOwnerCreateComp, RoomOwnerCreateSystem } from "./bll/RoomOwnerCreate";
-import { RoomOwnerJoinSystem } from "./bll/RoomOwnerJoin";
+import { RoomOwnerJoinComp, RoomOwnerJoinSystem } from "./bll/RoomOwnerJoin";
 import { RoomOwnerLeaveComp, RoomOwnerLeaveSystem } from "./bll/RoomOwnerLeave";
 import { RoomOwnerMatchStartComp, RoomOwnerMatchStartSystem } from "./bll/RoomOwnerMatchStart";
 import { RoomServerConnectComp, RoomServerConnectSystem } from "./bll/RoomServerConnect";
@@ -75,6 +75,24 @@ export class Room extends ecs.Entity {
         this.add(RoomServerConnectComp);
     }
 
+    async join2(roomId?: string, serverUrl?: string, playerName?: string) {
+        if (roomId) this.RoomModel.roomId = roomId;
+        if (serverUrl) this.RoomModel.serverUrl = serverUrl;
+        if (playerName) this.RoomModel.playerName = playerName;
+
+        let retRoomJoin = await this.RoomModelNet.wsc.callApi(`RoomJoin`, {
+            roomId: roomId,
+            nickname: playerName
+        });
+
+        if (retRoomJoin.isSucc) {
+            this.add(RoomOwnerJoinComp).data = retRoomJoin.res;
+        }
+        else {
+            Logger.logBusiness(retRoomJoin.err, '【房间】房间加入失败');
+        }
+    }
+
     /** 离开房间 */
     leave() {
         this.add(RoomOwnerLeaveComp);
@@ -108,7 +126,13 @@ export class Room extends ecs.Entity {
         this.RoomModelNet.wsc.sendMsg(`client/PlayerMove`, data);
     }
 
-    playerAttack(attacker: Role, target: Role, skilleId: number) {
+    /**
+     * 用于玩家与玩家之间发消息
+     * @param attacker  发消息玩家对象
+     * @param target    目标玩家对象
+     * @param skilleId  废弃
+     */
+    playerAttack(attacker: Role, target: Role, skilleId: number = 0) {
         this.RoomModelNet.wsc.sendMsg(`server/PlayerAttack`, {
             uid: attacker.RoleModel.id,
             targetId: target.RoleModel.id,

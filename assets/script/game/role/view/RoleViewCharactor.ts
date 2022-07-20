@@ -14,6 +14,7 @@ import { Role } from "../Role";
 import { RoleKeyboard } from "./RoleKeyboard";
 import { RoleViewAnimator } from "./RoleViewAnimator";
 import { RoleViewComp } from "./RoleViewComp";
+import { RoleCollision } from "./RoleCollision";
 
 const { ccclass, property } = _decorator;
 
@@ -60,7 +61,7 @@ export class RoleViewCharactor extends Component {
         }
 
         // 摇杆移动
-        var move = this.getComponent(MoveTranslate) || this.addComponent(MoveTranslate);
+        var move = this.getComponent(RoleCollision) || this.addComponent(RoleCollision);
 
         if (move) {
             move.speed = this.getComponent(RoleViewComp).ent.get(RoleModelComp).speed;
@@ -72,7 +73,7 @@ export class RoleViewCharactor extends Component {
 
     /** 待机动画 */
     stop() {
-        var move = this.getComponent(MoveTranslate);
+        var move = this.getComponent(RoleCollision);
 
         if (move) {
             move.speed = 0;
