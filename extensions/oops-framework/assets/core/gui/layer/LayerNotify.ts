@@ -69,6 +69,7 @@ export class LayerNotify extends LayerUI {
     protected createNode(prefab: Prefab, viewParams: ViewParams) {
         if (this.isChat) {
             var childNode: Node = super.createChatNode(prefab, viewParams);
+            console.log(childNode);
             var singleChatCom = childNode.getComponent(RoleViewSingleChat)!;
             childNode.active = true;
             singleChatCom.chatMsg(viewParams.params.userName, viewParams.params.chatContent, viewParams.params.fromSelf, viewParams.params.useI18n);

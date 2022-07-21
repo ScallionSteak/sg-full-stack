@@ -1,4 +1,4 @@
-import { Component, Node, EditBox, Label, _decorator, Vec3 } from 'cc';
+import { Component, Node, EditBox, Label, _decorator, Vec3, SpriteAtlas, Sprite } from 'cc';
 import { timeStamp } from 'console';
 import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops';
 import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
@@ -8,7 +8,6 @@ import { smc } from '../../common/ecs/SingletonModuleComp';
 import { LoadingViewComp } from '../../initialize/view/LoadingViewComp';
 import { Room } from '../Room';
 import { RoomEnterDaoBtnList } from './RoomEnterDaoBtnList';
-// import { smc } from '../../common/ecs/SingletonModuleComp';
 const { ccclass, property } = _decorator;
 
 export type RoomReenterDaoBtnListOptions = {
@@ -26,7 +25,10 @@ export type RoomReenterDaoBtnListOptions = {
 export class RoomReenterDaoBtnList extends Component {
 
     @property(Node)
-    roomName: Node = null;
+    roomLogo: Node = null;
+
+    @property(SpriteAtlas)
+    UIAtlas: SpriteAtlas = null;
 
     private _options!: RoomReenterDaoBtnListOptions;
     public get options(): RoomReenterDaoBtnListOptions {
@@ -39,7 +41,18 @@ export class RoomReenterDaoBtnList extends Component {
     private roomInfo;
 
     initRoomInfo(roomInfo) {
-        this.roomName.getComponent(Label).string = roomInfo.name;
+        console.log(roomInfo.name);
+        switch (roomInfo.name) {
+            case 'SeeDAORoom':
+                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seedaoLogo');
+                break;
+            case 'PublicSpaceRoom':
+                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/sgLogo');
+                break;
+            default:
+                console.log('room names dont match. some wrong here')
+                break;
+        }
         this.roomInfo = roomInfo;
     }
 

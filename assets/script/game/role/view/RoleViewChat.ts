@@ -26,37 +26,8 @@ export class RoleViewChat extends CCComp {
     @property({ type: EditBox })
     chatContent: EditBox = null!;
 
-    @property({ type: AudioSource })
-    notificationAudio: AudioSource = null!;
-
     closeSelf() {
         oops.gui.remove(UIID.Demo_Chat);
-    }
-
-    testPlayAudio() {
-        this.notificationAudio.play();
-    }
-
-    testNotification() {
-        Notification.requestPermission(status => {
-            if (status === 'granted') {
-                let notify = new Notification('测试系统提示', {
-                    icon: '',
-                    body: '有人在找你哦'
-                })
-
-                // 桌面消息显示时
-                notify.onshow = () => {
-                    this.notificationAudio.play();
-                }
-
-                // 点击时桌面消息时触发
-                notify.onclick = () => {
-                    // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
-                    window.focus()
-                }
-            }
-        })
     }
 
     /** 聊天 */

@@ -36,12 +36,6 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: Node })
     labelServerUrl: Node = null!;
 
-    @property({ type: Node })
-    moveSpeedBtn: Node = null!;
-
-    @property({ type: EditBox })
-    moveSpeedContent: EditBox = null!;
-
     @property(Prefab)
     prefabEnterDaoBtnListItem!: Prefab;
 
@@ -63,6 +57,9 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: Node })
     playerPopupLayer: Node = null!;
 
+    @property({ type: Node })
+    daoLogoGroupLayer: Node = null!;
+
     /** 控制的目标角色 */
     private target: Role = null!;
     public mvc = null;
@@ -70,19 +67,9 @@ export class RoleViewUIComp extends CCComp {
     public collisionOther: Role = null;
 
     start() {
-        this.displaySpeedValue();
         this.target = this.ent as Role;
         this.loadRoomList();
         this.initMiniMap();
-    }
-
-    displaySpeedValue() {
-        this.moveSpeedContent.string = String(this.ent.get(RoleModelComp).speed);
-    }
-
-    updateSpeedValue() {
-        var newSpeed = this.moveSpeedContent.string;
-        this.ent.get(RoleModelComp).speed = Number(newSpeed);
     }
 
     initMiniMap() {
@@ -132,7 +119,7 @@ export class RoleViewUIComp extends CCComp {
                     let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
                     let btnList = btnNode.getComponent(RoomReenterDaoBtnList);
                     btnList.initRoomInfo(roomInfo);
-                    btnNode.parent = this.node.getChildByName('daoListLayer');
+                    btnNode.parent = this.daoLogoGroupLayer;
                 }
             }
             catch (e) {

@@ -34,7 +34,7 @@ export class RoleViewSingleChat extends Component {
             this.userName.node.setPosition(-this.userName.node.position.x, this.userName.node.position.y);
             this.userName.node.getComponent(UITransform).setAnchorPoint(0, 0.5);
             this.chatContent.node.setPosition(-this.chatContent.node.position.x, this.chatContent.node.position.y);
-            this.chatContent.node.getComponent(UITransform).setAnchorPoint(0, 0.5);
+            this.chatContent.node.getComponent(UITransform).setAnchorPoint(0, 1);
         }
     }
 }
