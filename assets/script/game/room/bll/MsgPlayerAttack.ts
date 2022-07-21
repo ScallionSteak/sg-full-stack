@@ -30,29 +30,43 @@ export class MsgPlayerAttackSystem extends ecs.ComblockSystem implements ecs.IEn
             // e.get(MsgPlayerAttackComp).data.push(v);
             let player = e.RoomModel.players.get(v.uid);
             let target = e.RoomModel.players.get(v.targetId);
+            console.log(player.RoleModel.id, target.RoleModel.id);
             if (player && target) {
                 // 只让目标玩家看到提示
                 if (e.RoomModel.owner.RoleModel.id == v.targetId) {
-                    Notification.requestPermission(status => {
-                        if (status === 'granted') {
-                            let notify = new Notification('测试系统提示', {
-                                icon: '',
-                                body: '有人在找你哦'
-                            })
+                    if (Notification.permission === 'granted') {
+                        let notify = new Notification('有人找你哦', {
+                            icon: '',
+                            body: target.RoleModel.nickname
+                        })
 
-                            // // 桌面消息显示时
-                            // notify.onshow = () => {
-                            //     this.notificationAudio.play();
-                            // }
-
-
-                            // 点击时桌面消息时触发
-                            notify.onclick = () => {
-                                // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
-                                window.focus()
-                            }
+                        // 点击时桌面消息时触发
+                        notify.onclick = () => {
+                            // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
+                            window.focus()
                         }
-                    })
+                    } else if (Notification.permission === 'default') {
+                        Notification.requestPermission().then(PermissionStatus => {
+                            if (PermissionStatus === 'granted') {
+                                let notify = new Notification('有人找你哦', {
+                                    icon: '',
+                                    body: target.RoleModel.nickname
+                                })
+
+                                // 点击时桌面消息时触发
+                                notify.onclick = () => {
+                                    // 跳转到当前通知的tab,如果浏览器最小化，会将浏览器显示出来
+                                    window.focus()
+                                }
+                            } else if (PermissionStatus === 'default') {
+                                console.log('window closed');
+                            } else {
+                                console.log('user chooses to deny');
+                            }
+                        })
+                    } else {
+                        console.log('permission has already been denied');
+                    }
                 }
             }
         });

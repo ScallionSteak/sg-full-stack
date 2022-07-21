@@ -12,7 +12,7 @@ import { config } from "../../common/config/Config";
 import { smc } from "../../common/ecs/SingletonModuleComp";
 import { Role } from "../../role/Role";
 import { RoleViewComp } from "../../role/view/RoleViewComp";
-import { RoleCollision } from "../../role/view/RoleCollision";
+import { RoleViewMoveTranslate } from "../../role/view/RoleViewMoveTranslate";
 
 const { ccclass, property } = _decorator;
 
@@ -27,7 +27,7 @@ export class RoleViewPlayerState extends Component {
     }
 
     updateState() {
-        let move = this.getComponent(RoleCollision);
+        let move = this.getComponent(RoleViewMoveTranslate);
         let action;
         if (move) {
             if (move.speed > 0)

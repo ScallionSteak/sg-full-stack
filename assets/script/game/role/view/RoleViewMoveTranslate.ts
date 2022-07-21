@@ -6,8 +6,8 @@ import { UIID } from '../../common/config/GameUIConfig';
 import { smc } from '../../common/ecs/SingletonModuleComp';
 const { ccclass, property } = _decorator;
 
-@ccclass('RoleCollision')
-export class RoleCollision extends MoveTranslate {
+@ccclass('RoleViewMoveTranslate')
+export class RoleViewMoveTranslate extends MoveTranslate {
 
     /** 移动方向 */
     velocity: Vec3 = Vec3Util.zero;
@@ -37,6 +37,11 @@ export class RoleCollision extends MoveTranslate {
                     }
                 }
             }
+
+            // smc.room.RoomModel.players.forEach(p => {
+            //     Vec3.distance(p.RoleView.node, )
+               
+            // })
         }
     }
 }

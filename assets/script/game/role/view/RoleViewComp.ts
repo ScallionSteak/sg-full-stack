@@ -27,6 +27,7 @@ export class RoleViewComp extends CCComp {
         super.onLoad();
 
         this.rvc = this.getComponent(RoleViewCharactor);
+
     }
 
     /** 待机动画 */

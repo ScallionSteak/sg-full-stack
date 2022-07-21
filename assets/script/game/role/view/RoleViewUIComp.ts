@@ -60,10 +60,14 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: Node })
     introductionOne: Node = null!;
 
+    @property({ type: Node })
+    playerPopupLayer: Node = null!;
+
     /** 控制的目标角色 */
     private target: Role = null!;
     public mvc = null;
-    // public mvc = smc.scene.MapView.node.getComponent(MapViewControl);
+    public collisionSelf: Role = null;
+    public collisionOther: Role = null;
 
     start() {
         this.displaySpeedValue();
@@ -137,8 +141,22 @@ export class RoleViewUIComp extends CCComp {
         }
     }
 
+    showPlayerPopupLayer(myselfID) {
+        if (smc.room.RoomModel.owner.RoleModel.id == myselfID) { 
+            this.playerPopupLayer.active = true;
+            console.log("showing");
+        }
+    }
+
+    closePlayerPopupLayer(myselfID) {
+        if (smc.room.RoomModel.owner.RoleModel.id == myselfID) {
+            this.playerPopupLayer.active = false;
+            console.log("closing");
+        }
+    }
+
     ringSomeone() {
-        // smc.room.playerAttack();  这里获取玩家与目标对象传值
+        smc.room.playerAttack(this.collisionSelf, this.collisionOther);
     }
 
     private exit() {
