@@ -141,18 +141,14 @@ export class RoleViewUIComp extends CCComp {
         }
     }
 
-    showPlayerPopupLayer(myselfID) {
-        if (smc.room.RoomModel.owner.RoleModel.id == myselfID) { 
-            this.playerPopupLayer.active = true;
-            console.log("showing");
-        }
+    showPlayerPopupLayer() {
+        this.playerPopupLayer.active = true;
+        console.log("showing");
     }
 
-    closePlayerPopupLayer(myselfID) {
-        if (smc.room.RoomModel.owner.RoleModel.id == myselfID) {
-            this.playerPopupLayer.active = false;
-            console.log("closing");
-        }
+    closePlayerPopupLayer() {
+        this.playerPopupLayer.active = false;
+        console.log("closing");
     }
 
     ringSomeone() {
