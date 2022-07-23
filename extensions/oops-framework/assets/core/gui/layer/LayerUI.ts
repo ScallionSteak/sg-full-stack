@@ -126,15 +126,15 @@ export class LayerUI extends Node {
      * @returns 
      */
     protected createChatNode(prefab: Prefab | null, viewParams: ViewParams) {
+        //以下写法纯粹demo写法，一旦UI确定了，再看怎么写合适
         viewParams.valid = true;
         let childNode: Node | null = viewParams!.node!;
         let comp: DelegateComponent | null = childNode.getComponent(DelegateComponent);
         let layerUINode: Node = this.parent.children[2];
-        let chatNode: Node = layerUINode.getChildByName('chat');
-        let viewNode: Node = chatNode.getChildByName('dialogScrollView').children[0];
+        let chatNode: Node = layerUINode.getChildByName('role_controller');
+        let viewNode: Node = chatNode.getChildByName('chat').getChildByName('dialogScrollView').children[0];
         let contentNode: Node = viewNode.children[0];
         contentNode.insertChild(childNode,0);
-        //以下写法纯粹demo写法，一旦UI确定了，再看怎么写合适
         if (contentNode.children.length > 7) {
             contentNode.getComponent(UITransform).setContentSize(new Size(260, contentNode.children.length * 100));
         }    

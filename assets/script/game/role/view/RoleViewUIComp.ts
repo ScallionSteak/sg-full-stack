@@ -60,6 +60,9 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: Node })
     daoLogoGroupLayer: Node = null!;
 
+    @property({ type: Node })
+    chatLayer: Node = null!;
+
     /** 控制的目标角色 */
     private target: Role = null!;
     public mvc = null;
@@ -86,7 +89,7 @@ export class RoleViewUIComp extends CCComp {
     }
 
     openChatWindow() {
-        oops.gui.open(UIID.Demo_Chat);
+        this.chatLayer.active = true;
     }
 
     showMapIntroduction() {
@@ -130,12 +133,12 @@ export class RoleViewUIComp extends CCComp {
 
     showPlayerPopupLayer() {
         this.playerPopupLayer.active = true;
-        console.log("showing");
+        // console.log("showing");
     }
 
     closePlayerPopupLayer() {
         this.playerPopupLayer.active = false;
-        console.log("closing");
+        // console.log("closing");
     }
 
     ringSomeone() {

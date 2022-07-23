@@ -13,7 +13,11 @@ import { MapViewComp } from "../view/MapViewComp";
 /** 地图角色添加 */
 @ecs.register('MapUnload')
 export class MapUnloadComp extends ecs.Comp {
-    reset() { }
+    callback: Function = null!;
+
+    reset() {
+        this.callback = null;
+    }
 }
 
 export class MapUnloadSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
@@ -29,6 +33,10 @@ export class MapUnloadSystem extends ecs.ComblockSystem implements ecs.IEntityEn
         resLoader.release(e.MapModel.path);
         resLoader.releaseDir("game");
 
+        e.get(MapUnloadComp).callback();
+
+
         Logger.logBusiness("【地图】释放地图资源");
+
     }
 }

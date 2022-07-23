@@ -9,6 +9,7 @@ import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops"
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { UIID } from "../../common/config/GameUIConfig";
 import { smc } from "../../common/ecs/SingletonModuleComp";
+import { MapViewComp } from "../../scene/view/MapViewComp";
 import { Room } from "../Room";
 import { RoomNetMsgComp } from "./RoomNetMsg";
 
@@ -24,7 +25,7 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
     }
 
     entityEnter(e: Room): void {
-        // e.remove(RoomNetMsgComp);
+        e.remove(RoomNetMsgComp);
 
         // 清理地图上的玩家
         let players = e.RoomModel.players;
@@ -35,12 +36,17 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         var playerName = e.RoomModel.playerName;
         var roomId = e.RoomModel.roomId;
         var serverUrl = e.RoomModel.serverUrl;
-
+        console.log("test room info ====", e.RoomModel.roomName);
         // 房间数据清理
         e.RoomModel.reset();
 
         // 卸载地图
-        smc.scene.unload();
+        smc.scene.unload(() => {
+            // e.destroy();
+            // smc.room = ecs.getEntity<Room>(Room);
+            // smc.room.join(roomId, serverUrl, playerName);
+        });
+        // smc.scene.remove(MapViewComp);
 
         // // 关闭角色只界面
         oops.gui.remove(UIID.Demo_Role_Controller);
@@ -52,7 +58,11 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
 
         Logger.logBusiness("【房间】自己离开");
 
-        // 后续修改：需要在这里添加转到下一个地图的逻辑 调用s's
-        e.join2(roomId, serverUrl, playerName);
+        // 后续修改：需要在这里添加转到下一个地图的逻辑
+        setTimeout(() => {
+            e.destroy();
+            smc.room = ecs.getEntity<Room>(Room);
+            smc.room.join(roomId, serverUrl, playerName);
+        }, 500)
     }
 }

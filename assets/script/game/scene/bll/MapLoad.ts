@@ -88,6 +88,7 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
             case 'A-Public Space':
                 //待建筑都确定后，要一个个的加，每个有互动的建筑一个layer
+                mm.testBountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
                 break;
             case 'seeDaoMap':
                 mm.testBountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;

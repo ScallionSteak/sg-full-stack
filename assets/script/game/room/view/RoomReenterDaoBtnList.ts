@@ -60,10 +60,10 @@ export class RoomReenterDaoBtnList extends Component {
         smc.room.RoomModel.roomId = this.roomInfo.roomId;
         smc.room.RoomModel.serverUrl = this.roomInfo.serverUrl;
         smc.room.RoomModel.playerName = localStorage.getItem('username');
-
+        smc.room.RoomModel.roomName = this.roomInfo.name;
+        console.log("romm info ------- ", this.roomInfo);
         smc.room.leave();
-        
-        console.log(this.roomInfo);
+
         // this._options.onClick({
         //     serverUrl: this.roomInfo.serverUrl,
         //     roomName: this.roomInfo.name,

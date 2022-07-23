@@ -27,7 +27,7 @@ export class RoleViewChat extends CCComp {
     chatContent: EditBox = null!;
 
     closeSelf() {
-        oops.gui.remove(UIID.Demo_Chat);
+        this.node.active = false;
     }
 
     /** 聊天 */

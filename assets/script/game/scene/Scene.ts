@@ -38,8 +38,8 @@ export class Scene extends ecs.Entity {
     }
 
     /** 卸载地图 */
-    unload() {
-        this.add(MapUnloadComp);
+    unload(callback: Function) {
+        this.add(MapUnloadComp).callback = callback;
     }
 }
 

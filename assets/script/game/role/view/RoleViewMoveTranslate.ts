@@ -29,11 +29,11 @@ export class RoleViewMoveTranslate extends MoveTranslate {
             if (!tile.barrier) {
                 this.node.translate(this.vectorC, Node.NodeSpace.WORLD);
             } else {
-                //是障碍物的话，要进一步判断是哪个building
+                //是障碍物的话，要进一步判断是哪个building，然后判断该UI是否被打开了，没打开就打开
                 if (tile.buildingID >= 0) {
-                    if (!this.flag && !oops.gui.has(UIID.Demo_Chat)) {
+                    if (!this.flag && !oops.gui.has(111)) {
                         this.flag = true;
-                        await oops.gui.openAsync(UIID.Demo_Chat);
+                        await oops.gui.openAsync(111);
                         this.flag = false;
                     }
                 }
@@ -48,19 +48,21 @@ export class RoleViewMoveTranslate extends MoveTranslate {
              */
             smc.room.RoomModel.players.forEach(p => {
                 if (p.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
-                    console.log("owner, don't compare");
+                    // console.log("owner, don't compare");
                 } else {
                     var nodePos = smc.room.RoomModel.owner.RoleView.node.position;
                     var dist = Vec3.distance(p.RoleView.node.position, nodePos);
-                    if (dist < 50) { //测下来，50左右比较接近
-                        var role_controller = find("root/gui/LayerUI/role_controller");
-                        role_controller.getComponent(RoleViewUIComp).showPlayerPopupLayer();
-                        role_controller.getComponent(RoleViewUIComp).collisionSelf = smc.room.RoomModel.owner;
-                        role_controller.getComponent(RoleViewUIComp).collisionOther = p;
-                    } else {
-                        var role_controller = find("root/gui/LayerUI/role_controller");
-                        role_controller.getComponent(RoleViewUIComp).closePlayerPopupLayer();
+                    var role_controller = find("root/gui/LayerUI/role_controller");
+                    if(role_controller){
+                        if (dist < 50) { //测下来，50左右比较接近
+                            role_controller.getComponent(RoleViewUIComp).showPlayerPopupLayer();
+                            role_controller.getComponent(RoleViewUIComp).collisionSelf = smc.room.RoomModel.owner;
+                            role_controller.getComponent(RoleViewUIComp).collisionOther = p;
+                        } else {
+                            role_controller.getComponent(RoleViewUIComp).closePlayerPopupLayer();
+                        }
                     }
+
                 }
             })
         }

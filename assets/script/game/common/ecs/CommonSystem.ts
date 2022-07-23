@@ -17,7 +17,7 @@ export class CommonSystem extends ecs.System {
 
         this.add(new EcsInitializeSystem());
         this.add(new EcsRoomSystem());
-        this.add(new EcsSceneSystem());
         this.add(new EcsRoleSystem());
+        this.add(new EcsSceneSystem());
     }
 }
