@@ -51,7 +51,7 @@ export class RoomMatch extends GameComponent {
         if (ret.isSucc) {
             try {
                 var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
-                walletAddress = { walletAddress: '0x172697d24Da16f36caf2FAdC3e78B5a538fC858E'};
+                walletAddress = { walletAddress: '0x172697d24Da16f36caf2FAdC3e78B5a538fC858f'};
                 console.log('walletaddress is ---------', walletAddress);
                 var _http = new HttpRequestForDS();
                 var url = '/queryUserConfigByWalletAddress';

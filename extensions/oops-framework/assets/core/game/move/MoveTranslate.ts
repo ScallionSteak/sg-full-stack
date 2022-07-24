@@ -25,19 +25,7 @@ export class MoveTranslate extends Component {
     update(dt: number) {
         if (this.speed > 0) {
             Vec3.multiplyScalar(this.vector, this.velocity, this.speed * dt);
-            //如果node移动后的tile是障碍物，那就不移动
-            var curPosX = this.node.position.x;
-            var curPosY = this.node.position.y;
-            var newPos = v3(curPosX,curPosY,0).add(this.vector);
-            var tile = smc.scene.MapModel.getPosToTile(newPos);
-            if(!tile.barrier) {
-                this.node.translate(this.vector, Node.NodeSpace.WORLD);
-            } else {
-                //是障碍物的话，要进一步判断是哪个building
-                if (tile.buildingID >= 0) {
-                    //todo 这里没法直接调用oops.gui
-                }
-            }
+            this.node.translate(this.vector, Node.NodeSpace.WORLD);
         }
     }
 }

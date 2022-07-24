@@ -54,7 +54,6 @@ export class RoomListItem extends Component {
 
     saveUserInfo() {
         var jsonfile = { username: this.userName.getComponent(EditBox).string, walletAddress: localStorage.getItem('walletAddress'), userModel: this.selectedUserModel };
-        console.log('jsonfile is ---------', jsonfile);
         oops.http.postJSON('/insertUserConfig', jsonfile, (res) => {
             console.log('test res', res);
         });

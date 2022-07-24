@@ -31,20 +31,37 @@ export class RoleViewMoveTranslate extends MoveTranslate {
             } else {
                 //是障碍物的话，要进一步判断是哪个building，然后判断该UI是否被打开了，没打开就打开
                 if (tile.buildingID >= 0) {
-                    if (!this.flag && !oops.gui.has(111)) {
+                    /** 
+                     * switch中的顺序要和MapLoad中把建筑物push进数组的下标顺序保持一致
+                     */
+                    switch (tile.buildingID) {
+                        case 0:
+                            var uiToOpen = UIID.Demo_Role_Controller;
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            break;
+                    }
+                    if (!this.flag && !oops.gui.has(uiToOpen)) {
                         this.flag = true;
-                        await oops.gui.openAsync(111);
+                        await oops.gui.openAsync(uiToOpen);
                         this.flag = false;
                     }
                 }
             }
 
-            /** 通过距离判断是否产生‘碰撞’效果，写完后需去除物理引擎代码 */
             /** 
-             * 要实现的逻辑：
-             * 1. 遍历所有玩家，计算和自己的距离，在多少范围内就执行某个动作
-             * 2. 如果和多个玩家都在距离内，要弹出多个窗口，这个先不处理，有需要再说
-             * 3. 出生的时候不要执行碰撞检测
+             * 1. 遍历所有玩家，计算和自己的距离，在多少范围内就打开窗口，远离了就关闭
+             * 2. 如果和多个玩家都在距离内，要弹出多个窗口，这个mvp里先不处理，有需要再说
              */
             smc.room.RoomModel.players.forEach(p => {
                 if (p.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {

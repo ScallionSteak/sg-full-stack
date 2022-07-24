@@ -87,17 +87,20 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
          */
         switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
             case 'A-Public Space':
-                //待建筑都确定后，要一个个的加，每个有互动的建筑一个layer
-                mm.testBountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
+                //不共用的layer这里读
                 break;
             case 'seeDaoMap':
-                mm.testBountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
                 break;
             default:
                 break;
         }
         //共有的要读的layer放这里
-        mm.floor = e.MapView.tiledmap.getLayer("Background")!;
+        mm.bountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
+        mm.gardenBuilding = e.MapView.tiledmap.getLayer("gardenBuilding")!;
+        mm.meetingBuilding = e.MapView.tiledmap.getLayer("meetingBuilding")!;
+        mm.personalCenterBuilding = e.MapView.tiledmap.getLayer("personalCenterBuilding")!;
+        mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("projectsParkBuilding")!;
+        mm.floor = e.MapView.tiledmap.getLayer("background")!;
         mm.barrier = e.MapView.tiledmap.getLayer("collision")!;
         mm.game = e.MapView.tiledmap.getObjectGroup("game")!;
         mm.game.node.active = true; //强制打开，以防不当心别的地方或者调试的时候关掉了
@@ -112,22 +115,6 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         mm.tiledHeightHalf = mm.tiledHeight / 2;
         mm.widthHalf = mm.width / 2;
         mm.heightHalf = mm.height / 2;
-
-        /** 感觉是坐标系不对的问题，但效率也低，先不调试了 */
-        // let collisionLayerSize = mm.barrier.getLayerSize();
-        // for(let i = 0; i < collisionLayerSize.width; i++) {
-        //     for(let j = 0; j < collisionLayerSize.height; j++) {
-        //         let tiled = mm.barrier.getTiledTileAt(i, j, true);
-        //         if (tiled.grid != 0) {
-        //             let body = tiled.node.addComponent(RigidBody);
-        //             body.type = RigidBody.Type.STATIC;
-        //             let collider = tiled.node.addComponent(BoxCollider);
-        //             collider.center.x = tiledSize.width / 2;
-        //             collider.center.y = tiledSize.height / 2;
-        //             collider.size = v3(tiledSize.width, tiledSize.height, 1);                    
-        //         }
-        //     }
-        // }
 
         /** 效率比较高的记录碰撞层的方式 */
         for (let x = 0; x < mm.tiledXCount; x++) {
@@ -150,13 +137,18 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 tile.barrier = barrier_gid != 0;
 
                 //建筑数据
-                let bountyBuilding_gid = mm.testBountyBuilding.getTileGIDAt(x,y);
+                let bountyBuilding_gid = mm.bountyBuilding.getTileGIDAt(x,y);
+                let gardenBuilding_gid = mm.gardenBuilding.getTileGIDAt(x, y);
+                let meetingBuilding_gid = mm.meetingBuilding.getTileGIDAt(x, y);
+                let personalCenterBuilding_gid = mm.personalCenterBuilding.getTileGIDAt(x, y);
+                let projectsParkBuilding_gid = mm.projectsParkBuilding.getTileGIDAt(x, y);
                 let buildingGidArr = [];
-                buildingGidArr.push(bountyBuilding_gid);
+                buildingGidArr.push(bountyBuilding_gid, gardenBuilding_gid, meetingBuilding_gid, personalCenterBuilding_gid, projectsParkBuilding_gid);
                 tile.buildingID = -1; //设定默认值，代表不是building，除非后面主动赋值了，不然就是没building
                 for (let i = 0; i< buildingGidArr.length; i++) {
                     if (buildingGidArr[i] != 0) {
-                        tile.buildingID = i;  //所以building顺序不能变
+                        tile.buildingID = i;  //所以buildingID的顺序要喝上面push的顺序保持一致
+                        break;
                     }
                 }
                 mm.tiles[x].push(tile);
