@@ -2,15 +2,38 @@
   "ver": "1.0.23",
   "importer": "image",
   "imported": true,
-  "uuid": "986918a9-0ede-4780-9963-8d7a8bdf3cff",
+  "uuid": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a",
   "files": [
     ".json",
     ".png"
   ],
   "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a@6c48a",
+      "displayName": "Modern_Exteriors_Complete_Tileset",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a",
+        "isUuid": true,
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "986918a9-0ede-4780-9963-8d7a8bdf3cff@f9941",
+      "uuid": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a@f9941",
       "displayName": "Modern_Exteriors_Complete_Tileset",
       "id": "f9941",
       "name": "spriteFrame",
@@ -32,33 +55,10 @@
         "borderRight": 0,
         "packable": true,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "986918a9-0ede-4780-9963-8d7a8bdf3cff@6c48a",
+        "imageUuidOrDatabaseUri": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.9",
-      "imported": true,
-      "files": [
-        ".json"
-      ],
-      "subMetas": {}
-    },
-    "6c48a": {
-      "importer": "texture",
-      "uuid": "986918a9-0ede-4780-9963-8d7a8bdf3cff@6c48a",
-      "displayName": "Modern_Exteriors_Complete_Tileset",
-      "id": "6c48a",
-      "name": "texture",
-      "userData": {
-        "wrapModeS": "clamp-to-edge",
-        "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "986918a9-0ede-4780-9963-8d7a8bdf3cff",
-        "isUuid": true,
-        "minfilter": "linear",
-        "magfilter": "linear",
-        "mipfilter": "none",
-        "anisotropy": 0
-      },
-      "ver": "1.0.21",
       "imported": true,
       "files": [
         ".json"
@@ -70,6 +70,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "986918a9-0ede-4780-9963-8d7a8bdf3cff@f9941"
+    "redirect": "ec5e7fb1-1c8c-4309-8ee4-2755e008bc3a@f9941"
   }
 }
