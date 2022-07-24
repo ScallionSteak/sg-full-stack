@@ -97,8 +97,6 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         //共有的要读的layer放这里
         mm.bountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
         mm.gardenBuilding = e.MapView.tiledmap.getLayer("gardenBuilding")!;
-        mm.meetingBuilding = e.MapView.tiledmap.getLayer("meetingBuilding")!;
-        mm.personalCenterBuilding = e.MapView.tiledmap.getLayer("personalCenterBuilding")!;
         mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("projectsParkBuilding")!;
         mm.floor = e.MapView.tiledmap.getLayer("background")!;
         mm.barrier = e.MapView.tiledmap.getLayer("collision")!;
@@ -139,11 +137,9 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 //建筑数据
                 let bountyBuilding_gid = mm.bountyBuilding.getTileGIDAt(x,y);
                 let gardenBuilding_gid = mm.gardenBuilding.getTileGIDAt(x, y);
-                let meetingBuilding_gid = mm.meetingBuilding.getTileGIDAt(x, y);
-                let personalCenterBuilding_gid = mm.personalCenterBuilding.getTileGIDAt(x, y);
                 let projectsParkBuilding_gid = mm.projectsParkBuilding.getTileGIDAt(x, y);
                 let buildingGidArr = [];
-                buildingGidArr.push(bountyBuilding_gid, gardenBuilding_gid, meetingBuilding_gid, personalCenterBuilding_gid, projectsParkBuilding_gid);
+                buildingGidArr.push(bountyBuilding_gid, gardenBuilding_gid, projectsParkBuilding_gid);
                 tile.buildingID = -1; //设定默认值，代表不是building，除非后面主动赋值了，不然就是没building
                 for (let i = 0; i< buildingGidArr.length; i++) {
                     if (buildingGidArr[i] != 0) {

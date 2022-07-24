@@ -58,8 +58,6 @@ export class MapModelComp extends ecs.Comp {
     /** 各建筑物 */
     bountyBuilding: TiledLayer = null;
     gardenBuilding: TiledLayer = null;
-    meetingBuilding: TiledLayer = null;
-    personalCenterBuilding: TiledLayer = null;
     projectsParkBuilding: TiledLayer = null;
 
     /** 所有游戏网格数据 */
