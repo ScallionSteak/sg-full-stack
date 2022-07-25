@@ -36,11 +36,16 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                      */
                     switch (tile.buildingID) {
                         case 0:
-                            var uiToOpen = UIID.Demo_Role_Controller;
+                            var uiToOpen = UIID.Demo_bountyDashboard;
+                            console.log("test..............", uiToOpen);
                             break;
                         case 1:
+                            var uiToOpen = UIID.Demo_daoGarden;
+                            console.log("test..............", uiToOpen);
                             break;
                         case 2:
+                            var uiToOpen = UIID.Demo_projectsPark;
+                            console.log("test..............", uiToOpen);
                             break;
                         default:
                             break;

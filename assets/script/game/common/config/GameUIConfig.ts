@@ -24,6 +24,20 @@ export enum UIID {
     Demo_ChatTextFromSelf,
     /** 单条聊天记录-其他人 */
     Demo_ChatTextFromOthers,
+    /** 赏金任务list面板 */
+    Demo_bountyDashboard,
+    /** DAO garden面板 */
+    Demo_daoGarden,
+    /** projects park面板 */
+    Demo_projectsPark,
+    /** 赏金任务面板 */
+    Demo_bountyBoard,
+    /** 钱包面板 */
+    Demo_wallet,
+    /** 会议面板 */
+    Demo_meeting,
+    /** 个人中心面板 */
+    Demo_personalCenter,
 }
 
 /** 打开界面方式的配置数据 */
@@ -36,4 +50,11 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_Match]: { layer: LayerType.UI, prefab: "gui/match/match" },
     [UIID.Demo_ChatTextFromSelf]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromSelf" },
     [UIID.Demo_ChatTextFromOthers]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromOthers" },
+    [UIID.Demo_bountyDashboard]: { layer: LayerType.UI, prefab: "gui/game/bountyDashboard" },
+    [UIID.Demo_daoGarden]: { layer: LayerType.UI, prefab: "gui/game/daoGarden" },
+    [UIID.Demo_projectsPark]: { layer: LayerType.UI, prefab: "gui/game/projectsPark" },
+    [UIID.Demo_bountyBoard]: { layer: LayerType.UI, prefab: "gui/game/bountyBoard" },
+    [UIID.Demo_wallet]: { layer: LayerType.UI, prefab: "gui/game/wallet" },
+    [UIID.Demo_meeting]: { layer: LayerType.UI, prefab: "gui/game/meeting" },
+    [UIID.Demo_personalCenter]: { layer: LayerType.UI, prefab: "gui/game/personalCenter" },
 }

@@ -145,6 +145,18 @@ export class RoleViewUIComp extends CCComp {
         smc.room.playerAttack(this.collisionSelf, this.collisionOther);
     }
 
+    openWalletWindow() {
+        oops.gui.open(UIID.Demo_wallet);
+    }
+
+    openMeetingWindow() {
+        oops.gui.open(UIID.Demo_meeting);
+    }
+
+    openPersonalCenterWindow() {
+        oops.gui.open(UIID.Demo_personalCenter);
+    }
+
     private exit() {
         smc.room.leave();
     }
