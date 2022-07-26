@@ -40,7 +40,6 @@ export class RoleModelComp extends ecs.Comp {
     set nickname(value: string) {
         this._nickname = value;
         this.vm.name = value;
-console.log("i'm susu");
     }
 
     /** 移动速度 */
