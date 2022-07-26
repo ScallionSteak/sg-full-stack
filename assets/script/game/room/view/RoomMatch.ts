@@ -51,11 +51,12 @@ export class RoomMatch extends GameComponent {
         if (ret.isSucc) {
             try {
                 var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
-                walletAddress = { walletAddress: '0x172697d24Da16f36caf2FAdC3e78B5a538fC858E'};
+                walletAddress = {walletAddress: 'test1'};
                 console.log('walletaddress is ---------', walletAddress);
                 var _http = new HttpRequestForDS();
                 var url = '/queryUserConfigByWalletAddress';
                 _http.postJSON(url, walletAddress, (res) => {
+                    console.log('rooms are =====', ret.res.rooms);
                     let node = instantiate(this.prefabRoomListItem);
                     this.node.addChild(node);
                     if (res == '0') {
@@ -63,7 +64,12 @@ export class RoomMatch extends GameComponent {
                          * 新用户，这个0是在服务端的参数，万一要修改，需要客户端服务端互相告知
                          * 新用户那就只处理公区房间就好了
                          */
-                        let pbRoomInfo = ret.res.rooms[0];
+                        for(let i = 0; i< ret.res.rooms.length; i++) {
+                            if(ret.res.rooms[i].name == 'PublicSpaceRoom'){
+                                var pbRoomInfo = ret.res.rooms[i];
+                                break;
+                            }
+                        }
                         node.getComponent(RoomListItem)!.isNew = true;
                         node.getComponent(RoomListItem)!.options = {
                             room: pbRoomInfo,
