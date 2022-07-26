@@ -51,12 +51,10 @@ export class RoomMatch extends GameComponent {
         if (ret.isSucc) {
             try {
                 var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
-                walletAddress = {walletAddress: 'test1'};
                 console.log('walletaddress is ---------', walletAddress);
                 var _http = new HttpRequestForDS();
                 var url = '/queryUserConfigByWalletAddress';
                 _http.postJSON(url, walletAddress, (res) => {
-                    console.log('rooms are =====', ret.res.rooms);
                     let node = instantiate(this.prefabRoomListItem);
                     this.node.addChild(node);
                     if (res == '0') {
@@ -88,7 +86,6 @@ export class RoomMatch extends GameComponent {
                         localStorage.setItem('username', resAsJson[0].username);
                         localStorage.setItem('roleModelID', resAsJson[0].userModel);
                         //创建各个DAO房间信息
-                        console.log(ret.res.rooms);
                         for (let roomInfo of ret.res.rooms) {
                             if (roomInfo.name != 'PublicSpaceRoom') {
                                 //DAO私域创建

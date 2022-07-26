@@ -36,7 +36,8 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         var playerName = e.RoomModel.playerName;
         var roomId = e.RoomModel.roomId;
         var serverUrl = e.RoomModel.serverUrl;
-        console.log("test room info ====", e.RoomModel.roomName);
+        var roomName = e.RoomModel.roomName;
+        
         // 房间数据清理
         e.RoomModel.reset();
 
@@ -62,7 +63,11 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         setTimeout(() => {
             e.destroy();
             smc.room = ecs.getEntity<Room>(Room);
-            smc.room.join(roomId, serverUrl, playerName);
+            smc.room.RoomModel.roomId = roomId;
+            smc.room.RoomModel.serverUrl = serverUrl;
+            smc.room.RoomModel.playerName = playerName;
+            smc.room.RoomModel.roomName = roomName;
+            smc.room.join(roomId, serverUrl, playerName, roomName);
         }, 500)
     }
 }

@@ -1,6 +1,6 @@
 import { oops } from "../Oops";
 
-const url = 'http://47.241.9.181:3009';
+const url = 'http://127.0.0.1:3009';
 
 export class HttpRequestForDS {
 

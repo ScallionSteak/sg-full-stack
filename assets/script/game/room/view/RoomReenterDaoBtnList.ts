@@ -57,18 +57,14 @@ export class RoomReenterDaoBtnList extends Component {
     }
 
     onBtnSwitch() {
+        /** 如果是从引导点进来的，要关闭引导的窗口 */
+        if (oops.gui.has(UIID.Demo_npcDialog)) {
+            oops.gui.remove(UIID.Demo_npcDialog);
+        }
         smc.room.RoomModel.roomId = this.roomInfo.roomId;
         smc.room.RoomModel.serverUrl = this.roomInfo.serverUrl;
         smc.room.RoomModel.playerName = localStorage.getItem('username');
         smc.room.RoomModel.roomName = this.roomInfo.name;
-        console.log("romm info ------- ", this.roomInfo);
         smc.room.leave();
-
-        // this._options.onClick({
-        //     serverUrl: this.roomInfo.serverUrl,
-        //     roomName: this.roomInfo.name,
-        //     roomId: this.roomInfo.roomId,
-        //     playerName: localStorage.getItem('username')
-        // })
     }
 }

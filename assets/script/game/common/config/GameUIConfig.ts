@@ -38,6 +38,8 @@ export enum UIID {
     Demo_meeting,
     /** 个人中心面板 */
     Demo_personalCenter,
+    /** NPC对话 */
+    Demo_npcDialog,
 }
 
 /** 打开界面方式的配置数据 */
@@ -57,4 +59,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_wallet]: { layer: LayerType.UI, prefab: "gui/game/wallet" },
     [UIID.Demo_meeting]: { layer: LayerType.UI, prefab: "gui/game/meeting" },
     [UIID.Demo_personalCenter]: { layer: LayerType.UI, prefab: "gui/game/personalCenter" },
+    [UIID.Demo_npcDialog]: { layer: LayerType.UI, prefab: "gui/game/npcDialog" },
 }

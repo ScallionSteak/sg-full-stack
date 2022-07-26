@@ -102,6 +102,24 @@ app.post('/insertUserConfig', upload.any(), function (req, res, next) {
 
 });
 
+app.post('/updateUserConfig', upload.any(), function (req, res, next) {
+    var sgGuideStatus = req.body.sgGuideStatus;
+    var seeDaoGuideStatus = req.body.seeDaoGuideStatus;
+    var walletAddress = req.body.walletAddress;
+    if (sgGuideStatus == '1') {
+        var sql = "UPDATE userconfig SET sgOnboardingStatus = '1' where walletAddress ='" + walletAddress + "';";
+    } else if (seeDaoGuideStatus == '1') {
+        var sql = "UPDATE userconfig SET seeDaoOnboardingStatus = '1' where walletAddress ='" + walletAddress + "';";
+    }
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[update error]:', err.message);
+        }
+        str = JSON.stringify(result);
+        res.send(str);
+    });
+});
+
 app.post('/queryUserConfigByWalletAddress', upload.any(), function (req, res, next) {
     //get要用req.query（待核实，但post要用req.body）
     var walletAddress = req.body.walletAddress;
@@ -118,6 +136,20 @@ app.post('/queryUserConfigByWalletAddress', upload.any(), function (req, res, ne
         } else {
             str = '0';
         }
+        res.send(str);
+    });
+});
+
+app.post('/queryUserGuideStatus', upload.any(), function (req, res, next) {
+    //get要用req.query（待核实，但post要用req.body）
+    var walletAddress = req.body.walletAddress;
+    var sql = "select * from userconfig where walletaddress = '" + walletAddress + "';";
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[select error]:', err.message);
+        }
+        console.log("query result ========", result);
+        str = result;
         res.send(str);
     });
 });

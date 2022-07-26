@@ -57,6 +57,8 @@ export class RoomListItem extends Component {
         oops.http.postJSON('/insertUserConfig', jsonfile, (res) => {
             console.log('test res', res);
         });
+        localStorage.setItem('username', jsonfile.username);
+        localStorage.setItem('roleModelID', jsonfile.userModel);
     }
 
     manageUIByUserType() {

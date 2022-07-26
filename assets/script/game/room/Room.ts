@@ -68,29 +68,12 @@ export class Room extends ecs.Entity {
      * @param serverUrl     房间服地址
      * @param playerName    玩家名
      */
-    join(roomId?: string, serverUrl?: string, playerName?: string) {
+    join(roomId?: string, serverUrl?: string, playerName?: string, roomName?: string) {
         if (roomId) this.RoomModel.roomId = roomId;
         if (serverUrl) this.RoomModel.serverUrl = serverUrl;
         if (playerName) this.RoomModel.playerName = playerName;
+        if (roomName) this.RoomModel.roomName = roomName;
         this.add(RoomServerConnectComp);
-    }
-
-    async join2(roomId?: string, serverUrl?: string, playerName?: string) {
-        if (roomId) this.RoomModel.roomId = roomId;
-        if (serverUrl) this.RoomModel.serverUrl = serverUrl;
-        if (playerName) this.RoomModel.playerName = playerName;
-
-        let retRoomJoin = await this.RoomModelNet.wsc.callApi(`RoomJoin`, {
-            roomId: roomId,
-            nickname: playerName
-        });
-
-        if (retRoomJoin.isSucc) {
-            this.add(RoomOwnerJoinComp).data = retRoomJoin.res;
-        }
-        else {
-            Logger.logBusiness(retRoomJoin.err, '【房间】房间加入失败');
-        }
     }
 
     /** 离开房间 */

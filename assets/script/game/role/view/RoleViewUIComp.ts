@@ -20,6 +20,7 @@ import { RoomUtil } from '../../room/bll/RoomUtil';
 import { RoomReenterDaoBtnList } from '../../room/view/RoomReenterDaoBtnList';
 import { MapViewControl } from '../../scene/view/MapViewControl';
 import { RoomEnterDaoBtnList } from '../../room/view/RoomEnterDaoBtnList';
+import { HttpRequestForDS } from '../../../../../extensions/oops-framework/assets/core/network/http';
 const { ccclass, property } = _decorator;
 
 /** 角色摇撼控制 */
@@ -78,7 +79,7 @@ export class RoleViewUIComp extends CCComp {
     initMiniMap() {
         this.mvc = smc.scene.MapView.node.getComponent(MapViewControl);
         var mapName = smc.room.RoomModel.roomName;
-        this.miniMapSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('mini' + mapName);
+        this.miniMapSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('mini' + mapName);        
     }
 
     updatePlayerOnMiniMap() {
@@ -86,6 +87,28 @@ export class RoleViewUIComp extends CCComp {
         var miniX = - playerPos.x * (this.miniMapSprite.getComponent(UITransformComponent).width / this.mvc.width);
         var miniY = - playerPos.y * (this.miniMapSprite.getComponent(UITransformComponent).height / this.mvc.height);
         this.playerOnMiniMap.setPosition(miniX, miniY, 0);
+    }
+
+    checkGuide() {
+        var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
+        var _http = new HttpRequestForDS();
+        var url = '/queryUserGuideStatus';
+        _http.postJSON(url, walletAddress, (res) => {
+            var resAsJson = JSON.parse(res);
+            var curRoom = smc.room.RoomModel.roomName;
+            console.log("room name is -------", curRoom);
+            var sgGuideStatus = resAsJson[0].sgOnboardingStatus;
+            var seeDaoGuideStatus = resAsJson[0].seeDaoOnboardingStatus;
+            if (curRoom == "PublicSpaceRoom") {
+                if (sgGuideStatus == '0') {
+                    oops.gui.open(UIID.Demo_npcDialog);
+                }
+            } else if (curRoom == "SeeDAORoom") {
+                if (seeDaoGuideStatus == '0') {
+                    oops.gui.open(UIID.Demo_npcDialog);
+                }
+            }
+        });        
     }
 
     openChatWindow() {
@@ -118,6 +141,7 @@ export class RoleViewUIComp extends CCComp {
         let ret = await smc.room.RoomModelNet.hc.callApi('RoomList', {});
         if (ret.isSucc) {
             try {
+                this.checkGuide();
                 for (let roomInfo of ret.res.rooms) {
                     let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
                     let btnList = btnNode.getComponent(RoomReenterDaoBtnList);
@@ -133,12 +157,12 @@ export class RoleViewUIComp extends CCComp {
 
     showPlayerPopupLayer() {
         this.playerPopupLayer.active = true;
-        // console.log("showing");
+        console.log("showing");
     }
 
     closePlayerPopupLayer() {
         this.playerPopupLayer.active = false;
-        // console.log("closing");
+        console.log("closing");
     }
 
     ringSomeone() {
