@@ -99,7 +99,6 @@ app.get('/sampleUser', function (req, res) {
 
 app.post('/insertUserConfig', upload.any(), function (req, res, next) {
     insertUserConfig(req.body);
-
 });
 
 app.post('/updateUserConfig', upload.any(), function (req, res, next) {
@@ -123,14 +122,11 @@ app.post('/updateUserConfig', upload.any(), function (req, res, next) {
 app.post('/queryUserConfigByWalletAddress', upload.any(), function (req, res, next) {
     //get要用req.query（待核实，但post要用req.body）
     var walletAddress = req.body.walletAddress;
-    console.log("wallet from dataserver", req.body);
-    // walletAddress = "'" + walletAddress + "'";
     var sql = "select * from userconfig where walletaddress = '" + walletAddress + "';";
     connection.query(sql, function (err, result) {
         if (err) {
             console.log('[select error]:', err.message);
         }
-        console.log("this is the query result ========================", result);
         if (JSON.stringify(result).length > 2) {
             str = result;
         } else {
@@ -148,7 +144,61 @@ app.post('/queryUserGuideStatus', upload.any(), function (req, res, next) {
         if (err) {
             console.log('[select error]:', err.message);
         }
-        console.log("query result ========", result);
+        str = result;
+        res.send(str);
+    });
+});
+
+app.post('/queryBountiesByBountyStatus', upload.any(), function (req, res, next) {
+    var bountyStatus = req.body.bountyStatus;
+    console.log('bountyStatus is ', bountyStatus);
+    var sql = "select * from bountyconfig where bountyStatus = '" + bountyStatus + "';";
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[select error]:', err.message);
+        }
+        str = result;
+        res.send(str);
+    });
+});
+
+app.post('/queryUserName', upload.any(), function (req, res, next) {
+    var userID = Number(req.body.userID);
+    var sql = "select username from userconfig where ID = " + userID + ";";
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[select error]:', err.message);
+        }
+        str = result;
+        res.send(str);
+    });
+});
+
+app.post('/updateBountyStatus', upload.any(), function (req, res, next) {
+    var nextStatusID = req.body.nextStatusID;
+    var bountyID = req.body.bountyID;
+    var assigneeID = req.body.userID;
+    if (nextStatusID == '5') { //超过最后一个状态了，mvp阶段就直接重置到0
+        var sql = "UPDATE bountyconfig SET bountyStatus = '0' where ID =" + bountyID + ";";
+    } else {
+        var sql = "UPDATE bountyconfig SET bountyStatus = '" + nextStatusID + "', bountyAssigneeID = '" + assigneeID + "' where ID =" + bountyID + ";";
+    }
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[update error]:', err.message);
+        }
+        str = 'status updated';
+        res.send(str);
+    });
+});
+
+app.post('/queryPersonalBounties', upload.any(), function (req, res, next) {
+    var userID = req.body.userID;
+    var sql = "select * from bountyconfig where bountyAssigneeID = '" + userID + "';";
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[update error]:', err.message);
+        }
         str = result;
         res.send(str);
     });
