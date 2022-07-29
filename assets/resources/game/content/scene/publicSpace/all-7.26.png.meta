@@ -2,7 +2,7 @@
   "ver": "1.0.23",
   "importer": "image",
   "imported": true,
-  "uuid": "9a5ecd4e-2191-491b-aa4f-9aaa79c1f556",
+  "uuid": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7",
   "files": [
     ".json",
     ".png"
@@ -10,21 +10,55 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "9a5ecd4e-2191-491b-aa4f-9aaa79c1f556@6c48a",
-      "displayName": "all-7.26",
+      "uuid": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7@6c48a",
+      "displayName": "ALL-7.26",
       "id": "6c48a",
       "name": "texture",
       "userData": {
-        "wrapModeS": "repeat",
-        "wrapModeT": "repeat",
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7",
+        "isUuid": true,
         "minfilter": "linear",
         "magfilter": "linear",
         "mipfilter": "none",
-        "anisotropy": 0,
-        "isUuid": true,
-        "imageUuidOrDatabaseUri": "9a5ecd4e-2191-491b-aa4f-9aaa79c1f556"
+        "anisotropy": 0
       },
       "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7@f9941",
+      "displayName": "ALL-7.26",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -18,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 1388,
+        "height": 4000,
+        "rawWidth": 1424,
+        "rawHeight": 4000,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7@6c48a",
+        "atlasUuid": ""
+      },
+      "ver": "1.0.9",
       "imported": true,
       "files": [
         ".json"
@@ -33,9 +67,9 @@
     }
   },
   "userData": {
-    "type": "texture",
+    "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "9a5ecd4e-2191-491b-aa4f-9aaa79c1f556@6c48a"
+    "redirect": "8dd4eed0-c2e3-40ce-92da-dc68d3cb65a7@f9941"
   }
 }

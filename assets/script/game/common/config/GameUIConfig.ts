@@ -40,6 +40,10 @@ export enum UIID {
     Demo_personalCenter,
     /** NPC对话 */
     Demo_npcDialog,
+    /** 小地图介绍界面 */
+    Demo_miniMapIntroduction,
+    /** 赏金任务详细面板 */
+    Demo_bountyDetails,
 }
 
 /** 打开界面方式的配置数据 */
@@ -60,4 +64,6 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_meeting]: { layer: LayerType.UI, prefab: "gui/game/meeting" },
     [UIID.Demo_personalCenter]: { layer: LayerType.UI, prefab: "gui/game/personalCenter" },
     [UIID.Demo_npcDialog]: { layer: LayerType.UI, prefab: "gui/game/npcDialog" },
+    [UIID.Demo_miniMapIntroduction]: { layer: LayerType.UI, prefab: "gui/game/miniMapIntroduction" },
+    [UIID.Demo_bountyDetails]: { layer: LayerType.UI, prefab: "gui/game/bountyDetails" },
 }

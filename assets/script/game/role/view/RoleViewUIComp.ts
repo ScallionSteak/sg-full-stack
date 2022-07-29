@@ -49,11 +49,8 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: SpriteAtlas })
     UIAtlas: SpriteAtlas = null!;
 
-    @property({ type: Node })
-    mapIntroductionLayer: Node = null!;
-
-    @property({ type: Node })
-    introductionOne: Node = null!;
+    @property({ type: Prefab })
+    miniMapIntroductionPrefab: Prefab = null!;
 
     @property({ type: Node })
     playerPopupLayer: Node = null!;
@@ -116,24 +113,19 @@ export class RoleViewUIComp extends CCComp {
     }
 
     showMapIntroduction() {
-        if (this.mapIntroductionLayer.active) {
-            this.mapIntroductionLayer.active = false;
+        if (oops.gui.has(UIID.Demo_miniMapIntroduction)) {
+            oops.gui.remove(UIID.Demo_miniMapIntroduction);
         } else {
-            this.mapIntroductionLayer.active = true;
+            oops.gui.open(UIID.Demo_miniMapIntroduction);
         }
     }
 
-    closeMapIntroduction() {
-        this.mapIntroductionLayer.active = false;
-    }
-
-    showBuildingIntroduction() {
-        if (this.introductionOne.active) {
-            this.introductionOne.active = false;
+    showMyBounties() {
+        if (oops.gui.has(UIID.Demo_bountyDashboard)) {
+            oops.gui.remove(UIID.Demo_bountyDashboard);
         } else {
-            this.introductionOne.active = true;
+            oops.gui.open(UIID.Demo_bountyDashboard);
         }
-
     }
 
     /** 刷新房间列表 */

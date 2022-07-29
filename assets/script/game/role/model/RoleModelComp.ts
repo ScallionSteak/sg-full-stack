@@ -31,6 +31,12 @@ export class RoleModelComp extends ecs.Comp {
     res: string = `game/content/player/player`;
     /** 角色所在地形数据 */
     tile: Tile = null!;
+    /** 角色在数据库里的id */
+    userDBID: number = 0;
+    /** 角色在数据库里的name */
+    userDBName: string = '';
+    /** 角色在数据库里的model ID */
+    userModelID: number = 1;
 
     private _nickname: string = "";
     /** 昵称 */

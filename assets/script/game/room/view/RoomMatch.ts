@@ -13,6 +13,8 @@ import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/EC
 import { UIID } from '../../common/config/GameUIConfig';
 import { smc } from '../../common/ecs/SingletonModuleComp';
 import { LoadingViewComp } from '../../initialize/view/LoadingViewComp';
+import { RoleModelComp } from '../../role/model/RoleModelComp';
+import { RoleViewComp } from '../../role/view/RoleViewComp';
 import { Room } from '../Room';
 import { RoomEvent } from '../RoomEvent';
 import { RoomEnterDaoBtnList } from './RoomEnterDaoBtnList';
@@ -83,6 +85,7 @@ export class RoomMatch extends GameComponent {
                         //老用户，用户信息存到本地，因为会到处用
                         node.getComponent(RoomListItem)!.isNew = false;
                         var resAsJson = JSON.parse(res);
+                        localStorage.setItem('userDBID', resAsJson[0].ID);
                         localStorage.setItem('username', resAsJson[0].username);
                         localStorage.setItem('roleModelID', resAsJson[0].userModel);
                         //创建各个DAO房间信息

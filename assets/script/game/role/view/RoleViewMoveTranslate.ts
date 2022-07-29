@@ -31,30 +31,36 @@ export class RoleViewMoveTranslate extends MoveTranslate {
             } else {
                 //是障碍物的话，要进一步判断是哪个building，然后判断该UI是否被打开了，没打开就打开
                 if (tile.buildingID >= 0) {
-                    /** 
-                     * switch中的顺序要和MapLoad中把建筑物push进数组的下标顺序保持一致
-                     */
-                    switch (tile.buildingID) {
-                        case 0:
-                            var uiToOpen = UIID.Demo_bountyDashboard;
-                            console.log("test..............", uiToOpen);
-                            break;
-                        case 1:
-                            var uiToOpen = UIID.Demo_daoGarden;
-                            console.log("test..............", uiToOpen);
-                            break;
-                        case 2:
-                            var uiToOpen = UIID.Demo_projectsPark;
-                            console.log("test..............", uiToOpen);
-                            break;
-                        default:
-                            break;
-                    }
-                    if (!this.flag && !oops.gui.has(uiToOpen)) {
-                        this.flag = true;
-                        await oops.gui.openAsync(uiToOpen);
-                        this.flag = false;
-                    }
+                    smc.room.RoomModel.players.forEach(async p => {
+                        if (p.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
+                            /** 
+                             * switch中的顺序要和MapLoad中把建筑物push进数组的下标顺序保持一致
+                             */
+                            switch (tile.buildingID) {
+                                case 0:
+                                    var uiToOpen = UIID.Demo_bountyBoard;
+                                    console.log("test..............", uiToOpen);
+                                    break;
+                                case 1:
+                                    var uiToOpen = UIID.Demo_daoGarden;
+                                    console.log("test..............", uiToOpen);
+                                    break;
+                                case 2:
+                                    var uiToOpen = UIID.Demo_projectsPark;
+                                    console.log("test..............", uiToOpen);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            // console.log("owner, don't compare");
+                            if (!this.flag && !oops.gui.has(uiToOpen)) {
+                                this.flag = true;
+                                await oops.gui.openAsync(uiToOpen);
+                                this.flag = false;
+                            }
+                        }
+                    })
+                    
                 }
             }
 
