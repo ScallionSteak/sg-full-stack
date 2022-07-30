@@ -583,7 +583,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 220,
+      "width": 230.261,
       "height": 600
     },
     "_anchorPoint": {
@@ -619,7 +619,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "SeeDAO 产品公会是一个产品经理共学、共创Web3生态的去中心化社区，以 DAO 的协作模式进行Web3 产品研究、需求调研、产品设计等。\n\n产品公会目前的核心功能是：持续产出研究报告、开展产品研讨会议，并在 SeeDAO 内部以 DAO 原生的方式共建Web3产品。",
+    "_string": "SeeDAO 产品公会是一个产品经理共学、共创 Web3 生态的去中心化社区，以 DAO 的协作模式进行 Web3 产品研究、需求调研、产品设计等。\n\n产品公会目前的核心功能是：持续产出研究报告、开展产品研讨会议，并在 SeeDAO 内部以 DAO 原生的方式共建 Web3 产品。",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_actualFontSize": 12,

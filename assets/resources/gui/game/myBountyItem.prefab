@@ -233,7 +233,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -80.796,
-      "y": 41.791,
+      "y": 36.051,
       "z": 0
     },
     "_lrot": {
@@ -366,7 +366,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -80.796,
-      "y": 21.559,
+      "y": 15.437,
       "z": 0
     },
     "_lrot": {
@@ -404,7 +404,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 100,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -443,8 +443,8 @@
     "_string": "项目简介要凑足十个字",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 11,
-    "_fontSize": 11,
+    "_actualFontSize": 10,
+    "_fontSize": 10,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -502,8 +502,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -57.846,
-      "y": 0,
+      "x": -61.098,
+      "y": -9.938,
       "z": 0
     },
     "_lrot": {
@@ -589,7 +589,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 31.95,
+      "width": 32,
       "height": 10.08
     },
     "_anchorPoint": {
@@ -632,10 +632,10 @@
     "_fontSize": 8,
     "_fontFamily": "Arial",
     "_lineHeight": 8,
-    "_overflow": 0,
+    "_overflow": 1,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "9fcc566e-db0e-4cdb-b607-9144a4285f5e",
+      "__uuid__": "694026f7-9b90-4703-ba31-dfeec294a8bf",
       "__expectedType__": "cc.TTFFont"
     },
     "_isSystemFontUsed": false,
@@ -674,7 +674,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 48,
+      "width": 40,
       "height": 16
     },
     "_anchorPoint": {
@@ -716,7 +716,7 @@
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -769,8 +769,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -63.322,
-      "y": -33.201,
+      "x": -62.393,
+      "y": -35.497,
       "z": 0
     },
     "_lrot": {
@@ -1036,8 +1036,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 47.45,
-      "y": -32.859,
+      "x": 70.027,
+      "y": -36.244,
       "z": 0
     },
     "_lrot": {
@@ -1084,8 +1084,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 8.3,
-      "y": 0,
+      "x": -21.133,
+      "y": 0.001,
       "z": 0
     },
     "_lrot": {
@@ -1123,7 +1123,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 26.38,
+      "width": 3.84,
       "height": 17.64
     },
     "_anchorPoint": {
@@ -1159,11 +1159,11 @@
       "b": 46,
       "a": 255
     },
-    "_string": "500",
+    "_string": "1",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 14,
-    "_fontSize": 14,
+    "_actualFontSize": 12,
+    "_fontSize": 12,
     "_fontFamily": "Arial",
     "_lineHeight": 14,
     "_overflow": 0,
@@ -1208,7 +1208,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 8.71,
+      "width": 20.95,
       "height": 17.64
     },
     "_anchorPoint": {
@@ -1244,11 +1244,11 @@
       "b": 46,
       "a": 255
     },
-    "_string": "$",
+    "_string": "ETH",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 14,
-    "_fontSize": 14,
+    "_actualFontSize": 12,
+    "_fontSize": 12,
     "_fontFamily": "Arial",
     "_lineHeight": 14,
     "_overflow": 0,

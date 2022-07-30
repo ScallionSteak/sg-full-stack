@@ -278,8 +278,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -24.921,
-      "y": 0,
+      "x": -20.257,
+      "y": 11.91,
       "z": 0
     },
     "_lrot": {
@@ -317,8 +317,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 14,
-      "height": 22
+      "width": 12,
+      "height": 18
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -409,7 +409,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 12.959,
-      "y": 0,
+      "y": 11.91,
       "z": 0
     },
     "_lrot": {
@@ -1102,7 +1102,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -5.753,
       "z": 0
     },
     "_lrot": {
@@ -1140,7 +1140,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 396,
+      "width": 388.808,
       "height": 130.68
     },
     "_anchorPoint": {
@@ -1176,7 +1176,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "大家好！Web3 图书馆是 SeeDAO 内部孵化的一个公共物品项目，是一个在元宇宙中完全开放的知识共享平台。最近Web3 图书馆发展迅速，GitCoin Grant GR14 有超过3000个项目申请，通过率只有 30%，Web3 图书馆便是其中之一，并且我们也即将参加 SeeDAO 孵化大赛，在这个重要阶段，我们需要建设官网，用视觉语言来呈现我们的理想，现在需要一位 UI 设计师加入我们，一起参与共建这个有意义的事业！",
+    "_string": "大家好！Web3 图书馆是 SeeDAO 内部孵化的一个公共物品项目，是一个在元宇宙中完全开放的知识共享平台。最近Web3 图书馆发展迅速，GitCoin Grant GR14有超过3000个项目申请，通过率只有 30%，Web3图书馆便是其中之一，并且我们也即将参加 SeeDAO 孵化大赛，在这个重要阶段，我们需要建设官网，用视觉语言来呈现我们的理想，现在需要一位 UI 设计师加入我们，一起参与共建这个有意义的事业！",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_actualFontSize": 13,
@@ -1186,7 +1186,7 @@
     "_overflow": 3,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "9fcc566e-db0e-4cdb-b607-9144a4285f5e",
+      "__uuid__": "694026f7-9b90-4703-ba31-dfeec294a8bf",
       "__expectedType__": "cc.TTFFont"
     },
     "_isSystemFontUsed": false,
@@ -1548,7 +1548,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 31.95,
+      "width": 31.7,
       "height": 10.08
     },
     "_anchorPoint": {
@@ -1594,7 +1594,7 @@
     "_overflow": 0,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "9fcc566e-db0e-4cdb-b607-9144a4285f5e",
+      "__uuid__": "694026f7-9b90-4703-ba31-dfeec294a8bf",
       "__expectedType__": "cc.TTFFont"
     },
     "_isSystemFontUsed": false,
@@ -1817,7 +1817,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -7.032500000000038,
       "y": 0,
       "z": 0
     },
@@ -1989,7 +1989,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 394,
+      "width": 383.451,
       "height": 30
     },
     "_anchorPoint": {
@@ -2594,7 +2594,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -7.267,
       "y": 88.717,
       "z": 0
     },
@@ -3083,7 +3083,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -7.267,
       "y": 21.579,
       "z": 0
     },
@@ -3575,7 +3575,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -7.267,
       "y": -46.713,
       "z": 0
     },
@@ -4334,7 +4334,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 25.938,
+      "x": -45.585,
       "y": -128.782,
       "z": 0
     },
@@ -4383,7 +4383,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 41.408,
-      "y": 8.647,
+      "y": -1.438,
       "z": 0
     },
     "_lrot": {
@@ -4512,8 +4512,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 41.408,
-      "y": -12.847,
+      "x": 88.05,
+      "y": -0.241,
       "z": 0
     },
     "_lrot": {
