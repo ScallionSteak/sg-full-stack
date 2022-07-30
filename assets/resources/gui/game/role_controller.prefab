@@ -11175,7 +11175,6 @@
       "__uuid__": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6",
       "__expectedType__": "cc.SpriteAtlas"
     },
-    "miniMapIntroductionPrefab": null,
     "playerPopupLayer": {
       "__id__": 178
     },
@@ -11184,6 +11183,15 @@
     },
     "chatLayer": {
       "__id__": 368
+    },
+    "playerPortrait": {
+      "__id__": 211
+    },
+    "playerName": {
+      "__id__": 226
+    },
+    "playerSelfIntro": {
+      "__id__": 232
     },
     "_id": ""
   },

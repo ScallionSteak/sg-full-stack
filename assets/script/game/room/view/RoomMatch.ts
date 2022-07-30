@@ -91,20 +91,20 @@ export class RoomMatch extends GameComponent {
                         //创建各个DAO房间信息
                         for (let roomInfo of ret.res.rooms) {
                             if (roomInfo.name != 'PublicSpaceRoom') {
-                                //DAO私域创建
-                                let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
-                                btnNode.getComponent(RoomEnterDaoBtnList).initRoomName(roomInfo.name);
-                                btnNode.parent = node.getChildByName('daoBtnLayer');
-                                btnNode.getComponent(RoomEnterDaoBtnList)!.options = {
-                                    room: roomInfo,
-                                    onClick: v => {
-                                        smc.room.RoomModel.roomId = v.roomId;
-                                        smc.room.RoomModel.serverUrl = v.serverUrl;
-                                        smc.room.RoomModel.playerName = resAsJson[0].username;
-                                        smc.room.RoomModel.roomName = v.roomName;
-                                        this.enter();
-                                    }
-                                };
+                                //DAO私域创建，暂时不用，但先不删，说不好后面又会要
+                                // let btnNode = instantiate(this.prefabEnterDaoBtnListItem);
+                                // btnNode.getComponent(RoomEnterDaoBtnList).initRoomName(roomInfo.name);
+                                // btnNode.parent = node.getChildByName('daoBtnLayer');
+                                // btnNode.getComponent(RoomEnterDaoBtnList)!.options = {
+                                //     room: roomInfo,
+                                //     onClick: v => {
+                                //         smc.room.RoomModel.roomId = v.roomId;
+                                //         smc.room.RoomModel.serverUrl = v.serverUrl;
+                                //         smc.room.RoomModel.playerName = resAsJson[0].username;
+                                //         smc.room.RoomModel.roomName = v.roomName;
+                                //         this.enter();
+                                //     }
+                                // };
                             } else {
                                 //公区
                                 node.getComponent(RoomListItem)!.options = {

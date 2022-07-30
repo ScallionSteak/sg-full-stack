@@ -85,19 +85,26 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
          * 每个DAO照理说拥有的building应该都一样，所以也可以考虑不用读tmx文件名，保证大家都有一样的层，也行，最多有的层是空的
          * npc也用layer做，npc就一定要分不同地图了，做一个npcID，然后预设不同ID弹对应的窗口
          */
-        switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
-            case 'A-Public Space':
-                //不共用的layer这里读
-                break;
-            case 'seeDaoMap':
-                break;
-            default:
-                break;
-        }
+        // switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
+        //     case 'A-Public Space':
+        //         //不共用的layer这里读
+        //         mm.gardenBuilding = e.MapView.tiledmap.getLayer("gardenBuilding")!;
+        //         mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("projectsParkBuilding")!;
+        //         mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("d2dWorkBuilding")!;
+        //         mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("meetingBuilding")!;
+        //         break;
+        //     case 'seeDaoMap':
+        //         mm.gardenBuilding = e.MapView.tiledmap.getLayer("gardenBuilding")!;
+        //         break;
+        //     default:
+        //         break;
+        // }
+        
         //共有的要读的layer放这里
-        mm.bountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
         mm.gardenBuilding = e.MapView.tiledmap.getLayer("gardenBuilding")!;
         mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("projectsParkBuilding")!;
+        mm.bountyBuilding = e.MapView.tiledmap.getLayer("bountyBuilding")!;
+        // mm.projectsParkBuilding = e.MapView.tiledmap.getLayer("npc")!;
         mm.floor = e.MapView.tiledmap.getLayer("background")!;
         mm.barrier = e.MapView.tiledmap.getLayer("collision")!;
         mm.game = e.MapView.tiledmap.getObjectGroup("game")!;

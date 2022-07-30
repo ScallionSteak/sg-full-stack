@@ -49,9 +49,6 @@ export class RoleViewUIComp extends CCComp {
     @property({ type: SpriteAtlas })
     UIAtlas: SpriteAtlas = null!;
 
-    @property({ type: Prefab })
-    miniMapIntroductionPrefab: Prefab = null!;
-
     @property({ type: Node })
     playerPopupLayer: Node = null!;
 
@@ -60,6 +57,13 @@ export class RoleViewUIComp extends CCComp {
 
     @property({ type: Node })
     chatLayer: Node = null!;
+
+    @property({ type: Node })
+    playerPortrait: Node = null!;
+    @property({ type: Node })
+    playerName: Node = null!;
+    @property({ type: Node })
+    playerSelfIntro: Node = null!;
 
     /** 控制的目标角色 */
     private target: Role = null!;
@@ -71,6 +75,7 @@ export class RoleViewUIComp extends CCComp {
         this.target = this.ent as Role;
         this.loadRoomList();
         this.initMiniMap();
+        this.updatePlayerInfo();
     }
 
     initMiniMap() {
@@ -84,6 +89,13 @@ export class RoleViewUIComp extends CCComp {
         var miniX = - playerPos.x * (this.miniMapSprite.getComponent(UITransformComponent).width / this.mvc.width);
         var miniY = - playerPos.y * (this.miniMapSprite.getComponent(UITransformComponent).height / this.mvc.height);
         this.playerOnMiniMap.setPosition(miniX, miniY, 0);
+    }
+
+    updatePlayerInfo() {
+        var playerName = smc.room.RoomModel.owner.RoleModel.userDBName;
+        var playerModel = String(smc.room.RoomModel.owner.RoleModel.userModelID);
+        this.playerName.getComponent(Label).string = playerName;
+        this.playerPortrait.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame("main/R0" + playerModel);
     }
 
     checkGuide() {
