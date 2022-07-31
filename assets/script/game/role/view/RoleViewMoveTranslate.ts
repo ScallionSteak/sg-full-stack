@@ -65,14 +65,12 @@ export class RoleViewMoveTranslate extends MoveTranslate {
              * 1. 遍历所有玩家，计算和自己的距离，在多少范围内就打开窗口，远离了就关闭
              * 2. 如果和多个玩家都在距离内，要弹出多个窗口，这个mvp里先不处理，有需要再说
              */
-            smc.room.RoomModel.players.forEach(p => {
-                if (p.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
-                    // console.log("owner, don't compare");
-                } else {
-                    var nodePos = smc.room.RoomModel.owner.RoleView.node.position;
+            if (this.node.getComponent(RoleViewPlayerState)) { //意思是如果这个模型是本地玩家，才会去帮它判断是否有需要弹窗
+                smc.room.RoomModel.players.forEach(p => {
+                    var nodePos = this.node.position;
                     var dist = Vec3.distance(p.RoleView.node.position, nodePos);
                     var role_controller = find("root/gui/LayerUI/role_controller");
-                    if(role_controller){
+                    if (role_controller) {
                         if (dist < 50) { //测下来，50左右比较接近
                             role_controller.getComponent(RoleViewUIComp).showPlayerPopupLayer();
                             role_controller.getComponent(RoleViewUIComp).collisionSelf = smc.room.RoomModel.owner;
@@ -81,9 +79,8 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                             role_controller.getComponent(RoleViewUIComp).closePlayerPopupLayer();
                         }
                     }
-
-                }
-            })
+                })
+            }
         }
     }
 }
