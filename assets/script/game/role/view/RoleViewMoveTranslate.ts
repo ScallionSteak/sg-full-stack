@@ -67,16 +67,18 @@ export class RoleViewMoveTranslate extends MoveTranslate {
              */
             if (this.node.getComponent(RoleViewPlayerState)) { //意思是如果这个模型是本地玩家，才会去帮它判断是否有需要弹窗
                 smc.room.RoomModel.players.forEach(p => {
-                    var nodePos = this.node.position;
-                    var dist = Vec3.distance(p.RoleView.node.position, nodePos);
-                    var role_controller = find("root/gui/LayerUI/role_controller");
-                    if (role_controller) {
-                        if (dist < 50) { //测下来，50左右比较接近
-                            role_controller.getComponent(RoleViewUIComp).showPlayerPopupLayer();
-                            role_controller.getComponent(RoleViewUIComp).collisionSelf = smc.room.RoomModel.owner;
-                            role_controller.getComponent(RoleViewUIComp).collisionOther = p;
-                        } else {
-                            role_controller.getComponent(RoleViewUIComp).closePlayerPopupLayer();
+                    if (p.RoleModel.id != smc.room.RoomModel.owner.RoleModel.id) {
+                        var nodePos = this.node.position;
+                        var dist = Vec3.distance(p.RoleView.node.position, nodePos);
+                        var role_controller = find("root/gui/LayerUI/role_controller");
+                        if (role_controller) {
+                            if (dist < 50) { //测下来，50左右比较接近
+                                role_controller.getComponent(RoleViewUIComp).showPlayerPopupLayer();
+                                role_controller.getComponent(RoleViewUIComp).collisionSelf = smc.room.RoomModel.owner;
+                                role_controller.getComponent(RoleViewUIComp).collisionOther = p;
+                            } else {
+                                role_controller.getComponent(RoleViewUIComp).closePlayerPopupLayer();
+                            }
                         }
                     }
                 })
