@@ -4,6 +4,7 @@ import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops'
 import { Vec3Util } from '../../../../../extensions/oops-framework/assets/core/utils/Vec3Util';
 import { UIID } from '../../common/config/GameUIConfig';
 import { smc } from '../../common/ecs/SingletonModuleComp';
+import { RoleViewPlayerState } from '../../room/bll/RoleViewPlayerState';
 import { RoleViewUIComp } from './RoleViewUIComp';
 const { ccclass, property } = _decorator;
 
@@ -31,36 +32,32 @@ export class RoleViewMoveTranslate extends MoveTranslate {
             } else {
                 //是障碍物的话，要进一步判断是哪个building，然后判断该UI是否被打开了，没打开就打开
                 if (tile.buildingID >= 0) {
-                    smc.room.RoomModel.players.forEach(async p => {
-                        if (p.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
+                    /** 只有本地玩家才会拿到RoleViewPlayerState，所以理论上说后面一个if是没用的，但加个保险貌似也没问题，就先放这儿吧 */
+                    if(this.node.getComponent(RoleViewPlayerState)) {
+                        if (this.node.getComponent(RoleViewPlayerState).role.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
                             /** 
                              * switch中的顺序要和MapLoad中把建筑物push进数组的下标顺序保持一致
                              */
                             switch (tile.buildingID) {
                                 case 0:
                                     var uiToOpen = UIID.Demo_bountyBoard;
-                                    console.log("test..............", uiToOpen);
                                     break;
                                 case 1:
                                     var uiToOpen = UIID.Demo_daoGarden;
-                                    console.log("test..............", uiToOpen);
                                     break;
                                 case 2:
                                     var uiToOpen = UIID.Demo_projectsPark;
-                                    console.log("test..............", uiToOpen);
                                     break;
                                 default:
                                     break;
                             }
-                            // console.log("owner, don't compare");
                             if (!this.flag && !oops.gui.has(uiToOpen)) {
                                 this.flag = true;
                                 await oops.gui.openAsync(uiToOpen);
                                 this.flag = false;
                             }
                         }
-                    })
-                    
+                    }                    
                 }
             }
 
