@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-06-16 10:05:54
  */
-import { Animation, Component, Label, UITransform, _decorator } from "cc";
+import { Animation, Component, Node, Label, UITransform, _decorator, Layout } from "cc";
 import { LanguageLabel } from "../../../../../extensions/oops-framework/assets/core/gui/language/LanguageLabel";
 
 const { ccclass, property } = _decorator;
@@ -16,6 +16,9 @@ export class RoleViewSingleChat extends Component {
 
     @property(Label)
     private userName: Label | null = null;
+
+    @property(Node)
+    private msgHeadGroup: Node | null = null;
 
     onLoad() {
         var node = this.node.parent;
@@ -30,11 +33,13 @@ export class RoleViewSingleChat extends Component {
         this.chatContent.string = msg;
         if (fromSelf) {
             //do nothing just use the default settings
+            console.log("horizontal is", this.chatContent.node.getComponent(Label).horizontalAlign);
         } else {
-            this.userName.node.setPosition(-this.userName.node.position.x, this.userName.node.position.y);
-            this.userName.node.getComponent(UITransform).setAnchorPoint(0, 0.5);
+            this.msgHeadGroup.getComponent(Layout).paddingLeft = 0;
             this.chatContent.node.setPosition(-this.chatContent.node.position.x, this.chatContent.node.position.y);
             this.chatContent.node.getComponent(UITransform).setAnchorPoint(0, 1);
+            this.chatContent.node.getComponent(Label).horizontalAlign = 0; //左对齐
+            
         }
     }
 }

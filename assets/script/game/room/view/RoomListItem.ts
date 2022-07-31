@@ -67,9 +67,9 @@ export class RoomListItem extends Component {
             this.daoBtnLayer.active = false;
         } else {
             this.createRoleLayer.active = false;
-            this.enterPbBtn.setPosition(0,0,0);
-            this.enterPbBtn.parent = this.daoBtnLayer;
-            this.daoBtnLayer.active = true;
+            // this.enterPbBtn.setPosition(0,0,0);
+            // this.enterPbBtn.parent = this.daoBtnLayer;
+            // this.daoBtnLayer.active = true;
         }
     }
 
