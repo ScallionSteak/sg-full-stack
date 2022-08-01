@@ -55,10 +55,29 @@ export class MapModelComp extends ecs.Comp {
     barrier: TiledLayer = null!;
     /** 游戏层 */
     game: TiledObjectGroup = null!;
-    /** 各建筑物 */
-    bountyBuilding: TiledLayer = null;
-    gardenBuilding: TiledLayer = null;
-    projectsParkBuilding: TiledLayer = null;
+    /** 22个公区需互动layer */
+    UI_D2DSquare: TiledLayer = null;
+    UI_BountyBoard: TiledLayer = null;
+    UI_SupportCenter: TiledLayer = null;
+    UI_BigTower: TiledLayer = null;
+    UI_DAOEX: TiledLayer = null;
+    UI_EntertainmentArea_4: TiledLayer = null;
+    UI_EntertainmentArea_3: TiledLayer = null;
+    UI_EntertainmentArea_2: TiledLayer = null;
+    UI_EntertainmentArea_1: TiledLayer = null;
+    UI_ProjectsPark_null: TiledLayer = null; 
+    UI_ProjectsPark_SG: TiledLayer = null;
+    UI_ProjectsPark_HaiDAO: TiledLayer = null;
+    UI_ProjectsPark_AMDAO: TiledLayer = null;
+    UI_ProjectsPark_CC: TiledLayer = null; 
+    UI_DAOGarden_HaiDAO: TiledLayer = null;
+    UI_DAOGarden_SEEDAO: TiledLayer = null;
+    UI_DAOGarden_AMDAO: TiledLayer = null;
+    UI_DAOGarden_null: TiledLayer = null; 
+    UI_DAO_null: TiledLayer = null;
+    UI_DAO_AMDAO: TiledLayer = null;
+    UI_DAO_HaiDAO: TiledLayer = null;
+    UI_DAO_SEEDAO: TiledLayer = null;
 
     /** 所有游戏网格数据 */
     tiles: Array<Array<Tile>> = [];
@@ -116,7 +135,7 @@ export class Tile {
     /** 是否为障碍物 */
     barrier: boolean = false;
     /** 建筑物ID */
-    buildingID: number = 0;
+    buildingID: number = -1;
     /** 角色 */
     role: Role = null;
 

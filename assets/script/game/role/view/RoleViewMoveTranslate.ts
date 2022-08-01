@@ -39,16 +39,68 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                              * switch中的顺序要和MapLoad中把建筑物push进数组的下标顺序保持一致
                              */
                             switch (tile.buildingID) {
-                                case 0:
-                                    var uiToOpen = UIID.Demo_bountyBoard;
+                                case 0: //d2d界面还没做
+                                    // var uiToOpen = UIID.Demo_bountyBoard; 
                                     break;
                                 case 1:
-                                    var uiToOpen = UIID.Demo_daoGarden;
+                                    var uiToOpen = UIID.Demo_bountyBoard;
                                     break;
-                                case 2:
+                                case 2: //support center界面还没做
+                                    // var uiToOpen = UIID.Demo_projectsPark;
+                                    break;
+                                case 3: //bigtower大概是钟楼，界面也还没做
+                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    break;
+                                case 4: //daoex是什么？
+                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    break;
+                                case 5: 
+                                case 6:
+                                case 7:
+                                case 8:
+                                    //都是娱乐区
+                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    break;
+                                case 9: //空的项目公园
+                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    break;
+                                case 10: // 公区项目
                                     var uiToOpen = UIID.Demo_projectsPark;
                                     break;
+                                case 11: // 海盗项目
+                                    var uiToOpen = UIID.Demo_projectsPark;
+                                    break;
+                                case 12: // amdao项目
+                                    var uiToOpen = UIID.Demo_projectsPark;
+                                    break;
+                                case 13: // seedao的cc
+                                    var uiToOpen = UIID.Demo_projectsPark;
+                                    break;
+                                case 14: // 海盗garden
+                                    var uiToOpen = UIID.Demo_daoGarden;
+                                    break;
+                                case 15: // seedao garden
+                                    var uiToOpen = UIID.Demo_daoGarden;
+                                    break;
+                                case 16: // amdao garden
+                                    var uiToOpen = UIID.Demo_daoGarden;
+                                    break;
+                                case 17: // 空garden
+                                    // var uiToOpen = UIID.Demo_daoGarden;
+                                    break;
+                                case 18: // 空dao
+                                    break;
+                                case 19: // amdao
+                                    // 打开一个提示框，然后点击直接跳转到相对应的dao
+                                    break;
+                                case 20: // haidao
+                                    // 打开一个提示框，然后点击直接跳转到相对应的dao
+                                    break;
+                                case 21: // seedao
+                                    // 打开一个提示框，然后点击直接跳转到相对应的dao
+                                    break;
                                 default:
+                                    console.log("default switch in building check. some wrong.");
                                     break;
                             }
                             if (!this.flag && !oops.gui.has(uiToOpen)) {
