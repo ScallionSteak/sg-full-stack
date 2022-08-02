@@ -82,7 +82,7 @@ export class RoomMatch extends GameComponent {
                             }
                         };
                     } else {
-                        //老用户，用户信息存到本地，因为会到处用
+                        //老用户，用户信息存到本地，因为在第一次进房间时，owner还没生成，就先存这里，然后用这里的值在生成owner时赋值过去，以后都用owner里的数据
                         node.getComponent(RoomListItem)!.isNew = false;
                         var resAsJson = JSON.parse(res);
                         localStorage.setItem('userDBID', resAsJson[0].ID);

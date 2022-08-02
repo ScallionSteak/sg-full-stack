@@ -5,10 +5,12 @@
  * @LastEditTime: 2022-06-24 14:04:35
  */
 
-import { tween, TweenSystem, Vec3, _decorator } from "cc";
+import { Label, Node, Sprite, SpriteAtlas, tween, TweenSystem, Vec3, _decorator } from "cc";
 import { MoveTo } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTo";
+import { HttpRequestForDS } from "../../../../../extensions/oops-framework/assets/core/network/http";
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { PlayerPosition } from "../../../tsrpc/types/PlayerState";
+import { smc } from "../../common/ecs/SingletonModuleComp";
 import { CCComp } from "../../common/ecs/view/CCComp";
 import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
@@ -23,11 +25,31 @@ export class RoleViewComp extends CCComp {
     /** 角色控制器 */
     rvc: RoleViewCharactor = null;
 
+    @property(Node)
+    playerNameLabel: Node = null;
+
+    @property(Node)
+    playerPortrait: Node = null;
+
+    @property(SpriteAtlas)
+    UIAtlas: SpriteAtlas = null;
+
     onLoad() {
         super.onLoad();
 
         this.rvc = this.getComponent(RoleViewCharactor);
 
+    }
+
+    setPlayerOutlook(player: Role) {
+        this.playerNameLabel.getComponent(Label).string = player.RoleModel.nickname;
+        smc.room.RoomModel.players.forEach((p)=> {
+            if (player.RoleModel.id == p.RoleModel.id) {                
+                this.playerPortrait.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame("main/R0" + String(p.RoleModel.userModelID));
+            }
+        })
+        
+        
     }
 
     /** 待机动画 */

@@ -55,13 +55,14 @@ export class RoomOwnerJoinSystem extends ecs.ComblockSystem implements ecs.IEnti
             data.room.players.forEach(d => {
                 let player = RoomUtil.playerCreate(d);
                 player.load(smc.scene.MapModel.game.node, (node: Node) => {
-                    // 玩家使用网格坐标，记录到服务器
-                    d.pos.z = 0;
-                    RoomUtil.playerInited(player, d.pos, d.rotation);
 
                     if (data.playerInfo.id == d.id) {
                         let owner = player;
                         smc.room.RoomModel.owner = owner;
+
+                        smc.room.RoomModel.owner.RoleModel.userDBID = Number(localStorage.getItem('userDBID'));
+                        smc.room.RoomModel.owner.RoleModel.userDBName = localStorage.getItem('username');
+                        smc.room.RoomModel.owner.RoleModel.userModelID = Number(localStorage.getItem('roleModelID'));
 
                         // 同步客户端状态组件
                         node.addComponent(RoleViewPlayerState);
@@ -76,6 +77,10 @@ export class RoomOwnerJoinSystem extends ecs.ComblockSystem implements ecs.IEnti
                         mvc.setMapByTarget(owner.RoleView.node.position);
                         mvc.target = owner.RoleView.node;
                     }
+
+                    // 玩家使用网格坐标，记录到服务器
+                    d.pos.z = 0;
+                    RoomUtil.playerInited(player, d.pos, d.rotation);
                 });
             });
 

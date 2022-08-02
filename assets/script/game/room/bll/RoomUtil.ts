@@ -27,5 +27,6 @@ export class RoomUtil {
     /** 初始化完成，把实始化列表的玩家移除，并转到玩家列表中 */
     static playerInited(player: Role, pos: PlayerPosition, rotation: PlayerRotation) {
         player.RoleView.node.setPosition(pos.x, pos.y, pos.z);
+        player.RoleView.setPlayerOutlook(player);
     }
 }

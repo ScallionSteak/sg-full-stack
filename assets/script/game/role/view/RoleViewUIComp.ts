@@ -75,7 +75,7 @@ export class RoleViewUIComp extends CCComp {
         this.target = this.ent as Role;
         this.loadRoomList();
         this.initMiniMap();
-        this.updatePlayerInfo();
+        this.updatePlayerInfoOnBottomBar();
     }
 
     initMiniMap() {
@@ -91,7 +91,7 @@ export class RoleViewUIComp extends CCComp {
         this.playerOnMiniMap.setPosition(miniX, miniY, 0);
     }
 
-    updatePlayerInfo() {
+    updatePlayerInfoOnBottomBar() {
         var playerName = smc.room.RoomModel.owner.RoleModel.userDBName;
         var playerModel = String(smc.room.RoomModel.owner.RoleModel.userModelID);
         this.playerName.getComponent(Label).string = playerName;

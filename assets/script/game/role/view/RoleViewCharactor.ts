@@ -31,10 +31,6 @@ export class RoleViewCharactor extends Component {
     rkb: RoleKeyboard = null!;
 
     start() {
-        this.getComponent(RoleViewComp).ent.get(RoleModelComp).userDBID = Number(localStorage.getItem('userDBID'));
-        this.getComponent(RoleViewComp).ent.get(RoleModelComp).userDBName = localStorage.getItem('username');
-        this.getComponent(RoleViewComp).ent.get(RoleModelComp).userModelID = Number(localStorage.getItem('roleModelID'));
-        this.roleTempName.getComponent(Label).string = this.getComponent(RoleViewComp).ent.get(RoleModelComp).userDBName;
         this.rva = this.getComponent(RoleViewAnimator);
         this.rkb = this.getComponent(RoleKeyboard);
     }

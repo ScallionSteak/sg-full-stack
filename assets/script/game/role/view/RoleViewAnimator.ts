@@ -1,4 +1,8 @@
 import { Component, _decorator, Node, Animation, Prefab, SpriteAtlas, Sprite } from "cc";
+import { smc } from "../../common/ecs/SingletonModuleComp";
+import { RoleViewPlayerState } from "../../room/bll/RoleViewPlayerState";
+import { RoleModelComp } from "../model/RoleModelComp";
+import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property } = _decorator;
 
@@ -15,9 +19,13 @@ export class RoleViewAnimator extends Component {
     private roleModelID: string = '1'; //默认第一个模型
 
     start() {
-        this.roleModelID = localStorage.getItem('roleModelID');
-        this.player.getComponent(Sprite).spriteFrame = this.playerAtlas.getSpriteFrame('R0' + this.roleModelID + '/R0' + this.roleModelID + '_24');
-
+        smc.room.RoomModel.players.forEach(d => {
+            if (d.RoleModel.id == smc.room.RoomModel.owner.RoleModel.id) {
+                this.roleModelID = localStorage.getItem('roleModelID');
+            } else if (d.RoleModel.id == this.node.getComponent(RoleViewComp).ent.get(RoleModelComp).id) {
+                this.roleModelID = String(d.RoleModel.userModelID);
+            }
+        })        
     }
 
     /** 待机动画 */

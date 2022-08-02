@@ -36,11 +36,9 @@ export class MsgPlayerChatSystem extends ecs.ComblockSystem implements ecs.IEnti
         if (comp.data.length > 0) {
             let data = comp.data.splice(0, comp.data.length);
             let curUserName = localStorage.getItem('username');
-            console.log(data);
             data.forEach(d => {
                 // 后续修改点：把下面这句换成聊天记录显示组件
                 // oops.gui.toast(`${d.playerInfo.nickname}:${d.content}`);
-                console.log("nickname is ---", d.playerInfo.nickname);
                 if(d.playerInfo.nickname == curUserName) {
                     var fromSelf = true;
                 } else {
