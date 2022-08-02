@@ -4341,7 +4341,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 2.113999999999976,
       "z": 0
     },
     "_lrot": {
@@ -5005,8 +5005,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 8.306,
-      "y": 2.977,
+      "x": -1.0819999999999936,
+      "y": 2.9769999999999754,
       "z": 0
     },
     "_lrot": {
@@ -5138,8 +5138,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 9.344,
-      "y": -17.094,
+      "x": -1.0819999999999936,
+      "y": -15.009000000000015,
       "z": 0
     },
     "_lrot": {
@@ -5177,8 +5177,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 603.5,
-      "height": 145.2
+      "width": 633.744,
+      "height": 150
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5213,17 +5213,17 @@
       "b": 255,
       "a": 255
     },
-    "_string": "SeeDAO是一个DAO的孵化器，也是华语世界影响力最大的DAO。SeeDAO致力于为华语世界培养DAO的人才，营造适合Web3创新发生\n的氛围，促使Web3先锋的理念、产品和内容在这里诞生。\n截至目前，SeeDAO已形成翻译、宣传、运营、设计、艺术、建筑、产品、开发、投研、NFT Club这十个公会。社区成员接近8000人，\n实质贡献者超过了600名。此外，SeeDAO已经完成了估值3000万美金的A轮融资，投资人包括HashKey Capital、HashGlobal、\nNervos、Tess Venture、MaskNetwork、ChainIDE、火凤资本。\nSeeDAO有两个原则。一个是“DAO it，DO it”，即不仅要强调DAO的理念和金融，更强调DAO的实践和具体建设。另一个是“Co-build，\nCo-share”，即社区共建的果实由付出劳动的成员共同分享。",
+    "_string": "SeeDAO是一个DAO的孵化器，也是华语世界影响力最大的DAO。SeeDAO致力于为华语世界培养DAO的人才，营造适合Web3创新发生的氛围，促使Web3先锋的理念、产品和内容在这里诞生。\n截至目前，SeeDAO已形成翻译、宣传、运营、设计、艺术、建筑、产品、开发、投研、NFT Club这十个公会。社区成员接近8000人，实质贡献者超过了600名。此外，SeeDAO已经完成了估值3000万美金的A轮融资，投资人包括HashKey Capital、HashGlobal、Nervos、Tess Venture、MaskNetwork、ChainIDE、火凤资本。\nSeeDAO有两个原则。一个是“DAO it，DO it”，即不仅要强调DAO的理念和金融，更强调DAO的实践和具体建设。另一个是“Co-build，Co-share”，即社区共建的果实由付出劳动的成员共同分享。",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 10,
-    "_fontSize": 10,
+    "_actualFontSize": 11,
+    "_fontSize": 11,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
-    "_overflow": 0,
+    "_overflow": 1,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "9fcc566e-db0e-4cdb-b607-9144a4285f5e",
+      "__uuid__": "561b120b-3bfb-4171-af61-cb4ac917bd28",
       "__expectedType__": "cc.TTFFont"
     },
     "_isSystemFontUsed": false,

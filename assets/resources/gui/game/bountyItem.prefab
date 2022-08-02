@@ -232,7 +232,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -310,
+      "x": -303.744,
       "y": 54.129,
       "z": 0
     },
@@ -271,7 +271,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 76.19,
+      "width": 70.33,
       "height": 16.38
     },
     "_anchorPoint": {
@@ -310,8 +310,8 @@
     "_string": "Web3图书馆",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 13,
-    "_fontSize": 13,
+    "_actualFontSize": 12,
+    "_fontSize": 12,
     "_fontFamily": "Arial",
     "_lineHeight": 13,
     "_overflow": 0,
@@ -365,7 +365,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -310,
+      "x": -303.744,
       "y": 12.411,
       "z": 0
     },
@@ -404,7 +404,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 627.505,
+      "width": 616.194,
       "height": 50
     },
     "_anchorPoint": {
@@ -450,7 +450,7 @@
     "_overflow": 1,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "694026f7-9b90-4703-ba31-dfeec294a8bf",
+      "__uuid__": "561b120b-3bfb-4171-af61-cb4ac917bd28",
       "__expectedType__": "cc.TTFFont"
     },
     "_isSystemFontUsed": false,
@@ -502,7 +502,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -285.717,
+      "x": -279.461,
       "y": -24.936,
       "z": 0
     },
@@ -589,7 +589,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 31.7,
+      "width": 31.57,
       "height": 10.08
     },
     "_anchorPoint": {
@@ -772,7 +772,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -290.305,
+      "x": -284.049,
       "y": -55.419,
       "z": 0
     },
@@ -1175,7 +1175,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 197.028,
+      "x": 190.772,
       "y": -55.015,
       "z": 0
     },
