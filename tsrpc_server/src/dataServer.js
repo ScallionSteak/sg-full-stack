@@ -99,6 +99,7 @@ app.get('/sampleUser', function (req, res) {
 
 app.post('/insertUserConfig', upload.any(), function (req, res, next) {
     insertUserConfig(req.body);
+    res.send(str);
 });
 
 app.post('/updateUserConfig', upload.any(), function (req, res, next) {

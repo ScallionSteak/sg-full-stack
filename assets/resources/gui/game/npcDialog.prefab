@@ -320,8 +320,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 48,
+      "height": 69
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -357,12 +357,12 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@72469",
+      "__uuid__": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@d812b",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -955,7 +955,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -425.734,
-      "y": 59.082,
+      "y": 63.219,
       "z": 0
     },
     "_lrot": {
@@ -994,7 +994,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 840,
-      "height": 25.2
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1031,7 +1031,7 @@
     },
     "_string": "Welcome welcome.",
     "_horizontalAlign": 0,
-    "_verticalAlign": 1,
+    "_verticalAlign": 0,
     "_actualFontSize": 18,
     "_fontSize": 18,
     "_fontFamily": "Arial",
@@ -5821,6 +5821,7 @@
     "daosGroup": {
       "__id__": 169
     },
+    "UIAtlas": null,
     "_id": ""
   },
   {

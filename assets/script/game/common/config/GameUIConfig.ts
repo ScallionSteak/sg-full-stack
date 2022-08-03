@@ -44,6 +44,8 @@ export enum UIID {
     Demo_miniMapIntroduction,
     /** 赏金任务详细面板 */
     Demo_bountyDetails,
+    /** webview */
+    Demo_webview800600,
 }
 
 /** 打开界面方式的配置数据 */
@@ -66,4 +68,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_npcDialog]: { layer: LayerType.UI, prefab: "gui/game/npcDialog" },
     [UIID.Demo_miniMapIntroduction]: { layer: LayerType.UI, prefab: "gui/game/miniMapIntroduction" },
     [UIID.Demo_bountyDetails]: { layer: LayerType.UI, prefab: "gui/game/bountyDetails" },
+    [UIID.Demo_webview800600]: { layer: LayerType.UI, prefab: "gui/game/webview800600" },
 }

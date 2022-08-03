@@ -54,15 +54,22 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                 case 4: //daoex是什么？
                                     // var uiToOpen = UIID.Demo_bountyBoard;
                                     break;
-                                case 5: 
-                                case 6:
-                                case 7:
-                                case 8:
-                                    //都是娱乐区
-                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                case 5: //某游戏
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 5;
+                                case 6: //某游戏
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 6;
+                                case 7: //某游戏
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 7;
+                                case 8: //某游戏
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 8;
                                     break;
                                 case 9: //空的项目公园
-                                    //不打开界面
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 9;
                                     break;
                                 case 10: // 公区项目
                                     var uiToOpen = UIID.Demo_projectsPark;
@@ -82,17 +89,21 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     break;
                                 case 14: // 海盗garden
                                     var uiToOpen = UIID.Demo_daoGarden;
+                                    var uiArgs = 1;
                                     break;
                                 case 15: // seedao garden
                                     var uiToOpen = UIID.Demo_daoGarden;
+                                    var uiArgs = 2;
                                     break;
                                 case 16: // amdao garden
                                     var uiToOpen = UIID.Demo_daoGarden;
+                                    var uiArgs = 3;
                                     break;
                                 case 17: // 空garden
-                                    // var uiToOpen = UIID.Demo_daoGarden;
+                                    var uiToOpen = UIID.Demo_webview800600;
+                                    var uiArgs = 17;
                                     break;
-                                case 18: // 空dao
+                                case 18: // 空dao的岛
                                     break;
                                 case 19: // amdao
                                     // 打开一个提示框，然后点击直接跳转到相对应的dao

@@ -77,15 +77,11 @@ export class RoleViewProjectsPark extends CCComp {
     }
 
     initContent() {
-        console.log(this.node);
         this.id = this.node.getComponent(DelegateComponent).viewParams.params - 1; //不知道为什么，穿0进来就不认，所以只能穿过来做减法
         this.projectNameNode.getComponent(Label).string = this.projectName[this.id];
         this.projectDescNode.getComponent(Label).string = this.projectDesc[this.id];
         this.projectContactNode.getComponent(Label).string = this.projectContact[this.id];
 
-        console.log(this.id);
-        console.log(this.allLinks);
-        console.log(this.allLinks[this.id].length);
         for (var i = 0; i < this.allLinks[this.id].length; i++) {
             var node = instantiate(this.projectLinksPrefab);
             node.parent = this.prefabListLayer;
