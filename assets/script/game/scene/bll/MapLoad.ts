@@ -156,55 +156,64 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 let barrier_gid = mm.barrier.getTileGIDAt(x, y);
                 tile.barrier = barrier_gid != 0;
 
-                //建筑数据
-                let UI_D2DSquare_gid = mm.UI_D2DSquare.getTileGIDAt(x,y);
-                let UI_BountyBoard_gid = mm.UI_BountyBoard.getTileGIDAt(x, y);
-                let UI_SupportCenter_gid = mm.UI_SupportCenter.getTileGIDAt(x, y);
-                let UI_BigTower_gid = mm.UI_BigTower.getTileGIDAt(x, y);
-                let UI_DAOEX_gid = mm.UI_DAOEX.getTileGIDAt(x, y);
-                let UI_EntertainmentArea_4_gid = mm.UI_EntertainmentArea_4.getTileGIDAt(x, y);
-                let UI_EntertainmentArea_3_gid = mm.UI_EntertainmentArea_3.getTileGIDAt(x, y);
-                let UI_EntertainmentArea_2_gid = mm.UI_EntertainmentArea_2.getTileGIDAt(x, y);
-                let UI_EntertainmentArea_1_gid = mm.UI_EntertainmentArea_1.getTileGIDAt(x, y);
-                let UI_ProjectsPark_null_gid = mm.UI_ProjectsPark_null.getTileGIDAt(x, y);
-                let UI_ProjectsPark_SG_gid = mm.UI_ProjectsPark_SG.getTileGIDAt(x, y);
-                let UI_ProjectsPark_HaiDAO_gid = mm.UI_ProjectsPark_HaiDAO.getTileGIDAt(x, y);
-                let UI_ProjectsPark_AMDAO_gid = mm.UI_ProjectsPark_AMDAO.getTileGIDAt(x, y);
-                let UI_ProjectsPark_CC_gid = mm.UI_ProjectsPark_CC.getTileGIDAt(x, y);
-                let UI_DAOGarden_HaiDAO_gid = mm.UI_DAOGarden_HaiDAO.getTileGIDAt(x, y);
-                let UI_DAOGarden_SEEDAO_gid = mm.UI_DAOGarden_SEEDAO.getTileGIDAt(x, y);
-                let UI_DAOGarden_AMDAO_gid = mm.UI_DAOGarden_AMDAO.getTileGIDAt(x, y);
-                let UI_DAOGarden_null_gid = mm.UI_DAOGarden_null.getTileGIDAt(x, y);
-                let UI_DAO_null_gid = mm.UI_DAO_null.getTileGIDAt(x, y);
-                let UI_DAO_AMDAO_gid = mm.UI_DAO_AMDAO.getTileGIDAt(x, y);
-                let UI_DAO_HaiDAO_gid = mm.UI_DAO_HaiDAO.getTileGIDAt(x, y);
-                let UI_DAO_SEEDAO_gid = mm.UI_DAO_SEEDAO.getTileGIDAt(x, y);
-
                 let buildingGidArr = [];
-                buildingGidArr.push(
-                    UI_D2DSquare_gid,
-                    UI_BountyBoard_gid,
-                    UI_SupportCenter_gid,
-                    UI_BigTower_gid,
-                    UI_DAOEX_gid,
-                    UI_EntertainmentArea_4_gid,
-                    UI_EntertainmentArea_3_gid,
-                    UI_EntertainmentArea_2_gid,
-                    UI_EntertainmentArea_1_gid,
-                    UI_ProjectsPark_null_gid,
-                    UI_ProjectsPark_SG_gid,
-                    UI_ProjectsPark_HaiDAO_gid,
-                    UI_ProjectsPark_AMDAO_gid,
-                    UI_ProjectsPark_CC_gid,
-                    UI_DAOGarden_HaiDAO_gid,
-                    UI_DAOGarden_SEEDAO_gid,
-                    UI_DAOGarden_AMDAO_gid,
-                    UI_DAOGarden_null_gid,
-                    UI_DAO_null_gid,
-                    UI_DAO_AMDAO_gid,
-                    UI_DAO_HaiDAO_gid,
-                    UI_DAO_SEEDAO_gid
-                );
+                //分地图处理建筑数据
+                switch (mm.tiledmap.getComponent(TiledMap)._tmxFile.name) {
+                    case 'A-Public Space':
+                        //建筑数据
+                        let UI_D2DSquare_gid = mm.UI_D2DSquare.getTileGIDAt(x, y);
+                        let UI_BountyBoard_gid = mm.UI_BountyBoard.getTileGIDAt(x, y);
+                        let UI_SupportCenter_gid = mm.UI_SupportCenter.getTileGIDAt(x, y);
+                        let UI_BigTower_gid = mm.UI_BigTower.getTileGIDAt(x, y);
+                        let UI_DAOEX_gid = mm.UI_DAOEX.getTileGIDAt(x, y);
+                        let UI_EntertainmentArea_4_gid = mm.UI_EntertainmentArea_4.getTileGIDAt(x, y);
+                        let UI_EntertainmentArea_3_gid = mm.UI_EntertainmentArea_3.getTileGIDAt(x, y);
+                        let UI_EntertainmentArea_2_gid = mm.UI_EntertainmentArea_2.getTileGIDAt(x, y);
+                        let UI_EntertainmentArea_1_gid = mm.UI_EntertainmentArea_1.getTileGIDAt(x, y);
+                        let UI_ProjectsPark_null_gid = mm.UI_ProjectsPark_null.getTileGIDAt(x, y);
+                        let UI_ProjectsPark_SG_gid = mm.UI_ProjectsPark_SG.getTileGIDAt(x, y);
+                        let UI_ProjectsPark_HaiDAO_gid = mm.UI_ProjectsPark_HaiDAO.getTileGIDAt(x, y);
+                        let UI_ProjectsPark_AMDAO_gid = mm.UI_ProjectsPark_AMDAO.getTileGIDAt(x, y);
+                        let UI_ProjectsPark_CC_gid = mm.UI_ProjectsPark_CC.getTileGIDAt(x, y);
+                        let UI_DAOGarden_HaiDAO_gid = mm.UI_DAOGarden_HaiDAO.getTileGIDAt(x, y);
+                        let UI_DAOGarden_SEEDAO_gid = mm.UI_DAOGarden_SEEDAO.getTileGIDAt(x, y);
+                        let UI_DAOGarden_AMDAO_gid = mm.UI_DAOGarden_AMDAO.getTileGIDAt(x, y);
+                        let UI_DAOGarden_null_gid = mm.UI_DAOGarden_null.getTileGIDAt(x, y);
+                        let UI_DAO_null_gid = mm.UI_DAO_null.getTileGIDAt(x, y);
+                        let UI_DAO_AMDAO_gid = mm.UI_DAO_AMDAO.getTileGIDAt(x, y);
+                        let UI_DAO_HaiDAO_gid = mm.UI_DAO_HaiDAO.getTileGIDAt(x, y);
+                        let UI_DAO_SEEDAO_gid = mm.UI_DAO_SEEDAO.getTileGIDAt(x, y);
+
+                        buildingGidArr.push(
+                            UI_D2DSquare_gid,
+                            UI_BountyBoard_gid,
+                            UI_SupportCenter_gid,
+                            UI_BigTower_gid,
+                            UI_DAOEX_gid,
+                            UI_EntertainmentArea_4_gid,
+                            UI_EntertainmentArea_3_gid,
+                            UI_EntertainmentArea_2_gid,
+                            UI_EntertainmentArea_1_gid,
+                            UI_ProjectsPark_null_gid,
+                            UI_ProjectsPark_SG_gid,
+                            UI_ProjectsPark_HaiDAO_gid,
+                            UI_ProjectsPark_AMDAO_gid,
+                            UI_ProjectsPark_CC_gid,
+                            UI_DAOGarden_HaiDAO_gid,
+                            UI_DAOGarden_SEEDAO_gid,
+                            UI_DAOGarden_AMDAO_gid,
+                            UI_DAOGarden_null_gid,
+                            UI_DAO_null_gid,
+                            UI_DAO_AMDAO_gid,
+                            UI_DAO_HaiDAO_gid,
+                            UI_DAO_SEEDAO_gid
+                        );
+                        break;
+                    case 'seeDaoMap':
+                        break;
+                    default:
+                        break;
+                }
                 tile.buildingID = -1; //设定默认值，代表不是building，除非后面主动赋值了，不然就是没building
                 for (let i = 0; i< buildingGidArr.length; i++) {
                     if (buildingGidArr[i] != 0) {

@@ -62,19 +62,23 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     // var uiToOpen = UIID.Demo_bountyBoard;
                                     break;
                                 case 9: //空的项目公园
-                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    //不打开界面
                                     break;
                                 case 10: // 公区项目
                                     var uiToOpen = UIID.Demo_projectsPark;
+                                    var uiArgs = 1;
                                     break;
                                 case 11: // 海盗项目
                                     var uiToOpen = UIID.Demo_projectsPark;
+                                    var uiArgs = 2;
                                     break;
                                 case 12: // amdao项目
                                     var uiToOpen = UIID.Demo_projectsPark;
+                                    var uiArgs = 3;
                                     break;
                                 case 13: // seedao的cc
                                     var uiToOpen = UIID.Demo_projectsPark;
+                                    var uiArgs = 4;
                                     break;
                                 case 14: // 海盗garden
                                     var uiToOpen = UIID.Demo_daoGarden;
@@ -103,9 +107,9 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     console.log("default switch in building check. some wrong.");
                                     break;
                             }
-                            if (!this.flag && !oops.gui.has(uiToOpen)) {
+                            if (!this.flag && !oops.gui.has(uiToOpen) && uiToOpen >= 0) {
                                 this.flag = true;
-                                await oops.gui.openAsync(uiToOpen);
+                                await oops.gui.openAsync(uiToOpen, uiArgs);
                                 this.flag = false;
                             }
                         }

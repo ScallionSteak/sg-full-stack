@@ -39,13 +39,13 @@ export class RoleViewDaoGarden extends CCComp {
                 var link = 'https://t.co/abvfkG7dtv'
                 break;
             case 'mirror':
-                var link = 'http://twitter.com/see_dao'
+                var link = 'https://mirror.xyz/seedao.eth'
                 break;
             case 'website':
                 var link = 'https://www.seedao.xyz/'
                 break;
             case 'wechat':
-                var link = 'http://twitter.com/see_dao'
+                var link = 'https://mp.weixin.qq.com/s/vNcOSCDgZJjplqnYBUoJfA'
                 break;
             default:
                 break;
