@@ -29,7 +29,7 @@ export class RoleViewAnimator extends Component {
                 var url = '/queryUserconfigByUsername';
                 _http.postJSON(url, jsonfile, (res) => {
                     var jsonres = JSON.parse(res);
-                    this.roleModelID = jsonres[0].userModelID; 
+                    this.roleModelID = jsonres[0].userModel; 
                 });    
                 
             }
