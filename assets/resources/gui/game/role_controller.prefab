@@ -4913,7 +4913,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 40,
-      "y": 16.975,
+      "y": 14.278,
       "z": 0
     },
     "_lrot": {
@@ -4951,7 +4951,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 59.09,
+      "width": 65.66,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -4990,8 +4990,8 @@
     "_string": "Happy",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 18,
-    "_fontSize": 18,
+    "_actualFontSize": 20,
+    "_fontSize": 20,
     "_fontFamily": "",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -5046,7 +5046,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 40,
-      "y": -10.363,
+      "y": -13.442,
       "z": 0
     },
     "_lrot": {
