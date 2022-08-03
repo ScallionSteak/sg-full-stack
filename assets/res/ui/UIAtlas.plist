@@ -1070,19 +1070,6 @@
                 <key>sourceSize</key>
                 <string>{16,16}</string>
             </dict>
-            <key>main/npcPortrait.jpg</key>
-            <dict>
-                <key>frame</key>
-                <string>{{465,1725},{48,69}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{48,69}}</string>
-                <key>sourceSize</key>
-                <string>{48,69}</string>
-            </dict>
             <key>main/poapSample.png</key>
             <dict>
                 <key>frame</key>
@@ -1199,6 +1186,19 @@
                 <string>{{0,0},{83,83}}</string>
                 <key>sourceSize</key>
                 <string>{83,83}</string>
+            </dict>
+            <key>main/sgNpc.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{465,1725},{48,69}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{48,69}}</string>
+                <key>sourceSize</key>
+                <string>{48,69}</string>
             </dict>
             <key>main/shareScreen.png</key>
             <dict>
@@ -1366,7 +1366,7 @@
             <key>size</key>
             <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7a0e959fcd3e14fb8ba56d6d240c41fe$</string>
+            <string>$TexturePacker:SmartUpdate:df4fbb81af1583abefe4c4cb82557d27$</string>
             <key>textureFileName</key>
             <string>UIAtlas.png</string>
         </dict>

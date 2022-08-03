@@ -76,6 +76,40 @@
       ],
       "subMetas": {}
     },
+    "27715": {
+      "importer": "sprite-frame",
+      "uuid": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@27715",
+      "displayName": "",
+      "id": "27715",
+      "name": "main/sgNpc",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 465,
+        "trimY": 1725,
+        "width": 48,
+        "height": 69,
+        "rawWidth": 48,
+        "rawHeight": 69,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "49a5753e-1176-49d7-ab4e-e238c45874a8@6c48a",
+        "atlasUuid": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6"
+      },
+      "ver": "1.0.9",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
     "72469": {
       "importer": "sprite-frame",
       "uuid": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@72469",
@@ -2814,40 +2848,6 @@
         "height": 16,
         "rawWidth": 16,
         "rawHeight": 16,
-        "borderTop": 0,
-        "borderBottom": 0,
-        "borderLeft": 0,
-        "borderRight": 0,
-        "packable": true,
-        "isUuid": true,
-        "imageUuidOrDatabaseUri": "49a5753e-1176-49d7-ab4e-e238c45874a8@6c48a",
-        "atlasUuid": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6"
-      },
-      "ver": "1.0.9",
-      "imported": true,
-      "files": [
-        ".json"
-      ],
-      "subMetas": {}
-    },
-    "d812b": {
-      "importer": "sprite-frame",
-      "uuid": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@d812b",
-      "displayName": "",
-      "id": "d812b",
-      "name": "main/npcPortrait",
-      "userData": {
-        "trimType": "auto",
-        "trimThreshold": 1,
-        "rotated": false,
-        "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 465,
-        "trimY": 1725,
-        "width": 48,
-        "height": 69,
-        "rawWidth": 48,
-        "rawHeight": 69,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
