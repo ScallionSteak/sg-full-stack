@@ -43,7 +43,7 @@ export async function ApiRoomJoin(call: ApiCall<ReqRoomJoin, ResRoomJoin>) {
     if (conn.room) conn.player.leave();
 
     // 测试：上线随机生成位置与旋转
-    const pos = { x: -150, y: -150, z: 0 };
+    const pos = { x: -160, y: -1280, z: 0 };
     const rotation = { x: 0, y: 0, z: 0, w: 1 };
 
     let player: (PlayerInfo & { pos: PlayerPosition } & { rotation: PlayerRotation }) = {

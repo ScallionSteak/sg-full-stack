@@ -44,8 +44,15 @@ export class RoleViewComp extends CCComp {
     setPlayerOutlook(player: Role) {
         this.playerNameLabel.getComponent(Label).string = player.RoleModel.nickname;
         smc.room.RoomModel.players.forEach((p)=> {
-            if (player.RoleModel.id == p.RoleModel.id) {                
-                this.playerPortrait.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame("main/R0" + String(p.RoleModel.userModelID));
+            if (player.RoleModel.id == p.RoleModel.id) {
+                console.log(p.RoleModel);
+                let jsonfile = { username: p.RoleModel.nickname };
+                var _http = new HttpRequestForDS();
+                var url = '/queryUserconfigByUsername';
+                _http.postJSON(url, jsonfile, (res) => {
+                    var jsonres = JSON.parse(res);
+                    this.playerPortrait.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame("main/R0" + jsonres[0].userModel);
+                });            
             }
         })
         

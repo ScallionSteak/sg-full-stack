@@ -1,4 +1,5 @@
 import { Component, _decorator, Node, Animation, Prefab, SpriteAtlas, Sprite } from "cc";
+import { HttpRequestForDS } from "../../../../../extensions/oops-framework/assets/core/network/http";
 import { smc } from "../../common/ecs/SingletonModuleComp";
 import { RoleViewPlayerState } from "../../room/bll/RoleViewPlayerState";
 import { RoleModelComp } from "../model/RoleModelComp";
@@ -23,7 +24,14 @@ export class RoleViewAnimator extends Component {
             if (d.RoleModel.id == smc.room.RoomModel.owner.RoleModel.id) {
                 this.roleModelID = localStorage.getItem('roleModelID');
             } else if (d.RoleModel.id == this.node.getComponent(RoleViewComp).ent.get(RoleModelComp).id) {
-                this.roleModelID = String(d.RoleModel.userModelID);
+                let jsonfile = { username: d.RoleModel.nickname };
+                var _http = new HttpRequestForDS();
+                var url = '/queryUserconfigByUsername';
+                _http.postJSON(url, jsonfile, (res) => {
+                    var jsonres = JSON.parse(res);
+                    this.roleModelID = jsonres[0].userModelID; 
+                });    
+                
             }
         })        
     }

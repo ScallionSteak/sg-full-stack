@@ -203,3 +203,16 @@ app.post('/queryPersonalBounties', upload.any(), function (req, res, next) {
         res.send(str);
     });
 });
+
+app.post('/queryUserconfigByUsername', upload.any(), function (req, res, next) {
+    var username = req.body.username;
+    var sql = "select * from userconfig where username = '" + username + "';";
+    console.log(sql);
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[select error]:', err.message);
+        }
+        str = result;
+        res.send(str);
+    });
+});

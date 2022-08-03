@@ -81,7 +81,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         queue.complete = () => {
             // oops.gui.open(UIID.Demo_Gate);      // 打开登录界面
             oops.gui.open(UIID.Demo_Match);
-            // localStorage.setItem('walletAddress', 'test3')  //方便本地不用网页登录测试的代码，发布时需注掉
+            localStorage.setItem('walletAddress', 'test3')  //方便本地不用网页登录测试的代码，发布时需注掉
         };
     }
 }
