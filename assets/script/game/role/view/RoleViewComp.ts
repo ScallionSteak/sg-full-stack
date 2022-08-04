@@ -32,7 +32,7 @@ export class RoleViewComp extends CCComp {
     playerPortrait: Node = null;
 
     @property(SpriteAtlas)
-    UIAtlas: SpriteAtlas = null;
+    roleAtlas: SpriteAtlas = null;
 
     onLoad() {
         super.onLoad();
@@ -51,7 +51,7 @@ export class RoleViewComp extends CCComp {
                 var url = '/queryUserconfigByUsername';
                 _http.postJSON(url, jsonfile, (res) => {
                     var jsonres = JSON.parse(res);
-                    this.playerPortrait.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame("main/R0" + jsonres[0].userModel);
+                    this.playerPortrait.getComponent(Sprite).spriteFrame = this.roleAtlas.getSpriteFrame("R0" + jsonres[0].userModel + "/R0" + jsonres[0].userModel + "_19");
                 });            
             }
         })

@@ -48,6 +48,8 @@ export enum UIID {
     Demo_webview800600,
     /** d2d合作社 */
     Demo_d2dSquare,
+    /** 钟楼 */
+    Demo_bigTower
 }
 
 /** 打开界面方式的配置数据 */
@@ -72,4 +74,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_bountyDetails]: { layer: LayerType.UI, prefab: "gui/game/bountyDetails" },
     [UIID.Demo_webview800600]: { layer: LayerType.UI, prefab: "gui/game/webview800600" },
     [UIID.Demo_d2dSquare]: { layer: LayerType.UI, prefab: "gui/game/d2dSquare" },
+    [UIID.Demo_bigTower]: { layer: LayerType.UI, prefab: "gui/game/bigTower" },
 }

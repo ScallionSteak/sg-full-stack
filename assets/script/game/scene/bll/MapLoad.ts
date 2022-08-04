@@ -112,7 +112,7 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.UI_DAO_SEEDAO = e.MapView.tiledmap.getLayer("UI_DAO_SEEDAO")!;
                 break;
             case 'seeDaoMap':
-                mm.UI_DAOGarden_null = e.MapView.tiledmap.getLayer("UI_DAOGarden_null")!;
+                // mm.UI_DAOGarden_null = e.MapView.tiledmap.getLayer("UI_DAOGarden_null")!;
                 break;
             default:
                 break;

@@ -50,7 +50,8 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     // var uiToOpen = UIID.Demo_projectsPark;
                                     break;
                                 case 3: //bigtower大概是钟楼，界面也还没做
-                                    // var uiToOpen = UIID.Demo_bountyBoard;
+                                    var uiToOpen = UIID.Demo_bigTower;
+                                    var uiArgs = 0; //0无意义，只是因为后面有个if判断，这样用来确认有UI要打开
                                     break;
                                 case 4: //daoex是什么？
                                     // var uiToOpen = UIID.Demo_bountyBoard;
