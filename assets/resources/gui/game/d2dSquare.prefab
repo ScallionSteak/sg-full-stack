@@ -709,7 +709,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f41fkWgU5I6r7lC3XM1v8k",
+    "_componentId": "42c24Nd3cREFp7QupUmKAY9",
     "handler": "closeSelf",
     "customEventData": ""
   },
@@ -1383,7 +1383,10 @@
     "d2dItemListLayer": {
       "__id__": 42
     },
-    "d2dItemPrefab": null,
+    "d2dItemPrefab": {
+      "__uuid__": "bd4a7272-8104-4c07-b1c1-8b631366546d",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": ""
   },
   {

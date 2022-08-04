@@ -135,10 +135,10 @@ export class RoleViewD2dSquare extends CCComp {
     private listHeight;
 
     onLoad() {
-        this.initBountyList();
+        this.initList();
     }
 
-    initBountyList() {
+    initList() {
         for (var i = 0; i < this.d2dItemData.length; i++) {
             var node = instantiate(this.d2dItemPrefab);
             node.parent = this.d2dItemListLayer;
