@@ -40,7 +40,8 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                              */
                             switch (tile.buildingID) {
                                 case 0: //d2d界面还没做
-                                    // var uiToOpen = UIID.Demo_bountyBoard; 
+                                    var uiToOpen = UIID.Demo_d2dSquare;
+                                    var uiArgs = 0; //0无意义，只是因为后面有个if判断，这样用来确认有UI要打开
                                     break;
                                 case 1:
                                     var uiToOpen = UIID.Demo_bountyBoard;
