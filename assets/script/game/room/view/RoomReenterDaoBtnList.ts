@@ -1,4 +1,4 @@
-import { Component, Node, EditBox, Label, _decorator, Vec3, SpriteAtlas, Sprite } from 'cc';
+import { Component, Node, EditBox, Label, _decorator, Vec3, SpriteAtlas, Sprite, assetManager, JsonAsset, resources } from 'cc';
 import { timeStamp } from 'console';
 import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops';
 import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
@@ -39,12 +39,24 @@ export class RoomReenterDaoBtnList extends Component {
     }
 
     private roomInfo;
+    private seeDaoGuildGuideData: any;    
+
+    loadJson() {
+        var fileName = 'config/game/seeDaoGuildGuideData';
+        resources.load(fileName, (err, json: JsonAsset) => {
+            if (err) {
+                console.log(fileName, err);
+            }
+            this.seeDaoGuildGuideData = json;
+        });
+    }
 
     initRoomInfo(roomInfo) {
         console.log(roomInfo.name);
         switch (roomInfo.name) {
             case 'SeeDAORoom':
                 this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seedaoLogo');
+                this.loadJson();
                 break;
             case 'PublicSpaceRoom':
                 this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/sgLogo');
@@ -65,6 +77,10 @@ export class RoomReenterDaoBtnList extends Component {
         smc.room.RoomModel.serverUrl = this.roomInfo.serverUrl;
         smc.room.RoomModel.playerName = localStorage.getItem('username');
         smc.room.RoomModel.roomName = this.roomInfo.name;
+        if (this.roomInfo.name == 'SeeDAORoom') {
+            //把seedao公会引导数据加载进来
+            smc.room.RoomModel.roomGuildGuideData = this.seeDaoGuildGuideData;
+        }
         smc.room.leave();
     }
 }

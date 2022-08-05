@@ -68,11 +68,12 @@ export class Room extends ecs.Entity {
      * @param serverUrl     房间服地址
      * @param playerName    玩家名
      */
-    join(roomId?: string, serverUrl?: string, playerName?: string, roomName?: string) {
+    join(roomId?: string, serverUrl?: string, playerName?: string, roomName?: string, roomGuildGuideData?: any) {
         if (roomId) this.RoomModel.roomId = roomId;
         if (serverUrl) this.RoomModel.serverUrl = serverUrl;
         if (playerName) this.RoomModel.playerName = playerName;
         if (roomName) this.RoomModel.roomName = roomName;
+        if (roomName) this.RoomModel.roomGuildGuideData = roomGuildGuideData;
         this.add(RoomServerConnectComp);
     }
 

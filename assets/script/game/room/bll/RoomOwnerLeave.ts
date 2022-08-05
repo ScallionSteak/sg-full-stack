@@ -37,6 +37,7 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
         var roomId = e.RoomModel.roomId;
         var serverUrl = e.RoomModel.serverUrl;
         var roomName = e.RoomModel.roomName;
+        var seeDaoGuildGuideData = e.RoomModel.roomGuildGuideData;
         
         // 房间数据清理
         e.RoomModel.reset();
@@ -67,7 +68,8 @@ export class RoomOwnerLeaveSystem extends ecs.ComblockSystem implements ecs.IEnt
             smc.room.RoomModel.serverUrl = serverUrl;
             smc.room.RoomModel.playerName = playerName;
             smc.room.RoomModel.roomName = roomName;
-            smc.room.join(roomId, serverUrl, playerName, roomName);
+            smc.room.RoomModel.roomGuildGuideData = seeDaoGuildGuideData
+            smc.room.join(roomId, serverUrl, playerName, roomName, seeDaoGuildGuideData);
         }, 500)
     }
 }

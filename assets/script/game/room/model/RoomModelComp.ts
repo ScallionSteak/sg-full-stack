@@ -36,6 +36,9 @@ export class RoomModelComp extends ecs.Comp {
     playerName: string = null;
     /** 房间名称 */
     roomName: string = null;
+
+    /** seedao公会引导专属，demo做法 */
+    roomGuildGuideData: any;
     
     /** 玩家自己 */
     owner: Role = null!;

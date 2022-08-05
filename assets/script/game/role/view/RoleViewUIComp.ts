@@ -99,13 +99,13 @@ export class RoleViewUIComp extends CCComp {
     }
 
     checkGuide() {
+        console.log("this.seeDaoGuildGuideData is ---", smc.room.RoomModel.roomGuildGuideData);
         var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
         var _http = new HttpRequestForDS();
         var url = '/queryUserGuideStatus';
         _http.postJSON(url, walletAddress, (res) => {
             var resAsJson = JSON.parse(res);
             var curRoom = smc.room.RoomModel.roomName;
-            console.log("room name is -------", curRoom);
             var sgGuideStatus = resAsJson[0].sgOnboardingStatus;
             var seeDaoGuideStatus = resAsJson[0].seeDaoOnboardingStatus;
             if (curRoom == "PublicSpaceRoom") {

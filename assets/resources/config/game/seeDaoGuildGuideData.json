@@ -1,0 +1,4 @@
+[
+{"guildID":"1","guildName":"产品公会","botName":"KC","botPortrait":"KC","welcomeTitle":"欢迎欢迎","welcomeDesc":"啦啦啦","totalPhases":"1|2|3","buildingXPhase1":"100","buildingYPhase1":"200","buildingWidthPhase1":"300","buildingHeightPhase1":"400","reemphasizeText":"确定","link1":"https://emojia.glitch.me/","link1Type":"1","confirmTextPhase1":"confirmTextPhase1","startTextPhase2":"startTextPhase2","buildingXPhase2":"400","buildingYPhase2":"300","buildingWidthPhase2":"200","buildingHeightPhase2":"100","link2":"https://lines.frvr.com/","link2Type":"1","confirmTextPhase2":"confirmTextPhase2","buildingXPhase3":"1000","buildingYPhase3":"1000","buildingWidthPhase3":"10","buildingHeightPhase3":"10","rookieTaskType":"1","rookieTaskText":"rookieTaskText","completeTip":"completeTip","fileBuildingX":"-1000","fileBuildingY":"-1000","fileBuildingWidth":"100","fileBuildingHeight":"100","fileEndTip":"fileEndTip"}
+
+]
