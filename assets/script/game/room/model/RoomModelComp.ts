@@ -39,6 +39,30 @@ export class RoomModelComp extends ecs.Comp {
 
     /** seedao公会引导专属，demo做法 */
     roomGuildGuideData: any;
+    // guildGuideStatus: {
+    //     SheJiGongHuiGuideStatus: number,
+    //     ZhiLiGongHuiGuideStatus: number,
+    //     TouYanGongHuiGuideStatus: number,
+    //     KaiFaZheGongHuiGuideStatus: number,
+    //     YiShuGongHuiGuideStatus: number,
+    //     JianZhuGongHuiGuideStatus: number,
+    //     XuanChuanGongHuiGuideStatus: number,
+    //     ChanPinGongHuiGuideStatus: number,
+    //     FanYiGongHuiGuideStatus: number,
+    //     NFT_ClubGuideStatus: number
+    // } = {
+    //     SheJiGongHuiGuideStatus: 0,
+    //     ZhiLiGongHuiGuideStatus: 0,
+    //     TouYanGongHuiGuideStatus: 0,
+    //     KaiFaZheGongHuiGuideStatus: 0,
+    //     YiShuGongHuiGuideStatus: 0,
+    //     JianZhuGongHuiGuideStatus: 0,
+    //     XuanChuanGongHuiGuideStatus: 0,
+    //     ChanPinGongHuiGuideStatus: 0,
+    //     FanYiGongHuiGuideStatus: 0,
+    //     NFT_ClubGuideStatus: 0
+    // };
+    guildGuideStatus: number[] = [0,0,0,0,0,0,0,0,0,0];
     
     /** 玩家自己 */
     owner: Role = null!;

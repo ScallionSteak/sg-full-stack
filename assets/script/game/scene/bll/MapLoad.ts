@@ -112,7 +112,36 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.UI_DAO_SEEDAO = e.MapView.tiledmap.getLayer("UI_DAO_SEEDAO")!;
                 break;
             case 'seeDaoMap':
-                // mm.UI_DAOGarden_null = e.MapView.tiledmap.getLayer("UI_DAOGarden_null")!;
+                mm.SheJiGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("SheJiGongHui_NPC_Trigger")!;
+                mm.ZhiLiGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("ZhiLiGongHui_NPC_Trigger")!;
+                mm.TouYanGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("TouYanGongHui_NPC_Trigger")!;
+                mm.KaiFaZheGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("KaiFaZheGongHui_NPC_Trigger")!;
+                mm.YiShuGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("YiShuGongHui_NPC_Trigger")!;
+                mm.JianZhuGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("JianZhuGongHui_NPC_Trigger")!;
+                mm.XuanChuanGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("XuanChuanGongHui_NPC_Trigger")!;
+                mm.ChanPinGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("ChanPinGongHui_NPC_Trigger")!;
+                mm.FanYiGongHui_NPC_Trigger = e.MapView.tiledmap.getLayer("FanYiGongHui_NPC_Trigger")!;
+                mm.NFT_Club_NPC_Trigger = e.MapView.tiledmap.getLayer("NFT_Club_NPC_Trigger")!;
+                mm.SheJiGongHui_onboarding_a = e.MapView.tiledmap.getLayer("SheJiGongHui_onboarding_a")!;
+                mm.SheJiGongHui_onboarding_b = e.MapView.tiledmap.getLayer("SheJiGongHui_onboarding_b")!;
+                mm.SheJiGongHui_onboarding_c = e.MapView.tiledmap.getLayer("SheJiGongHui_onboarding_c")!;
+                mm.TouYanGongHui_onboarding_a = e.MapView.tiledmap.getLayer("TouYanGongHui_onboarding_a")!;
+                mm.TouYanGongHui_onboarding_b = e.MapView.tiledmap.getLayer("TouYanGongHui_onboarding_b")!;
+                mm.TouYanGongHui_onboarding_c = e.MapView.tiledmap.getLayer("TouYanGongHui_onboarding_c")!;
+                mm.KaiFaGongHui_onboarding_a = e.MapView.tiledmap.getLayer("KaiFaGongHui_onboarding_a")!;
+                mm.KaiFaGongHui_onboarding_b = e.MapView.tiledmap.getLayer("KaiFaGongHui_onboarding_b")!;
+                mm.KaiFaGongHui_onboarding_c = e.MapView.tiledmap.getLayer("KaiFaGongHui_onboarding_c")!;
+                mm.YiShuGongHui_onboarding_a = e.MapView.tiledmap.getLayer("YiShuGongHui_onboarding_a")!;
+                mm.YiShuGongHui_onboarding_b = e.MapView.tiledmap.getLayer("YiShuGongHui_onboarding_b")!;
+                mm.XuanChuanGongHui_onboarding_a = e.MapView.tiledmap.getLayer("XuanChuanGongHui_onboarding_a")!;
+                mm.XuanChuanGongHui_onboarding_b = e.MapView.tiledmap.getLayer("XuanChuanGongHui_onboarding_b")!;
+                mm.XuanChuanGongHui_onboarding_c = e.MapView.tiledmap.getLayer("XuanChuanGongHui_onboarding_c")!;
+                mm.ChanPinGongHui_onboarding_a = e.MapView.tiledmap.getLayer("ChanPinGongHui_onboarding_a")!;
+                mm.ChanPinGongHui_onboarding_b = e.MapView.tiledmap.getLayer("ChanPinGongHui_onboarding_b")!;
+                mm.ChanPinGongHui_onboarding_c = e.MapView.tiledmap.getLayer("ChanPinGongHui_onboarding_c")!;
+                mm.FanYiGongHui_onboarding_a = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_a")!;
+                mm.FanYiGongHui_onboarding_b = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_b")!;
+                mm.FanYiGongHui_onboarding_c = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_c")!;
                 break;
             default:
                 break;
@@ -210,6 +239,69 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                         );
                         break;
                     case 'seeDaoMap':
+                        let SheJiGongHui_NPC_Trigger_gid = mm.SheJiGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let ZhiLiGongHui_NPC_Trigger_gid = mm.ZhiLiGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let TouYanGongHui_NPC_Trigger_gid = mm.TouYanGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let KaiFaZheGongHui_NPC_Trigger_gid = mm.KaiFaZheGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let YiShuGongHui_NPC_Trigger_gid = mm.YiShuGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let JianZhuGongHui_NPC_Trigger_gid = mm.JianZhuGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_NPC_Trigger_gid = mm.XuanChuanGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let ChanPinGongHui_NPC_Trigger_gid = mm.ChanPinGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let FanYiGongHui_NPC_Trigger_gid = mm.FanYiGongHui_NPC_Trigger.getTileGIDAt(x, y);
+                        let NFT_Club_NPC_Trigger_gid = mm.NFT_Club_NPC_Trigger.getTileGIDAt(x, y);
+                        let SheJiGongHui_onboarding_a_gid = mm.SheJiGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let SheJiGongHui_onboarding_b_gid = mm.SheJiGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let SheJiGongHui_onboarding_c_gid = mm.SheJiGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let TouYanGongHui_onboarding_a_gid = mm.TouYanGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let TouYanGongHui_onboarding_b_gid = mm.TouYanGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let TouYanGongHui_onboarding_c_gid = mm.TouYanGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let KaiFaGongHui_onboarding_a_gid = mm.KaiFaGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let KaiFaGongHui_onboarding_b_gid = mm.KaiFaGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let KaiFaGongHui_onboarding_c_gid = mm.KaiFaGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let YiShuGongHui_onboarding_a_gid = mm.YiShuGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let YiShuGongHui_onboarding_b_gid = mm.YiShuGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_onboarding_a_gid = mm.XuanChuanGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_onboarding_b_gid = mm.XuanChuanGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_onboarding_c_gid = mm.XuanChuanGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let ChanPinGongHui_onboarding_a_gid = mm.ChanPinGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let ChanPinGongHui_onboarding_b_gid = mm.ChanPinGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let ChanPinGongHui_onboarding_c_gid = mm.ChanPinGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let FanYiGongHui_onboarding_a_gid = mm.FanYiGongHui_onboarding_a.getTileGIDAt(x, y);
+                        let FanYiGongHui_onboarding_b_gid = mm.FanYiGongHui_onboarding_b.getTileGIDAt(x, y);
+                        let FanYiGongHui_onboarding_c_gid = mm.FanYiGongHui_onboarding_c.getTileGIDAt(x, y);
+
+                        buildingGidArr.push(
+                            SheJiGongHui_NPC_Trigger_gid,
+                            ZhiLiGongHui_NPC_Trigger_gid,
+                            TouYanGongHui_NPC_Trigger_gid,
+                            KaiFaZheGongHui_NPC_Trigger_gid,
+                            YiShuGongHui_NPC_Trigger_gid,
+                            JianZhuGongHui_NPC_Trigger_gid,
+                            XuanChuanGongHui_NPC_Trigger_gid,
+                            ChanPinGongHui_NPC_Trigger_gid,
+                            FanYiGongHui_NPC_Trigger_gid,
+                            NFT_Club_NPC_Trigger_gid,
+                            SheJiGongHui_onboarding_a_gid,
+                            SheJiGongHui_onboarding_b_gid,
+                            SheJiGongHui_onboarding_c_gid,
+                            TouYanGongHui_onboarding_a_gid,
+                            TouYanGongHui_onboarding_b_gid,
+                            TouYanGongHui_onboarding_c_gid,
+                            KaiFaGongHui_onboarding_a_gid,
+                            KaiFaGongHui_onboarding_b_gid,
+                            KaiFaGongHui_onboarding_c_gid,
+                            YiShuGongHui_onboarding_a_gid,
+                            YiShuGongHui_onboarding_b_gid,
+                            XuanChuanGongHui_onboarding_a_gid,
+                            XuanChuanGongHui_onboarding_b_gid,
+                            XuanChuanGongHui_onboarding_c_gid,
+                            ChanPinGongHui_onboarding_a_gid,
+                            ChanPinGongHui_onboarding_b_gid,
+                            ChanPinGongHui_onboarding_c_gid,
+                            FanYiGongHui_onboarding_a_gid,
+                            FanYiGongHui_onboarding_b_gid,
+                            FanYiGongHui_onboarding_c_gid
+                        );
                         break;
                     default:
                         break;

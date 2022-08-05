@@ -55,7 +55,7 @@ export class MapModelComp extends ecs.Comp {
     barrier: TiledLayer = null!;
     /** 游戏层 */
     game: TiledObjectGroup = null!;
-    /** 22个公区需互动layer */
+    /** 公区需互动layer */
     UI_D2DSquare: TiledLayer = null;
     UI_BountyBoard: TiledLayer = null;
     UI_SupportCenter: TiledLayer = null;
@@ -78,6 +78,39 @@ export class MapModelComp extends ecs.Comp {
     UI_DAO_AMDAO: TiledLayer = null;
     UI_DAO_HaiDAO: TiledLayer = null;
     UI_DAO_SEEDAO: TiledLayer = null;
+    /** seedao需互动layer */
+    SheJiGongHui_NPC_Trigger: TiledLayer = null;
+    ZhiLiGongHui_NPC_Trigger: TiledLayer = null;
+    TouYanGongHui_NPC_Trigger: TiledLayer = null;
+    KaiFaZheGongHui_NPC_Trigger: TiledLayer = null;
+    YiShuGongHui_NPC_Trigger: TiledLayer = null;
+    JianZhuGongHui_NPC_Trigger: TiledLayer = null;
+    XuanChuanGongHui_NPC_Trigger: TiledLayer = null;
+    ChanPinGongHui_NPC_Trigger: TiledLayer = null;
+    FanYiGongHui_NPC_Trigger: TiledLayer = null;
+    NFT_Club_NPC_Trigger: TiledLayer = null;
+    SheJiGongHui_onboarding_a: TiledLayer = null;
+    SheJiGongHui_onboarding_b: TiledLayer = null;
+    SheJiGongHui_onboarding_c: TiledLayer = null;
+    TouYanGongHui_onboarding_a: TiledLayer = null;
+    TouYanGongHui_onboarding_b: TiledLayer = null;
+    TouYanGongHui_onboarding_c: TiledLayer = null;
+    KaiFaGongHui_onboarding_a: TiledLayer = null;
+    KaiFaGongHui_onboarding_b: TiledLayer = null;
+    KaiFaGongHui_onboarding_c: TiledLayer = null;
+    YiShuGongHui_onboarding_a: TiledLayer = null;
+    YiShuGongHui_onboarding_b: TiledLayer = null;
+    XuanChuanGongHui_onboarding_a: TiledLayer = null;
+    XuanChuanGongHui_onboarding_b: TiledLayer = null;
+    XuanChuanGongHui_onboarding_c: TiledLayer = null;
+    ChanPinGongHui_onboarding_a: TiledLayer = null;
+    ChanPinGongHui_onboarding_b: TiledLayer = null;
+    ChanPinGongHui_onboarding_c: TiledLayer = null;
+    FanYiGongHui_onboarding_a: TiledLayer = null;
+    FanYiGongHui_onboarding_b: TiledLayer = null;
+    FanYiGongHui_onboarding_c: TiledLayer = null;
+    
+
 
     /** 所有游戏网格数据 */
     tiles: Array<Array<Tile>> = [];
