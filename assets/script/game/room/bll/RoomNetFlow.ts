@@ -27,7 +27,7 @@ export class RoomNetFlowSystem extends ecs.ComblockSystem implements ecs.IEntity
         // 客户端断开连接后逻辑
         wsc.flows.postDisconnectFlow.push(v => {
             if (!v.isManual) {
-                oops.gui.toast(`服务器维护`);
+                // oops.gui.toast(`服务器维护`);
                 e.add(RoomOwnerLeaveComp);
             }
             return v;
