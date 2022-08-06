@@ -109,6 +109,28 @@ export class MapModelComp extends ecs.Comp {
     FanYiGongHui_onboarding_a: TiledLayer = null;
     FanYiGongHui_onboarding_b: TiledLayer = null;
     FanYiGongHui_onboarding_c: TiledLayer = null;
+    seedaoBookshelf_a: TiledLayer = null;
+    seedaoBookshelf_b: TiledLayer = null;
+    seedaoBookshelf_c: TiledLayer = null;
+    seedaoBookshelf_d: TiledLayer = null;
+    seedaoBookshelf_e: TiledLayer = null;
+    seedaoBookshelf_f: TiledLayer = null;
+    XiangMuKanBan: TiledLayer = null;
+    TiAnBan: TiledLayer = null;
+    FengYunBang: TiledLayer = null;
+    ShangJinRenWu: TiledLayer = null;
+    HuoDongRiLi: TiledLayer = null;
+    gameRoom_White: TiledLayer = null;
+    gameRoom_Red: TiledLayer = null;
+    gameRoom_Blue: TiledLayer = null;
+    gameRoom_Yellow: TiledLayer = null;
+    cinema: TiledLayer = null;
+    musicMicrophone: TiledLayer = null;
+    musicGuitar: TiledLayer = null;
+    musicDrum: TiledLayer = null;
+    musicPaino: TiledLayer = null;
+    HuoDongKanBan: TiledLayer = null;
+
     /** hydao需互动layer */
     ChanPinLanMu: TiledLayer = null;
     BoKeLanMu: TiledLayer = null;

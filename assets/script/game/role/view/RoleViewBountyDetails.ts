@@ -44,6 +44,8 @@ export class RoleViewBountyDetails extends CCComp {
     nextBtnText: Node = null!;
     @property({ type: Node })
     descGroupContent: Node = null!;
+    @property({ type: Node })
+    inPublicSpace: Node = null!;
 
     /** 不同状态的status文字以及对应的按钮文字，为了省时间，写的有点粗暴，就先酱吧，hhhhh */
     public bountyStatusArr = ['TO DO', 'In Process', 'In Review', 'Done', 'Done'];
@@ -55,7 +57,9 @@ export class RoleViewBountyDetails extends CCComp {
 
     private bountyInfo;
     initDetailsData(bountyInfo: any) {
-        console.log(typeof bountyInfo.bountyStatus, bountyInfo.bountyStatus);
+        if(smc.room.RoomModel.roomName != 'PublicSpaceRoom') {
+            this.inPublicSpace.active = true;
+        }
         this.bountyInfo = bountyInfo;
         this.bountyName.getComponent(Label).string = bountyInfo.bountyName;
         this.bountyDesc.getComponent(Label).string = bountyInfo.bountyDesc;

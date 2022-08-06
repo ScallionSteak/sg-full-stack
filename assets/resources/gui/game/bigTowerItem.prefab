@@ -1452,7 +1452,10 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": null,
+    "_normalSprite": {
+      "__uuid__": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6@16ced",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -1537,6 +1540,9 @@
     },
     "joinBtn": {
       "__id__": 50
+    },
+    "btnName": {
+      "__id__": 51
     },
     "UIAtlas": {
       "__uuid__": "b8cc03ba-38c9-4d89-893d-d757e8dff1f6",

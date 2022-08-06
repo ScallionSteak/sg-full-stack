@@ -64,7 +64,7 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_Match]: { layer: LayerType.UI, prefab: "gui/match/match" },
     [UIID.Demo_ChatTextFromSelf]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromSelf" },
     [UIID.Demo_ChatTextFromOthers]: { layer: LayerType.UI, prefab: "gui/game/singleChatFromOthers" },
-    [UIID.Demo_bountyDashboard]: { layer: LayerType.UI, prefab: "gui/game/bountyDashboard" },
+    [UIID.Demo_bountyDashboard]: { layer: LayerType.UI, prefab: "gui/game/bountydashboard" },
     [UIID.Demo_daoGarden]: { layer: LayerType.UI, prefab: "gui/game/daoGarden" },
     [UIID.Demo_projectsPark]: { layer: LayerType.UI, prefab: "gui/game/projectsPark" },
     [UIID.Demo_bountyBoard]: { layer: LayerType.UI, prefab: "gui/game/bountyBoard" },

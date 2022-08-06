@@ -25,7 +25,6 @@ export class RoleViewMoveTranslate extends MoveTranslate {
     async update(dt: number) {
         if (this.speed > 0) {
             Vec3.multiplyScalar(this.vectorC, this.velocity, this.speed * dt);
-            console.log(this.node.position.x, this.node.position.y);
             //如果node移动后的tile是障碍物，那就不移动
             var curPosX = this.node.position.x;
             var curPosY = this.node.position.y;
@@ -78,7 +77,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         break;
                                     case 9: 
                                         var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 1; //用来告诉npcDialog撞到了哪个公会
+                                        var uiArgs = 10; //用来告诉npcDialog撞到了哪个公会
                                         break;
                                     default:
                                         break;
@@ -203,6 +202,90 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     case 26: //产品公会c
                                         var uiToOpen = UIID.Demo_rookieTask;
                                         var uiArgs = 26;
+                                        break;
+                                    case 30: 
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 30;
+                                        break;
+                                    case 31:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 31;
+                                        break;
+                                    case 32:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 32;
+                                        break;
+                                    case 33:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 33;
+                                        break;
+                                    case 34:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 34;
+                                        break;
+                                    case 35:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 35;
+                                        break;
+                                    case 36:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 36;
+                                        break;
+                                    case 37:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 37;
+                                        break;
+                                    case 38:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 38;
+                                        break;
+                                    case 39:
+                                        var uiToOpen = UIID.Demo_bountyBoard;
+                                        var uiArgs = 39;
+                                        break;
+                                    case 40:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 40;
+                                        break;
+                                    case 41:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 41;
+                                        break;
+                                    case 42:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 42;
+                                        break;
+                                    case 43:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 43;
+                                        break;
+                                    case 44:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 44;
+                                        break;
+                                    case 45:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 45;
+                                        break;
+                                    case 46:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 46;
+                                        break;
+                                    case 47:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 47;
+                                        break;
+                                    case 48:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 48;
+                                        break;
+                                    case 49:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 49;
+                                        break;
+                                    case 50:
+                                        // var uiToOpen = UIID.Demo_bountyDashboard; TODO 要做个活动看板
+                                        var uiArgs = 50;
                                         break;
                                     default:
                                         console.log("没有这个编号的障碍物");

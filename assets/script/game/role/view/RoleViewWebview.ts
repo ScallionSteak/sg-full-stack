@@ -102,6 +102,73 @@ export class RoleViewWebview extends CCComp {
                         this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].link2;
                     }
                     break;
+                case 30:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/8b2e1e95151247eb8b712165fbd6b9b6';
+                    break;
+                case 31:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/85a0ef83dc464d768236cf2853e75274';
+                    break;
+                case 32:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/c7cb36a494b9442898b7b4b977391001';
+                    break;
+                case 33:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/bc2bc2bd57ad4ec890153f6a924f5502';
+                    break;
+                case 34:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/ebf5883ef4144302a72142c5dcc5f917';
+                    break;
+                case 35:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/ebf5883ef4144302a72142c5dcc5f917';
+                    break;
+                case 36:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/bba572d48ae94667bc0d0130d9b8e95c';
+                    break;
+                case 37:
+                    this.NewWindowLinkGroup.active = true;
+                    this.webviewGroup.active = false;
+                    this.newWindowLink.getComponent(Label).string = 'https://forum.seedao.xyz/';
+                    break;
+                case 38:
+                    this.NewWindowLinkGroup.active = true;
+                    this.webviewGroup.active = false;
+                    this.newWindowLink.getComponent(Label).string = 'https://seedao.xyz/hall';
+                    break;
+                case 39:
+                    console.log('not supposed to be here. should open a UI window.');
+                    break;
+                case 40:
+                    this.webView.getComponent(WebView).url = 'https://calendar.google.com/calendar/embed?src=0vfpndha1r2ic814uiddqj52g0veul38%40import.calendar.google.com&ctz=Asia%2FSingapore<iframe src="https://calendar.google.com/calendar/embed?src=0vfpndha1r2ic814uiddqj52g0veul38%40import.calendar.google.com&ctz=Asia%2FSingapore" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>';
+                    break;
+                case 41:
+                    this.webView.getComponent(WebView).url = 'https://gartic.io/';
+                    break;
+                case 42:
+                    this.webView.getComponent(WebView).url = 'https://bemuse.ninja/';
+                    break;
+                case 44:
+                    this.webView.getComponent(WebView).url = 'https://tetranoid.io/';
+                    break;
+                case 44:
+                    this.webView.getComponent(WebView).url = 'https://findtheinvisiblecow.com/';
+                    break;
+                case 45:
+                    this.webView.getComponent(WebView).url = 'https://w.mgtv.com/b/446003/17108602.html?fpa=se&lastp=so_result';
+                    break;
+                case 46:
+                    this.webView.getComponent(WebView).url = 'https://music.163.com/outchain/player?type=2&id=1413863166&auto=1&height=66';
+                    break;
+                case 47:
+                    this.webView.getComponent(WebView).url = 'https://music.163.com/outchain/player?type=2&id=506259256&auto=1&height=66';
+                    break;
+                case 48:
+                    this.webView.getComponent(WebView).url = 'https://music.163.com/outchain/player?type=2&id=1854527754&auto=1&height=66';
+                    break;
+                case 49:
+                    this.webView.getComponent(WebView).url = 'https://music.163.com/outchain/player?type=2&id=1473981269&auto=1&height=66';
+                    break;
+                case 50:
+                    console.log('not supposed to be here. should open a UI window.');
+                    break;
                 default:
                     console.log('no such link case. some wrong here.');
                     break;

@@ -144,6 +144,27 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.FanYiGongHui_onboarding_a = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_a")!;
                 mm.FanYiGongHui_onboarding_b = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_b")!;
                 mm.FanYiGongHui_onboarding_c = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_c")!;
+                mm.seedaoBookshelf_a = e.MapView.tiledmap.getLayer("seedaoBookshelf_a")!;
+                mm.seedaoBookshelf_b = e.MapView.tiledmap.getLayer("seedaoBookshelf_b")!;
+                mm.seedaoBookshelf_c = e.MapView.tiledmap.getLayer("seedaoBookshelf_c")!;
+                mm.seedaoBookshelf_d = e.MapView.tiledmap.getLayer("seedaoBookshelf_d")!;
+                mm.seedaoBookshelf_e = e.MapView.tiledmap.getLayer("seedaoBookshelf_e")!;
+                mm.seedaoBookshelf_f = e.MapView.tiledmap.getLayer("seedaoBookshelf_f")!;
+                mm.XiangMuKanBan = e.MapView.tiledmap.getLayer("XiangMuKanBan")!;
+                mm.TiAnBan = e.MapView.tiledmap.getLayer("TiAnBan")!;
+                mm.FengYunBang = e.MapView.tiledmap.getLayer("FengYunBang")!;
+                mm.ShangJinRenWu = e.MapView.tiledmap.getLayer("ShangJinRenWu")!;
+                mm.HuoDongRiLi = e.MapView.tiledmap.getLayer("HuoDongRiLi")!;
+                mm.gameRoom_White = e.MapView.tiledmap.getLayer("gameRoom_White")!;
+                mm.gameRoom_Red = e.MapView.tiledmap.getLayer("gameRoom_Red")!;
+                mm.gameRoom_Blue = e.MapView.tiledmap.getLayer("gameRoom_Blue")!;
+                mm.gameRoom_Yellow = e.MapView.tiledmap.getLayer("gameRoom_Yellow")!;
+                mm.cinema = e.MapView.tiledmap.getLayer("cinema")!;
+                mm.musicMicrophone = e.MapView.tiledmap.getLayer("musicMicrophone")!;
+                mm.musicGuitar = e.MapView.tiledmap.getLayer("musicGuitar")!;
+                mm.musicDrum = e.MapView.tiledmap.getLayer("musicDrum")!;
+                mm.musicPaino = e.MapView.tiledmap.getLayer("musicPaino")!;
+                mm.HuoDongKanBan = e.MapView.tiledmap.getLayer("HuoDongKanBan")!;
                 break;
             case 'HYDAOSpace':
                 mm.ChanPinLanMu = e.MapView.tiledmap.getLayer("ChanPinLanMu")!;
@@ -287,6 +308,27 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                         let FanYiGongHui_onboarding_a_gid = mm.FanYiGongHui_onboarding_a.getTileGIDAt(x, y);
                         let FanYiGongHui_onboarding_b_gid = mm.FanYiGongHui_onboarding_b.getTileGIDAt(x, y);
                         let FanYiGongHui_onboarding_c_gid = mm.FanYiGongHui_onboarding_c.getTileGIDAt(x, y);
+                        let seedaoBookshelf_a_gid = mm.seedaoBookshelf_a.getTileGIDAt(x, y);
+                        let seedaoBookshelf_b_gid = mm.seedaoBookshelf_b.getTileGIDAt(x, y);
+                        let seedaoBookshelf_c_gid = mm.seedaoBookshelf_c.getTileGIDAt(x, y);
+                        let seedaoBookshelf_d_gid = mm.seedaoBookshelf_d.getTileGIDAt(x, y);
+                        let seedaoBookshelf_e_gid = mm.seedaoBookshelf_e.getTileGIDAt(x, y);
+                        let seedaoBookshelf_f_gid = mm.seedaoBookshelf_f.getTileGIDAt(x, y);
+                        let XiangMuKanBan_gid = mm.XiangMuKanBan.getTileGIDAt(x, y);
+                        let TiAnBan_gid = mm.TiAnBan.getTileGIDAt(x, y);
+                        let FengYunBang_gid = mm.FengYunBang.getTileGIDAt(x, y);
+                        let ShangJinRenWu_gid = mm.ShangJinRenWu.getTileGIDAt(x, y);
+                        let HuoDongRiLi_gid = mm.HuoDongRiLi.getTileGIDAt(x, y);
+                        let gameRoom_White_gid = mm.gameRoom_White.getTileGIDAt(x, y);
+                        let gameRoom_Red_gid = mm.gameRoom_Red.getTileGIDAt(x, y);
+                        let gameRoom_Blue_gid = mm.gameRoom_Blue.getTileGIDAt(x, y);
+                        let gameRoom_Yellow_gid = mm.gameRoom_Yellow.getTileGIDAt(x, y);
+                        let cinema_gid = mm.cinema.getTileGIDAt(x, y);
+                        let musicMicrophone_gid = mm.musicMicrophone.getTileGIDAt(x, y);
+                        let musicGuitar_gid = mm.musicGuitar.getTileGIDAt(x, y);
+                        let musicDrum_gid = mm.musicDrum.getTileGIDAt(x, y);
+                        let musicPaino_gid = mm.musicPaino.getTileGIDAt(x, y);
+                        let HuoDongKanBan_gid = mm.HuoDongKanBan.getTileGIDAt(x, y);
 
                         buildingGidArr.push(
                             SheJiGongHui_NPC_Trigger_gid,
@@ -318,7 +360,28 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                             ChanPinGongHui_onboarding_c_gid,
                             FanYiGongHui_onboarding_a_gid,
                             FanYiGongHui_onboarding_b_gid,
-                            FanYiGongHui_onboarding_c_gid
+                            FanYiGongHui_onboarding_c_gid,
+                            seedaoBookshelf_a_gid,
+                            seedaoBookshelf_b_gid,
+                            seedaoBookshelf_c_gid,
+                            seedaoBookshelf_d_gid,
+                            seedaoBookshelf_e_gid,
+                            seedaoBookshelf_f_gid,
+                            XiangMuKanBan_gid,
+                            TiAnBan_gid,
+                            FengYunBang_gid,
+                            ShangJinRenWu_gid,
+                            HuoDongRiLi_gid,
+                            gameRoom_White_gid,
+                            gameRoom_Red_gid,
+                            gameRoom_Blue_gid,
+                            gameRoom_Yellow_gid,
+                            cinema_gid,
+                            musicMicrophone_gid,
+                            musicGuitar_gid,
+                            musicDrum_gid,
+                            musicPaino_gid,
+                            HuoDongKanBan_gid
                         );
                         break;
                     case 'HYDAOSpace':

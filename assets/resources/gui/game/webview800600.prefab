@@ -299,7 +299,7 @@
         "__id__": 39
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 53
@@ -492,7 +492,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 77.649,
+      "y": -0.955,
       "z": 0
     },
     "_lrot": {
@@ -1451,7 +1451,7 @@
     "__prefab": {
       "__id__": 61
     },
-    "_url": "https://cocos.com",
+    "_url": "0",
     "webviewEvents": [],
     "_id": ""
   },
