@@ -74,33 +74,46 @@ export class RoleViewWebview extends CCComp {
             }
             this.loadingAnim();
         } else if (roomName == 'SeeDAORoom') {
-            /** 这里目前只是人工确认哪个24（既哪个layer）和哪个公会对应 */
+            /** 这里目前只是人工确认哪个layer和哪个公会对应 */
             switch (this.id) {
+                case 10:
+                    this.fillInGuildForm(0, 1);
+                    break;
+                case 11:
+                    this.fillInGuildForm(0, 2);
+                    break;
+                case 13:
+                    this.fillInGuildForm(1, 1);
+                    break;
+                case 14:
+                    this.fillInGuildForm(1, 2);
+                    break;
+                case 16:
+                    this.fillInGuildForm(2, 1);
+                    break;
+                case 17:
+                    this.fillInGuildForm(2, 2);
+                    break;
+                case 19:
+                    this.fillInGuildForm(3, 1);
+                    break;
+                case 21:
+                    this.fillInGuildForm(4, 1);
+                    break;
+                case 22:
+                    this.fillInGuildForm(4, 2);
+                    break;
                 case 24:
-                    if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '1') {
-                        this.NewWindowLinkGroup.active = false;
-                        this.webviewGroup.active = true;
-                        this.loadingAnim();
-                        this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData[0].link1;
-                        smc.room.RoomModel.guildGuideStatus[0] = 2; //假定这个webview是第一份问卷
-                    } else if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '2') {
-                        this.NewWindowLinkGroup.active = true;
-                        this.webviewGroup.active = false;
-                        this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].link1;
-                    }
+                    this.fillInGuildForm(5, 1);
                     break;
                 case 25:
-                    if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '1') {
-                        this.NewWindowLinkGroup.active = false;
-                        this.webviewGroup.active = true;
-                        this.loadingAnim();
-                        this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData[0].link2;
-                        smc.room.RoomModel.guildGuideStatus[0] = 4; //假定这个webview是第二份问卷
-                    } else if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '2') {
-                        this.NewWindowLinkGroup.active = true;
-                        this.webviewGroup.active = false;
-                        this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].link2;
-                    }
+                    this.fillInGuildForm(5, 2);
+                    break;
+                case 27:
+                    this.fillInGuildForm(6, 1);
+                    break;
+                case 28:
+                    this.fillInGuildForm(6, 2);
                     break;
                 case 30:
                     this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/8b2e1e95151247eb8b712165fbd6b9b6';
@@ -169,6 +182,9 @@ export class RoleViewWebview extends CCComp {
                 case 50:
                     console.log('not supposed to be here. should open a UI window.');
                     break;
+                case 51:
+                    this.webView.getComponent(WebView).url = 'https://app.tryeraser.com/integration/sgtest/123-abc-456?layout=canvas';
+                    break;
                 default:
                     console.log('no such link case. some wrong here.');
                     break;
@@ -232,6 +248,32 @@ export class RoleViewWebview extends CCComp {
 
     }
 
+    fillInGuildForm(guildID: number, link1or2: number){
+        if (smc.room.RoomModel.roomGuildGuideData.json[guildID].link1Type == '1') {
+            this.NewWindowLinkGroup.active = false;
+            this.webviewGroup.active = true;
+            this.loadingAnim();
+            if (link1or2 == 1) {
+                console.log("link1............", smc.room.RoomModel.roomGuildGuideData.json[guildID].link1);
+                this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData.json[guildID].link1;
+                smc.room.RoomModel.guildGuideStatus[guildID] = 2; //假定这个webview是第一份问卷
+            } else {
+                this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData.json[guildID].link2;
+                smc.room.RoomModel.guildGuideStatus[guildID] = 4; //假定这个webview是第二份问卷
+            }
+
+        } else if (smc.room.RoomModel.roomGuildGuideData.json[guildID].link1Type == '2') {
+            this.NewWindowLinkGroup.active = true;
+            this.webviewGroup.active = false;
+            if (link1or2 == 1) {
+                this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[guildID].link1;
+            } else {
+                this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[guildID].link2;
+            }
+            
+        }
+    }
+
     loadingAnim() {
         tween(this.loading.getComponent(UIOpacity))        
             .repeatForever(tween(this.loading.getComponent(UIOpacity))
@@ -250,11 +292,46 @@ export class RoleViewWebview extends CCComp {
         oops.gui.remove(UIID.Demo_webview800600);
         if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
             switch (this.id) {
-                case 24:
+                case 10:
+                    oops.gui.open(UIID.Demo_npcDialog, 1); //传0有问题，所以这里公会ID+1
+                case 11:
                     oops.gui.open(UIID.Demo_npcDialog, 1); //传0有问题，所以这里公会ID+1
                     break;
+                case 13:
+                    oops.gui.open(UIID.Demo_npcDialog, 2); //传0有问题，所以这里公会ID+1
+                case 14:
+                    oops.gui.open(UIID.Demo_npcDialog, 2); //传0有问题，所以这里公会ID+1
+                    break;
+                case 16:
+                    oops.gui.open(UIID.Demo_npcDialog, 3); //传0有问题，所以这里公会ID+1
+                case 17:
+                    oops.gui.open(UIID.Demo_npcDialog, 3); //传0有问题，所以这里公会ID+1
+                    break;
+                case 19:
+                    oops.gui.open(UIID.Demo_npcDialog, 4); //传0有问题，所以这里公会ID+1
+                    break;
+                case 21:
+                    oops.gui.open(UIID.Demo_npcDialog, 5); //传0有问题，所以这里公会ID+1
+                case 22:
+                    oops.gui.open(UIID.Demo_npcDialog, 5); //传0有问题，所以这里公会ID+1
+                    break;
+                case 24:
+                    oops.gui.open(UIID.Demo_npcDialog, 6); //传0有问题，所以这里公会ID+1
                 case 25:
-                    oops.gui.open(UIID.Demo_npcDialog, 1);
+                    oops.gui.open(UIID.Demo_npcDialog, 6); //传0有问题，所以这里公会ID+1
+                    break;
+                case 27:
+                    oops.gui.open(UIID.Demo_npcDialog, 7); //传0有问题，所以这里公会ID+1
+                case 28:
+                    oops.gui.open(UIID.Demo_npcDialog, 7); //传0有问题，所以这里公会ID+1
+                    break;
+                case 51:
+                    for (var i = 0; i < smc.room.RoomModel.guildGuideStatus.length; i++) {
+                        if (smc.room.RoomModel.guildGuideStatus[i] == 5) {
+                            oops.gui.open(UIID.Demo_npcDialog, i + 1) //公会ID不能传0，不知道为什么
+                            break;
+                        }
+                    }
                     break;
                 default:
                     break;

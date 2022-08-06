@@ -165,6 +165,15 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.musicDrum = e.MapView.tiledmap.getLayer("musicDrum")!;
                 mm.musicPaino = e.MapView.tiledmap.getLayer("musicPaino")!;
                 mm.HuoDongKanBan = e.MapView.tiledmap.getLayer("HuoDongKanBan")!;
+                mm.seedaoWhiteBoard = e.MapView.tiledmap.getLayer("WhiteBoard")!;
+                mm.FanYiGongHui_bountyBoard = e.MapView.tiledmap.getLayer("FanYiGongHui_bountyBoard")!;
+                mm.ChanPinGongHui_bountyBoard = e.MapView.tiledmap.getLayer("ChanPinGongHui_bountyBoard")!;
+                mm.XuanChuanGongHui_bountyBoard = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bountyBoard")!;
+                mm.YiShuGongHui_bountyBoard = e.MapView.tiledmap.getLayer("YiShuGongHui_bountyBoard")!;
+                mm.KaiFaGongHui_bountyBoard = e.MapView.tiledmap.getLayer("KaiFaGongHui_bountyBoard")!;
+                mm.TouYanGongHui_bountyBoard = e.MapView.tiledmap.getLayer("TouYanGongHui_bountyBoard")!;
+                mm.ZhiLiGongHui_bountyBoard = e.MapView.tiledmap.getLayer("ZhiLiGongHui_bountyBoard")!;
+                mm.SheJiGongHui_bountyBoard = e.MapView.tiledmap.getLayer("SheJiGongHui_bountyBoard")!;
                 break;
             case 'HYDAOSpace':
                 mm.ChanPinLanMu = e.MapView.tiledmap.getLayer("ChanPinLanMu")!;
@@ -329,17 +338,26 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                         let musicDrum_gid = mm.musicDrum.getTileGIDAt(x, y);
                         let musicPaino_gid = mm.musicPaino.getTileGIDAt(x, y);
                         let HuoDongKanBan_gid = mm.HuoDongKanBan.getTileGIDAt(x, y);
+                        let seedaoWhiteBoard_gid = mm.seedaoWhiteBoard.getTileGIDAt(x, y);
+                        let FanYiGongHui_bountyBoard_gid = mm.FanYiGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bountyBoard_gid = mm.ChanPinGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bountyBoard_gid = mm.XuanChuanGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let YiShuGongHui_bountyBoard_gid = mm.YiShuGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bountyBoard_gid = mm.KaiFaGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let TouYanGongHui_bountyBoard_gid = mm.TouYanGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let ZhiLiGongHui_bountyBoard_gid = mm.ZhiLiGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let SheJiGongHui_bountyBoard_gid = mm.SheJiGongHui_bountyBoard.getTileGIDAt(x, y);
 
                         buildingGidArr.push(
                             SheJiGongHui_NPC_Trigger_gid,
-                            ZhiLiGongHui_NPC_Trigger_gid,
                             TouYanGongHui_NPC_Trigger_gid,
                             KaiFaZheGongHui_NPC_Trigger_gid,
                             YiShuGongHui_NPC_Trigger_gid,
-                            JianZhuGongHui_NPC_Trigger_gid,
                             XuanChuanGongHui_NPC_Trigger_gid,
                             ChanPinGongHui_NPC_Trigger_gid,
                             FanYiGongHui_NPC_Trigger_gid,
+                            ZhiLiGongHui_NPC_Trigger_gid,
+                            JianZhuGongHui_NPC_Trigger_gid,
                             NFT_Club_NPC_Trigger_gid,
                             SheJiGongHui_onboarding_a_gid,
                             SheJiGongHui_onboarding_b_gid,
@@ -381,7 +399,16 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                             musicGuitar_gid,
                             musicDrum_gid,
                             musicPaino_gid,
-                            HuoDongKanBan_gid
+                            HuoDongKanBan_gid,
+                            seedaoWhiteBoard_gid,
+                            FanYiGongHui_bountyBoard_gid,
+                            ChanPinGongHui_bountyBoard_gid,
+                            XuanChuanGongHui_bountyBoard_gid,
+                            YiShuGongHui_bountyBoard_gid,
+                            KaiFaGongHui_bountyBoard_gid,
+                            TouYanGongHui_bountyBoard_gid,
+                            ZhiLiGongHui_bountyBoard_gid,
+                            SheJiGongHui_bountyBoard_gid
                         );
                         break;
                     case 'HYDAOSpace':

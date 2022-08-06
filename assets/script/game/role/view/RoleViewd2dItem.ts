@@ -43,7 +43,7 @@ export class RoleViewd2dItem extends CCComp {
     private d2dInfo;
     initData(d2dListItem: any) {
         this.d2dInfo = d2dListItem;
-        this.d2dTitle.getComponent(Label).string = String(d2dListItem.title).substring(0, 15) + '...';
+        this.d2dTitle.getComponent(Label).string = String(d2dListItem.title).substring(0, 12) + '...';
         if(d2dListItem.pic1){
             this.d2dPic1.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/' + d2dListItem.pic1);
         }

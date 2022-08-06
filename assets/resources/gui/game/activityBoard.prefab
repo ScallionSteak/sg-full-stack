@@ -1596,7 +1596,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "活动主题",
+    "_string": "活动时间",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 14,
@@ -1729,7 +1729,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "活动主题",
+    "_string": "活动地点",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 14,
@@ -1862,7 +1862,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "活动主题",
+    "_string": "活动状态",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 14,

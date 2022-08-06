@@ -130,6 +130,15 @@ export class MapModelComp extends ecs.Comp {
     musicDrum: TiledLayer = null;
     musicPaino: TiledLayer = null;
     HuoDongKanBan: TiledLayer = null;
+    seedaoWhiteBoard: TiledLayer = null;
+    FanYiGongHui_bountyBoard: TiledLayer = null;
+    ChanPinGongHui_bountyBoard: TiledLayer = null;
+    XuanChuanGongHui_bountyBoard: TiledLayer = null;
+    YiShuGongHui_bountyBoard: TiledLayer = null;
+    KaiFaGongHui_bountyBoard: TiledLayer = null;
+    TouYanGongHui_bountyBoard: TiledLayer = null;
+    ZhiLiGongHui_bountyBoard: TiledLayer = null;
+    SheJiGongHui_bountyBoard: TiledLayer = null;
 
     /** hydao需互动layer */
     ChanPinLanMu: TiledLayer = null;

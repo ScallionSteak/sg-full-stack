@@ -99,7 +99,6 @@ export class RoleViewUIComp extends CCComp {
     }
 
     checkGuide() {
-        console.log("this.seeDaoGuildGuideData is ---", smc.room.RoomModel.roomGuildGuideData);
         var walletAddress = { walletAddress: localStorage.getItem('walletAddress') };
         var _http = new HttpRequestForDS();
         var url = '/queryUserGuideStatus';

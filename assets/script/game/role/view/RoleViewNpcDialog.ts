@@ -105,7 +105,6 @@ export class RoleViewNpcDialog extends CCComp {
         var roomName = smc.room.RoomModel.roomName;
         this.seeDaoGuildGuideData = smc.room.RoomModel.roomGuildGuideData;
         this.guildID = this.node.getComponent(DelegateComponent).viewParams.params - 1; //传0会认为是object，不懂为什么，那就这里-1匹配数组下标
-        this.guildID = 0; //测试代码，等正式数据来了要删这句 TODO
         this.initDialog(roomName);
         this.initNpc(roomName);
     }
@@ -120,7 +119,7 @@ export class RoleViewNpcDialog extends CCComp {
                 /** 判断是公会引导还是DAO引导 */
                 if (this.node.getComponent(DelegateComponent).viewParams.params > 0) {
                     this.npcNickname.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].botName;
-                    this.npcModel.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seeDaoNpc');
+                    this.npcModel.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/' + this.seeDaoGuildGuideData.json[this.guildID].botPortrait);
                 } else {
                     this.npcNickname.getComponent(Label).string = 'baiyu';
                     this.npcModel.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seeDaoNpc');
@@ -153,7 +152,7 @@ export class RoleViewNpcDialog extends CCComp {
                 this.nextBtn.active = false;
                if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 0) {
                     /** 刚开始公会引导 */
-                   this.welcomeTitle.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].welcomeTitle;
+                   this.welcomeTitle.getComponent(Label).string = smc.room.RoomModel.playerName + this.seeDaoGuildGuideData.json[this.guildID].welcomeTitle;
                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].welcomeDesc;
                    this.dialogContent.setPosition(this.dialogContent.position.x, this.dialogContent.position.y - this.welcomeTitle.getComponent(UITransform).height);
                    this.applyBtn.active = true;
@@ -199,8 +198,8 @@ export class RoleViewNpcDialog extends CCComp {
              * 这里应该是一个tween把引过去，回来，显示窗口，进度进一步都做掉
              */
             case 0:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1, true, false);
                 smc.room.RoomModel.guildGuideStatus[this.guildID] = 1; //前进一步
+                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1, true, false);
                 break;
             /** 接上一步，这个时候只要关闭窗口就好 */
             case 1:
@@ -229,6 +228,7 @@ export class RoleViewNpcDialog extends CCComp {
             case 5:
                 /** 最后一步，不需要做什么了 */
                 this.confirmClose();
+                smc.room.RoomModel.guildGuideStatus[this.guildID] = 6; //避免重复弹出
                 break;
             default:
                 break;
@@ -237,10 +237,10 @@ export class RoleViewNpcDialog extends CCComp {
 
     moveCamera(x: string, y: string, width: string, height: string, newDialogAfter: boolean, isCheckFile: boolean) {
         this.node.active = false;
-        var pos: Vec3 = v3(Number(x), Number(y));
-        var moveDuration = 5;
+        var pos: Vec3 = v3( - Number(x), - Number(y));
+        var moveDuration = 3;
         var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-        node.getComponent(MapViewControl).moveCameraForGuide(pos);
+        node.getComponent(MapViewControl).moveCameraForGuide(pos, Number(width), Number(height));
         setTimeout(()=> {
             if (isCheckFile) {
                 this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].fileEndTip;
@@ -261,7 +261,7 @@ export class RoleViewNpcDialog extends CCComp {
         if (this.isCheckFileDone) {
             this.confirmClose();
         } else {
-            this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2, true, true);
+            this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].fileBuildingX, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingY, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingWidth, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingHeight, true, true);
         }
     }
 

@@ -132,18 +132,27 @@ export class MapViewControl extends Component {
     }
 
     /** 根据传进来的参数在指定位置播放闪烁动画 */
-    moveCameraForGuide(pos: Vec3) {
+    moveCameraForGuide(pos: Vec3, width: number, height: number) {
         var moveDuration = 1;
         var originX = this.follow_position.x;
         var originY = this.follow_position.y;
         this.isInGuide = true;
         tween(this.map).to(moveDuration, {position: pos}).call(()=> {
             this.maskHole.active = true;
-            this.blinkFocus.active = true;
-            tween(this.blinkFocus).hide().delay(0.5).show().delay(0.5).union().repeat(3).call(()=>{
+            this.maskHole.getComponent(UITransform).width = width;
+            this.maskHole.getComponent(UITransform).height = height;
+            this.blinkFocus.active = false;
+            // tween(this.blinkFocus).hide().delay(0.5).show().delay(0.5).union().repeat(3).call(()=>{
+            //     this.maskHole.active = false;
+            //     this.blinkFocus.active = false;
+            //     tween(this.map).to(moveDuration, { position: new Vec3(originX, originY, 0) }).call(()=>{
+            //         this.isInGuide = false;
+            //     }).start();
+            // }).start();
+            tween(this.blinkFocus).delay(1).call(() => {
                 this.maskHole.active = false;
                 this.blinkFocus.active = false;
-                tween(this.map).to(moveDuration, { position: new Vec3(originX, originY, 0) }).call(()=>{
+                tween(this.map).to(moveDuration, { position: new Vec3(originX, originY, 0) }).call(() => {
                     this.isInGuide = false;
                 }).start();
             }).start();

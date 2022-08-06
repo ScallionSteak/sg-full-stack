@@ -191,17 +191,86 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                 }
                             } else if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
                                 switch (tile.buildingID) {
-                                    case 24: //产品公会a
+                                    case 10:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 10;
+                                        break;
+                                    case 11:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 11;
+                                        break;
+                                    case 12:
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 12;
+                                        break;
+                                        //** 这三个是投研的，先不处理 */
+                                    // case 13:
+                                    //     var uiToOpen = UIID.Demo_webview800600;
+                                    //     var uiArgs = 13;
+                                    //     break;
+                                    // case 14:
+                                    //     var uiToOpen = UIID.Demo_webview800600;
+                                    //     var uiArgs = 14;
+                                    //     break;
+                                    // case 15:
+                                    //     var uiToOpen = UIID.Demo_rookieTask;
+                                    //     var uiArgs = 15;
+                                    //     break;
+                                    case 16:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 16;
+                                        break;
+                                    case 17:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 17;
+                                        break;
+                                    case 18:
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 18;
+                                        break;
+                                    case 19:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 19;
+                                        break;
+                                    case 20:
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 20;
+                                        break;
+                                    case 21:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 21;
+                                        break;
+                                    case 22:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 22;
+                                        break;
+                                    case 23:
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 23;
+                                        break;
+                                    case 24:
                                         var uiToOpen = UIID.Demo_webview800600;
                                         var uiArgs = 24;
                                         break;
-                                    case 25: //产品公会b
+                                    case 25:
                                         var uiToOpen = UIID.Demo_webview800600;
                                         var uiArgs = 25;
                                         break;
-                                    case 26: //产品公会c
+                                    case 26:
                                         var uiToOpen = UIID.Demo_rookieTask;
                                         var uiArgs = 26;
+                                        break;
+                                    case 27:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 27;
+                                        break;
+                                    case 28: 
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 28;
+                                        break;
+                                    case 29:
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 29;
                                         break;
                                     case 30: 
                                         var uiToOpen = UIID.Demo_webview800600;
@@ -286,6 +355,21 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     case 50:
                                         var uiToOpen = UIID.Demo_activityBoard;
                                         var uiArgs = 50;
+                                        break;
+                                    case 51:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 51;
+                                        break;
+                                    case 52:
+                                    case 53:
+                                    case 54:
+                                    case 55:
+                                    case 56:
+                                    case 57:
+                                    case 58:
+                                    case 59:
+                                        var uiToOpen = UIID.Demo_bountyBoard;
+                                        var uiArgs = 52;
                                         break;
                                     default:
                                         console.log("没有这个编号的障碍物");

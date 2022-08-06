@@ -37,9 +37,33 @@ export class RoleViewRookieTask extends CCComp {
         oops.gui.remove(UIID.Demo_rookieTask);
         if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
             switch (this.id) {
-                case 26: //产品公会
+                case 12:
                     smc.room.RoomModel.guildGuideStatus[0] = 5; //下次打开npc dialog时，应该显示领取新手任务
-                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].rookieTaskText;
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[0].rookieTaskText;
+                    break;
+                case 15:
+                    smc.room.RoomModel.guildGuideStatus[1] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[1].rookieTaskText;
+                    break;
+                case 18:
+                    smc.room.RoomModel.guildGuideStatus[2] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[2].rookieTaskText;
+                    break;
+                case 20:
+                    smc.room.RoomModel.guildGuideStatus[3] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[3].rookieTaskText;
+                    break;
+                case 23:
+                    smc.room.RoomModel.guildGuideStatus[4] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[4].rookieTaskText;
+                    break;
+                case 26:
+                    smc.room.RoomModel.guildGuideStatus[5] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[5].rookieTaskText;
+                    break;
+                case 29:
+                    smc.room.RoomModel.guildGuideStatus[6] = 5; //下次打开npc dialog时，应该显示领取新手任务
+                    this.taskDesc.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[6].rookieTaskText;
                     break;
                 default:
                     break;
