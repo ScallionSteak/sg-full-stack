@@ -52,6 +52,8 @@ export enum UIID {
     Demo_bigTower,
     /** 新手任务弹窗 */
     Demo_rookieTask,
+    /** 活动看板 */
+    Demo_activityBoard
 }
 
 /** 打开界面方式的配置数据 */
@@ -78,4 +80,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_d2dSquare]: { layer: LayerType.UI, prefab: "gui/game/d2dSquare" },
     [UIID.Demo_bigTower]: { layer: LayerType.UI, prefab: "gui/game/bigTower" },
     [UIID.Demo_rookieTask]: { layer: LayerType.UI, prefab: "gui/game/rookieTask" },
+    [UIID.Demo_activityBoard]: { layer: LayerType.UI, prefab: "gui/game/activityBoard" },
 }

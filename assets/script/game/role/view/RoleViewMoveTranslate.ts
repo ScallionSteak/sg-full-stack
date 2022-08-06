@@ -284,7 +284,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         var uiArgs = 49;
                                         break;
                                     case 50:
-                                        // var uiToOpen = UIID.Demo_bountyDashboard; TODO 要做个活动看板
+                                        var uiToOpen = UIID.Demo_activityBoard;
                                         var uiArgs = 50;
                                         break;
                                     default:
