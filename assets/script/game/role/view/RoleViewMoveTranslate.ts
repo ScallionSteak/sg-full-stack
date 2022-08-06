@@ -200,7 +200,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         var uiArgs = 25;
                                         break;
                                     case 26: //产品公会c
-                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiToOpen = UIID.Demo_rookieTask;
                                         var uiArgs = 26;
                                         break;
                                     default:

@@ -64,6 +64,8 @@ export class RoleViewNpcDialog extends CCComp {
     guildGuideOkBtn: Node = null!;
     @property({ type: Node })
     welcomeTitle: Node = null!;
+    @property({ type: Node })
+    rookieTaskBadgeGroup: Node = null!;
 
     private publicSpaceGuideContent: string[] = [
         "Hello , Welcome to SG ~ If you are interested in Web3 but don't know how to start, if you are from DAO but lack of resources, if you are an idealist but don't know how to get started. Congratulations! You can explore DAO in SG. In fact, I would give you a special gift when you finish the tutorial. So, is there a DAO you want to enter?",
@@ -97,6 +99,7 @@ export class RoleViewNpcDialog extends CCComp {
     private curPageNum = 1;
     private seeDaoGuildGuideData: any;
     private guildID = 0;
+    private isCheckFileDone = false;
 
     onLoad() {
         var roomName = smc.room.RoomModel.roomName;
@@ -143,28 +146,34 @@ export class RoleViewNpcDialog extends CCComp {
                 this.previousBtn.active = false;
                 this.nextBtn.active = false;
                if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 0) {
-                /** 刚开始公会引导 */
+                    /** 刚开始公会引导 */
                    this.welcomeTitle.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].welcomeTitle;
                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].welcomeDesc;
                    this.dialogContent.setPosition(this.dialogContent.position.x, this.dialogContent.position.y - this.welcomeTitle.getComponent(UITransform).height);
                    this.applyBtn.active = true;
                    this.checkFileBtn.active = true;
                } else if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 1) {
-                /** 准备去填第一份问卷，这个1用来控制碰撞填问卷的建筑是否有反馈 */
+                    /** 准备去填第一份问卷，这个1用来控制碰撞填问卷的建筑是否有反馈 */
                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].reemphasizeText;
                    this.guildGuideOkBtn.active = true;
                } else if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 2) {
-                /** 填完第一份问卷，这个2用来控制关闭问卷窗口时弹什么东西出来 */
+                    /** 填完第一份问卷，这个2用来控制关闭问卷窗口时弹什么东西出来 */
                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].confirmTextPhase1;
                    this.guildGuideOkBtn.active = true;
                } else if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 3) {
-                /** 准备去填第二份问卷，这里跳过了人工审核的过程，不然应该是人工审核后再改变status的状态，这个3用来控制碰撞填问卷的建筑是否有反馈 */
+                    /** 准备去填第二份问卷，这里跳过了人工审核的过程，不然应该是人工审核后再改变status的状态，这个3用来控制碰撞填问卷的建筑是否有反馈 */
                    console.log('好像也不应该走到这个流程');
                } else if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 4) {
-                /** 填完第二份问卷，这个4用来控制关闭问卷窗口时弹什么东西出来，同时也用来控制新手任务建筑可以有反馈了 */
+                    /** 填完第二份问卷，这个4用来控制关闭问卷窗口时弹什么东西出来，同时也用来控制新手任务建筑可以有反馈了 */
                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].confirmTextPhase2;
                    this.guildGuideOkBtn.active = true;
-               }
+               } else if (smc.room.RoomModel.guildGuideStatus[this.guildID] == 5) {
+                    /** 最后一步，领badge */
+                   this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].completeTip;
+                   this.guildGuideOkBtn.active = true;
+                   this.guildGuideOkBtn.children[0].getComponent(Label).string = '立即领取';
+                   this.rookieTaskBadgeGroup.active = true;
+               } 
             } else {
                 this.curSpaceGuideContent = this.seeDaoGuideContent;
                 this.dialogContent.getComponent(Label).string = this.curSpaceGuideContent[0];
@@ -184,7 +193,7 @@ export class RoleViewNpcDialog extends CCComp {
              * 这里应该是一个tween把引过去，回来，显示窗口，进度进一步都做掉
              */
             case 0:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1, true);
+                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1, true, false);
                 smc.room.RoomModel.guildGuideStatus[this.guildID] = 1; //前进一步
                 break;
             /** 接上一步，这个时候只要关闭窗口就好 */
@@ -194,39 +203,60 @@ export class RoleViewNpcDialog extends CCComp {
             /** 这个2，是在填完第一份问卷关闭时改变的，照理说要等人工审核，应该依然是关窗口，但现在没人工审核，所以直接显示下一步的内容*/
             case 2:
                 //todo 要做根据1|2|3判断不同公会做什么
-                this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].startTextPhase2;
-                smc.room.RoomModel.guildGuideStatus[this.guildID] = 3; //前进一步
+                if (this.seeDaoGuildGuideData.json[this.guildID].totalPhases == '1|2|3') {
+                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].startTextPhase2;
+                    smc.room.RoomModel.guildGuideStatus[this.guildID] = 3; //前进一步
+                } else if (this.seeDaoGuildGuideData.json[this.guildID].totalPhases == '1|3') {
+                    this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].confirmTextPhase2;
+                    smc.room.RoomModel.guildGuideStatus[this.guildID] = 4; //直接进到
+                }
+                
                 break;
             /** 这个3，就是上一步变的，这里要引去看下一个建筑*/
             case 3:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2);
+                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2, false, false);
                 break;
             /** 这个4，是在填完第二份问卷关闭时改变的，这里应该要引去看下一个建筑*/
             case 4:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase3);
+                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase3, false, false);
+                break;
+            case 5:
+                /** 最后一步，不需要做什么了 */
+                this.confirmClose();
                 break;
             default:
                 break;
         }
     }
 
-    moveCamera(x: string, y: string, width: string, height: string, newDialogAfter?: boolean) {
+    moveCamera(x: string, y: string, width: string, height: string, newDialogAfter: boolean, isCheckFile: boolean) {
         this.node.active = false;
         var pos: Vec3 = v3(Number(x), Number(y));
         var moveDuration = 5;
         var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
         node.getComponent(MapViewControl).moveCameraForGuide(pos);
         setTimeout(()=> {
-            oops.gui.remove(UIID.Demo_npcDialog);
-            if (newDialogAfter) {
-                oops.gui.open(UIID.Demo_npcDialog, this.guildID + 1); //传0不行，所以传的时候要+1
+            if (isCheckFile) {
+                this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].fileEndTip;
+                this.node.active = true;
+                this.checkFileBtn.children[0].getComponent(Label).string = '好的';
+                this.isCheckFileDone = true;
+            } else {
+                oops.gui.remove(UIID.Demo_npcDialog);
+                if (newDialogAfter) {
+                    oops.gui.open(UIID.Demo_npcDialog, this.guildID + 1); //传0不行，所以传的时候要+1
+                }
             }
         }, moveDuration*1000);
         
     }
 
     checkFile() {
-
+        if (this.isCheckFileDone) {
+            this.confirmClose();
+        } else {
+            this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2, true, true);
+        }
     }
 
 

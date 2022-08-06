@@ -3,7 +3,7 @@
  * @Date: 2022-06-27
  */
 
-import { AudioSource, EditBox, EventTouch, Label, Node, tween, UIOpacity, v3, Vec3, WebView, _decorator } from 'cc';
+import { AudioSource, EditBox, EventTouch, Label, Node, sys, tween, UIOpacity, v3, Vec3, WebView, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -28,12 +28,22 @@ export class RoleViewWebview extends CCComp {
     webView: Node = null!;
     @property({ type: Node })
     loading: Node = null!;
+    @property({ type: Node })
+    webviewGroup: Node = null!;
+    @property({ type: Node })
+    NewWindowLinkGroup: Node = null!;
+    @property({ type: Node })
+    newWindowLink: Node = null!;
+    @property({ type: Node })
+    confirmBtn: Node = null!;
+    @property({ type: Node })
+    cancelBtn: Node = null!;
+    
     private id = 0;
 
     onLoad() {
         this.id = this.node.getComponent(DelegateComponent).viewParams.params;
         this.init();
-        this.loadingAnim();
     }
 
     init() {
@@ -66,18 +76,33 @@ export class RoleViewWebview extends CCComp {
             /** 这里目前只是人工确认哪个24（既哪个layer）和哪个公会对应 */
             switch (this.id) {
                 case 24:
-                    this.webView.getComponent(WebView).url = 'https://forms.gle/impXfCz1KAkL7nqw8';
-                    smc.room.RoomModel.guildGuideStatus[0] = 2; //假定这个webview是第一份问卷
+                    if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '1') {
+                        this.NewWindowLinkGroup.active = false;
+                        this.webviewGroup.active = true;
+                        this.loadingAnim();
+                        this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData[0].link1;
+                        smc.room.RoomModel.guildGuideStatus[0] = 2; //假定这个webview是第一份问卷
+                    } else if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '2') {
+                        this.NewWindowLinkGroup.active = true;
+                        this.webviewGroup.active = false;
+                        this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].link1;
+                    }
                     break;
                 case 25:
-                    this.webView.getComponent(WebView).url = 'https://forms.gle/gFJbT8egowUV65D69';
-                    smc.room.RoomModel.guildGuideStatus[0] = 4; //假定这个webview是第二份问卷
-                    break;
-                case 26:
-                    this.webView.getComponent(WebView).url = 'https://forms.gle/gFJbT8egowUV65D69';
-                    smc.room.RoomModel.guildGuideStatus[0] = 4; //假定这个webview是第二份问卷
+                    if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '1') {
+                        this.NewWindowLinkGroup.active = false;
+                        this.webviewGroup.active = true;
+                        this.loadingAnim();
+                        this.webView.getComponent(WebView).url = smc.room.RoomModel.roomGuildGuideData[0].link2;
+                        smc.room.RoomModel.guildGuideStatus[0] = 4; //假定这个webview是第二份问卷
+                    } else if (smc.room.RoomModel.roomGuildGuideData[0].link1Type == '2') {
+                        this.NewWindowLinkGroup.active = true;
+                        this.webviewGroup.active = false;
+                        this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData[0].link2;
+                    }
                     break;
                 default:
+                    console.log('no such link case. some wrong here.');
                     break;
             }
         }
@@ -90,6 +115,12 @@ export class RoleViewWebview extends CCComp {
                 .to(0.5, { opacity: 100 })
                 .to(0.5, { opacity: 255 })
                 .start()).start();
+    }
+
+    openNewWindowLink() {
+        sys.openURL(this.newWindowLink.getComponent(Label).string);
+        this.confirmBtn.active = false;
+        this.cancelBtn.active = false;
     }
 
     closeSelf() {

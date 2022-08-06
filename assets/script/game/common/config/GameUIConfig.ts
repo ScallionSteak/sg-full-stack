@@ -49,7 +49,9 @@ export enum UIID {
     /** d2d合作社 */
     Demo_d2dSquare,
     /** 钟楼 */
-    Demo_bigTower
+    Demo_bigTower,
+    /** 新手任务弹窗 */
+    Demo_rookieTask,
 }
 
 /** 打开界面方式的配置数据 */
@@ -75,4 +77,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_webview800600]: { layer: LayerType.UI, prefab: "gui/game/webview800600" },
     [UIID.Demo_d2dSquare]: { layer: LayerType.UI, prefab: "gui/game/d2dSquare" },
     [UIID.Demo_bigTower]: { layer: LayerType.UI, prefab: "gui/game/bigTower" },
+    [UIID.Demo_rookieTask]: { layer: LayerType.UI, prefab: "gui/game/rookieTask" },
 }
