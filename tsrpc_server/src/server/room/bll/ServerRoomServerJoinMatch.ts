@@ -92,5 +92,24 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
         });
         sr.ServerRoomModel.rooms.set(room2.RoomModel.data.id, room2);
 
+        let room3 = ecs.getEntity<Room>(Room);
+        //创建HYDAO私域
+        let rm3 = room3.RoomModel;
+        rm3.data = {
+            id: uuid.v4(),
+            playerMax: Config.room.max_user_num,
+            name: 'HYDAORoom',
+            players: [],
+            messages: [],
+            timeStartMatch: Date.now(),
+            timeUpdate: Date.now()
+        };
+
+        rm3.logger = new PrefixLogger({
+            logger: sr.ServerRoomModel.wsSrever.logger,
+            prefixs: [`[Room ${rm3.data.id}]`],
+        });
+        sr.ServerRoomModel.rooms.set(room3.RoomModel.data.id, room3);
+
     }
 }
