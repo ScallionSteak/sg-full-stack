@@ -126,6 +126,12 @@ export class RoleViewNpcDialog extends CCComp {
                     this.npcModel.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seeDaoNpc');
                 }
                 break;
+            case 'HYDAORoom':
+                console.log('not supposed to be displayed here');
+                break;
+            case 'AMDAORoom':
+                console.log('not supposed to be displayed here');
+                break;
             default:
                 break;
         }

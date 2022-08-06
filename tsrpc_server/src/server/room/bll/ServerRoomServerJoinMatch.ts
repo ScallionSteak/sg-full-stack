@@ -111,5 +111,24 @@ export class ServerRoomJoinMathServerSystem extends ecs.ComblockSystem implement
         });
         sr.ServerRoomModel.rooms.set(room3.RoomModel.data.id, room3);
 
+        let room4 = ecs.getEntity<Room>(Room);
+        //创建AMDAO私域
+        let rm4 = room4.RoomModel;
+        rm4.data = {
+            id: uuid.v4(),
+            playerMax: Config.room.max_user_num,
+            name: 'AMDAORoom',
+            players: [],
+            messages: [],
+            timeStartMatch: Date.now(),
+            timeUpdate: Date.now()
+        };
+
+        rm4.logger = new PrefixLogger({
+            logger: sr.ServerRoomModel.wsSrever.logger,
+            prefixs: [`[Room ${rm4.data.id}]`],
+        });
+        sr.ServerRoomModel.rooms.set(room4.RoomModel.data.id, room4);
+
     }
 }

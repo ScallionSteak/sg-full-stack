@@ -72,6 +72,7 @@ export class RoleViewWebview extends CCComp {
                     console.log('no such webview. some wrong here.');
                     break;
             }
+            this.loadingAnim();
         } else if (roomName == 'SeeDAORoom') {
             /** 这里目前只是人工确认哪个24（既哪个layer）和哪个公会对应 */
             switch (this.id) {
@@ -105,6 +106,61 @@ export class RoleViewWebview extends CCComp {
                     console.log('no such link case. some wrong here.');
                     break;
             }
+        } else if (roomName == 'HYDAORoom') {
+            this.NewWindowLinkGroup.active = false;
+            this.webviewGroup.active = true;
+            switch (this.id) {
+                case 1:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/3868764cfb5b4e2898784039c4076ed3';
+                    break;
+                case 2:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/1e328b7586b144e9ab5f4086dee86792';
+                    break;
+                case 3:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/dc3bc0d2d0bb490cac87356655fea0f2';
+                    break;
+                case 4:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/4767b9c32c3441c78351741aa2d6127a';
+                    break;
+                case 5:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/92a0f8c122214ec2bed74407f594fb44';
+                    break;
+                case 6:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/8b3853991af54961823d9644342e30ab';
+                    break;
+                case 7:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/999974c6bb8045f38ff50c44b381a287';
+                    break;
+                case 8:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/a60409b4d6a14111a515cbb189a78111';
+                    break;
+                case 9:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/d123d3ff15f44062a5aaa92ca21b0dac';
+                    break;
+                case 10:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/7932d700197f44cdb6f342e45f4f916e';
+                    break;
+                case 11:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/65d4b472790748288f35a6feff28e157';
+                    break;
+                case 12:
+                    this.webView.getComponent(WebView).url = 'https://v1.embednotion.com/embed/982734e6c5874dcaab7f99ac39d3ecce';
+                    break;
+            
+                default:
+                    break;
+            }
+            this.loadingAnim();
+        } else if (roomName == 'AMDAORoom') {
+            switch (this.id) {
+                case 1:
+
+                    break;
+
+                default:
+                    break;
+            }
+            this.loadingAnim();
         }
 
     }

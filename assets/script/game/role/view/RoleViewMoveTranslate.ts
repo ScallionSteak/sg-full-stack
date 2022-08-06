@@ -25,6 +25,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
     async update(dt: number) {
         if (this.speed > 0) {
             Vec3.multiplyScalar(this.vectorC, this.velocity, this.speed * dt);
+            console.log(this.node.position.x, this.node.position.y);
             //如果node移动后的tile是障碍物，那就不移动
             var curPosX = this.node.position.x;
             var curPosY = this.node.position.y;
@@ -190,6 +191,78 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         break;
                                 }
                             } else if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
+                                switch (tile.buildingID) {
+                                    case 24: //产品公会a
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 24;
+                                        break;
+                                    case 25: //产品公会b
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 25;
+                                        break;
+                                    case 26: //产品公会c
+                                        var uiToOpen = UIID.Demo_rookieTask;
+                                        var uiArgs = 26;
+                                        break;
+                                    default:
+                                        console.log("没有这个编号的障碍物");
+                                        break;
+                                }
+                            } else if (smc.room.RoomModel.roomName == 'HYDAORoom') {
+                                switch (tile.buildingID) {
+                                    case 0:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 1;
+                                        break;
+                                    case 1:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 2;
+                                        break;
+                                    case 2:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 3;
+                                        break;
+                                    case 3:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 4;
+                                        break;
+                                    case 4:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 5;
+                                        break;
+                                    case 5:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 6;
+                                        break;
+                                    case 6:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 7;
+                                        break;
+                                    case 7:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 8;
+                                        break;
+                                    case 8:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 9;
+                                        break;
+                                    case 9:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 10;
+                                        break;
+                                    case 10:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 11;
+                                        break;
+                                    case 11:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = 12;
+                                        break;
+                                    default:
+                                        console.log("没有这个编号的障碍物");
+                                        break;
+                                }
+                            } else if (smc.room.RoomModel.roomName == 'AMDAORoom') {
                                 switch (tile.buildingID) {
                                     case 24: //产品公会a
                                         var uiToOpen = UIID.Demo_webview800600;

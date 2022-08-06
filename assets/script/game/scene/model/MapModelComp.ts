@@ -109,7 +109,19 @@ export class MapModelComp extends ecs.Comp {
     FanYiGongHui_onboarding_a: TiledLayer = null;
     FanYiGongHui_onboarding_b: TiledLayer = null;
     FanYiGongHui_onboarding_c: TiledLayer = null;
-    
+    /** hydao需互动layer */
+    ChanPinLanMu: TiledLayer = null;
+    BoKeLanMu: TiledLayer = null;
+    GongXianBang: TiledLayer = null;
+    DAOShiJianBiao: TiledLayer = null;
+    ZhiBoZu: TiledLayer = null;
+    BianJiZu: TiledLayer = null;
+    XuanChuanZu: TiledLayer = null;
+    YunYingZu: TiledLayer = null;
+    ZhiLiZu: TiledLayer = null;
+    ZiLiaoGuan: TiledLayer = null;
+    CaiWuShi: TiledLayer = null;
+    GongJuJi: TiledLayer = null;
 
 
     /** 所有游戏网格数据 */

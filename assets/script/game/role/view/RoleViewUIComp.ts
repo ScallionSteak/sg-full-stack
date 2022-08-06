@@ -116,6 +116,8 @@ export class RoleViewUIComp extends CCComp {
                 if (seeDaoGuideStatus == '0') {
                     oops.gui.open(UIID.Demo_npcDialog);
                 }
+            } else if (curRoom == "HYDAORoom" || curRoom == "AMDAORoom") {
+                console.log('nothing should happen');
             }
         });        
     }

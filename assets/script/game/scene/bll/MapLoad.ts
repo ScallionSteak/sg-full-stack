@@ -17,7 +17,9 @@ import { MapViewControl } from "../view/MapViewControl";
 /** 后续修改点:演示只有两张地图，到时候通过key来映射tilemap的资源名 */
 var data: any = {
     "PublicSpaceRoom": "A-Public Space",
-    "SeeDAORoom": "seeDaoMap"
+    "SeeDAORoom": "seeDaoMap",
+    "HYDAORoom": "HYDAOSpace",
+    "AMDAORoom": "AMDAOSpace"
 }
 
 /** 加载地形资源（放在其它模块加载，有进度条） */
@@ -142,6 +144,22 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.FanYiGongHui_onboarding_a = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_a")!;
                 mm.FanYiGongHui_onboarding_b = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_b")!;
                 mm.FanYiGongHui_onboarding_c = e.MapView.tiledmap.getLayer("FanYiGongHui_onboarding_c")!;
+                break;
+            case 'HYDAOSpace':
+                mm.ChanPinLanMu = e.MapView.tiledmap.getLayer("ChanPinLanMu")!;
+                mm.BoKeLanMu = e.MapView.tiledmap.getLayer("BoKeLanMu")!;
+                mm.GongXianBang = e.MapView.tiledmap.getLayer("GongXianBang")!;
+                mm.DAOShiJianBiao = e.MapView.tiledmap.getLayer("DAOShiJianBiao")!;
+                mm.ZhiBoZu = e.MapView.tiledmap.getLayer("ZhiBoZu")!;
+                mm.BianJiZu = e.MapView.tiledmap.getLayer("BianJiZu")!;
+                mm.XuanChuanZu = e.MapView.tiledmap.getLayer("XuanChuanZu")!;
+                mm.YunYingZu = e.MapView.tiledmap.getLayer("YunYingZu")!;
+                mm.ZhiLiZu = e.MapView.tiledmap.getLayer("ZhiLiZu")!;
+                mm.ZiLiaoGuan = e.MapView.tiledmap.getLayer("ZiLiaoGuan")!;
+                mm.CaiWuShi = e.MapView.tiledmap.getLayer("CaiWuShi")!;
+                mm.GongJuJi = e.MapView.tiledmap.getLayer("GongJuJi")!;
+                break;
+            case 'AMDAOSpace':
                 break;
             default:
                 break;
@@ -301,6 +319,42 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                             FanYiGongHui_onboarding_a_gid,
                             FanYiGongHui_onboarding_b_gid,
                             FanYiGongHui_onboarding_c_gid
+                        );
+                        break;
+                    case 'HYDAOSpace':
+                        let ChanPinLanMu_gid = mm.ChanPinLanMu.getTileGIDAt(x, y);
+                        let BoKeLanMu_gid = mm.BoKeLanMu.getTileGIDAt(x, y);
+                        let GongXianBang_gid = mm.GongXianBang.getTileGIDAt(x, y);
+                        let DAOShiJianBiao_gid = mm.DAOShiJianBiao.getTileGIDAt(x, y);
+                        let ZhiBoZu_gid = mm.ZhiBoZu.getTileGIDAt(x, y);
+                        let BianJiZu_gid = mm.BianJiZu.getTileGIDAt(x, y);
+                        let XuanChuanZu_gid = mm.XuanChuanZu.getTileGIDAt(x, y);
+                        let YunYingZu_gid = mm.YunYingZu.getTileGIDAt(x, y);
+                        let ZhiLiZu_gid = mm.ZhiLiZu.getTileGIDAt(x, y);
+                        let ZiLiaoGuan_gid = mm.ZiLiaoGuan.getTileGIDAt(x, y);
+                        let CaiWuShi_gid = mm.CaiWuShi.getTileGIDAt(x, y);
+                        let GongJuJi_gid = mm.GongJuJi.getTileGIDAt(x, y);
+
+                        buildingGidArr.push(
+                            ChanPinLanMu_gid,
+                            BoKeLanMu_gid,
+                            GongXianBang_gid,
+                            DAOShiJianBiao_gid,
+                            ZhiBoZu_gid,
+                            BianJiZu_gid,
+                            XuanChuanZu_gid,
+                            YunYingZu_gid,
+                            ZhiLiZu_gid,
+                            ZiLiaoGuan_gid,
+                            CaiWuShi_gid,
+                            GongJuJi_gid
+                        );
+                        break;
+                    case 'AMDAOSpace':
+
+
+                        buildingGidArr.push(
+
                         );
                         break;
                     default:

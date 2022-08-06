@@ -54,12 +54,18 @@ export class RoomReenterDaoBtnList extends Component {
     initRoomInfo(roomInfo) {
         console.log(roomInfo.name);
         switch (roomInfo.name) {
+            case 'PublicSpaceRoom':
+                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/sgLogo');
+                break;
             case 'SeeDAORoom':
                 this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/seedaoLogo');
                 this.loadJson();
                 break;
-            case 'PublicSpaceRoom':
-                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/sgLogo');
+            case 'HYDAORoom':
+                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/hydaoLogo');
+                break;
+            case 'AMDAORoom':
+                this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/amdaoLogo');
                 break;
             default:
                 console.log('room names dont match. some wrong here')

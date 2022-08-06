@@ -67,6 +67,22 @@ export class RoleViewMiniMapIntroduction extends CCComp {
         { name: '公会5', type: 'big', posX: -100, posY: 100, desc: 'eeeeeeeeeeee' },
         { name: '公会6', type: 'small', posX: -150, posY: 100, desc: 'ffffffffffff' },
     ];
+    private HYDaoLocationArr: { name: string, type: string, posX: number, posY: number, desc: string }[] = [
+        { name: '产品公会', type: 'small', posX: 0, posY: 100, desc: '最牛逼的产品都是这里做的，就问你你信不信吧' },
+        { name: '公会2', type: 'big', posX: 50, posY: 100, desc: 'bbbbbbbbbbbb' },
+        { name: '公会3', type: 'small', posX: 100, posY: 100, desc: 'ccccccccccccc' },
+        { name: '公会4', type: 'big', posX: -50, posY: 100, desc: 'dddddddddd' },
+        { name: '公会5', type: 'big', posX: -100, posY: 100, desc: 'eeeeeeeeeeee' },
+        { name: '公会6', type: 'small', posX: -150, posY: 100, desc: 'ffffffffffff' },
+    ];
+    private AMDaoLocationArr: { name: string, type: string, posX: number, posY: number, desc: string }[] = [
+        { name: '产品公会', type: 'small', posX: 0, posY: 100, desc: '最牛逼的产品都是这里做的，就问你你信不信吧' },
+        { name: '公会2', type: 'big', posX: 50, posY: 100, desc: 'bbbbbbbbbbbb' },
+        { name: '公会3', type: 'small', posX: 100, posY: 100, desc: 'ccccccccccccc' },
+        { name: '公会4', type: 'big', posX: -50, posY: 100, desc: 'dddddddddd' },
+        { name: '公会5', type: 'big', posX: -100, posY: 100, desc: 'eeeeeeeeeeee' },
+        { name: '公会6', type: 'small', posX: -150, posY: 100, desc: 'ffffffffffff' },
+    ];
 
     start() {
         this.initMiniMap();
@@ -78,21 +94,13 @@ export class RoleViewMiniMapIntroduction extends CCComp {
         var mapName = smc.room.RoomModel.roomName;
         this.miniMapSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('mini' + mapName);        
         this.createLocations(mapName);
-        if (mapName == 'PublicSpaceRoom') {
-            var arr = this.pbLocationArr;
-        } else if (mapName == 'SeeDAORoom') {
-            var arr = this.seeDaoLocationArr;
-        }
+        var arr = this.getLocationArr(mapName);
         this.introductionTitle.getComponent(Label).string = arr[0].name;
         this.introductionDesc.getComponent(Label).string = arr[0].desc;
     }
 
     createLocations(mapName: string) {
-        if (mapName == 'PublicSpaceRoom') {
-            var arr = this.pbLocationArr;
-        } else if (mapName == 'SeeDAORoom') {
-            var arr = this.seeDaoLocationArr;
-        }
+        var arr = this.getLocationArr(mapName);
         for (var i = 0; i < arr.length; i++) {
             var node = instantiate(this.miniMapLocation);
             node.parent = this.mapContent;
@@ -114,13 +122,31 @@ export class RoleViewMiniMapIntroduction extends CCComp {
 
     showIntroduction(locationID: number) {
         var mapName = smc.room.RoomModel.roomName;
-        if (mapName == 'PublicSpaceRoom') {
-            var arr = this.pbLocationArr;
-        } else if (mapName == 'SeeDAORoom') {
-            var arr = this.seeDaoLocationArr;
-        }
+        var arr = this.getLocationArr(mapName);
         this.introductionTitle.getComponent(Label).string = arr[locationID].name;
         this.introductionDesc.getComponent(Label).string = arr[locationID].desc;
+    }
+
+    getLocationArr(mapName: string) {
+        var arr = [];
+        switch (mapName) {
+            case 'PublicSpaceRoom':
+                arr = this.pbLocationArr;
+                break;
+            case 'SeeDAORoom':
+                arr = this.seeDaoLocationArr;
+                break;
+            case 'HYDAORoom':
+                arr = this.HYDaoLocationArr;
+                break;
+            case 'AMDAORoom':
+                arr = this.AMDaoLocationArr;
+                break;
+            default:
+                console.log('wrong dao room name.');
+                break;
+        }
+        return arr;
     }
 
     update() {
