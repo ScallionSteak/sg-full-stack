@@ -81,6 +81,7 @@ export class RoleViewNpcDialog extends CCComp {
     
 
     private seeDaoGuideContent: string[] = [
+        "欢迎你来到SeeDAO！下面让我带你逛一下吧~跟我一起熟悉一下我们的大家庭",
         "Seedao展示馆\r\n截至目前，SeeDAO已有十个公会。社区成员接近8000人，实质贡献者超过了/600名。此外，SeeDAO已经完成了估值3000万美金的A轮融资，投资人包括HashKey Capital、HashGlobal、Nervos、Tess Venture、MaskNetwork、ChainIDE、火凤资本。这里陈列了关于seedao的历史资料和档案，你可以在这里查阅一切关于seedao的故事~",
         "风云榜\r\n社区的核心贡献者名单都显示在这里哦（期待你的上榜！）",
         "活动日历\r\n你可以在这里查看社区最近正在举办活动，积极参加活动是最快融入社区的最佳方式之一！",
@@ -108,6 +109,7 @@ export class RoleViewNpcDialog extends CCComp {
         { x: 318, y: -2214, width: 155, height: 220 }
     ];
     private seeDaoGuideCameraData: { x: number, y: number, width: number, height: number }[] = [
+        { x: 0, y: 0, width: 0, height: 0 },
         { x: -160, y: -1340, width: 715, height: 590},
         { x: -1130, y: -1330, width: 330, height: 350 },
         { x: -770, y: -1510, width: 350, height: 255 },
