@@ -116,7 +116,7 @@ export class RoleViewNpcDialog extends CCComp {
         { x: -1195, y: -1680, width: 350, height: 295 },
         { x: -1515, y: -1155, width: 340, height: 370 },
         { x: -760, y: -1150, width: 360, height: 360 },
-        { x: -500, y: -1300, width: 610, height: 520 },
+        { x: 500, y: -1300, width: 610, height: 520 },
         { x: -1900, y: -1520, width: 290, height: 290 },
         { x: 400, y: -780, width: 1080, height: 380 },
         { x: -400, y: 900, width: 720, height: 600 },
