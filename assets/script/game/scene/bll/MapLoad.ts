@@ -174,6 +174,48 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                 mm.TouYanGongHui_bountyBoard = e.MapView.tiledmap.getLayer("TouYanGongHui_bountyBoard")!;
                 mm.ZhiLiGongHui_bountyBoard = e.MapView.tiledmap.getLayer("ZhiLiGongHui_bountyBoard")!;
                 mm.SheJiGongHui_bountyBoard = e.MapView.tiledmap.getLayer("SheJiGongHui_bountyBoard")!;
+                mm.FanYiGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_a")!;
+                mm.FanYiGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_b")!;
+                mm.FanYiGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_c")!;
+                mm.FanYiGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_d")!;
+                mm.FanYiGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_e")!;
+                mm.FanYiGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("FanYiGongHui_bookshelf_f")!;
+                mm.ChanPinGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_a")!;
+                mm.ChanPinGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_b")!;
+                mm.ChanPinGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_c")!;
+                mm.ChanPinGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_d")!;
+                mm.ChanPinGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_e")!;
+                mm.ChanPinGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("ChanPinGongHui_bookshelf_f")!;
+                mm.XuanChuanGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_a")!;
+                mm.XuanChuanGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_b")!;
+                mm.XuanChuanGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_c")!;
+                mm.XuanChuanGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_d")!;
+                mm.XuanChuanGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_e")!;
+                mm.XuanChuanGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("XuanChuanGongHui_bookshelf_f")!;
+                mm.YiShuGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_a")!;
+                mm.YiShuGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_b")!;
+                mm.YiShuGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_c")!;
+                mm.YiShuGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_d")!;
+                mm.YiShuGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_e")!;
+                mm.YiShuGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("YiShuGongHui_bookshelf_f")!;
+                mm.KaiFaGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_a")!;
+                mm.KaiFaGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_b")!;
+                mm.KaiFaGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_c")!;
+                mm.KaiFaGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_d")!;
+                mm.KaiFaGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_e")!;
+                mm.KaiFaGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("KaiFaGongHui_bookshelf_f")!;
+                mm.TouYanGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_a")!;
+                mm.TouYanGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_b")!;
+                mm.TouYanGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_c")!;
+                mm.TouYanGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_d")!;
+                mm.TouYanGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_e")!;
+                mm.TouYanGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("TouYanGongHui_bookshelf_f")!;
+                mm.SheJiGongHui_bookshelf_a = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_a")!;
+                mm.SheJiGongHui_bookshelf_b = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_b")!;
+                mm.SheJiGongHui_bookshelf_c = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_c")!;
+                mm.SheJiGongHui_bookshelf_d = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_d")!;
+                mm.SheJiGongHui_bookshelf_e = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_e")!;
+                mm.SheJiGongHui_bookshelf_f = e.MapView.tiledmap.getLayer("SheJiGongHui_bookshelf_f")!;
                 break;
             case 'HYDAOSpace':
                 mm.ChanPinLanMu = e.MapView.tiledmap.getLayer("ChanPinLanMu")!;
@@ -347,6 +389,48 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                         let TouYanGongHui_bountyBoard_gid = mm.TouYanGongHui_bountyBoard.getTileGIDAt(x, y);
                         let ZhiLiGongHui_bountyBoard_gid = mm.ZhiLiGongHui_bountyBoard.getTileGIDAt(x, y);
                         let SheJiGongHui_bountyBoard_gid = mm.SheJiGongHui_bountyBoard.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_a_gid = mm.FanYiGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_b_gid = mm.FanYiGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_c_gid = mm.FanYiGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_d_gid = mm.FanYiGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_e_gid = mm.FanYiGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let FanYiGongHui_bookshelf_f_gid = mm.FanYiGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_a_gid = mm.ChanPinGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_b_gid = mm.ChanPinGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_c_gid = mm.ChanPinGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_d_gid = mm.ChanPinGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_e_gid = mm.ChanPinGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let ChanPinGongHui_bookshelf_f_gid = mm.ChanPinGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_a_gid = mm.XuanChuanGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_b_gid = mm.XuanChuanGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_c_gid = mm.XuanChuanGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_d_gid = mm.XuanChuanGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_e_gid = mm.XuanChuanGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let XuanChuanGongHui_bookshelf_f_gid = mm.XuanChuanGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_a_gid = mm.YiShuGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_b_gid = mm.YiShuGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_c_gid = mm.YiShuGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_d_gid = mm.YiShuGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_e_gid = mm.YiShuGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let YiShuGongHui_bookshelf_f_gid = mm.YiShuGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_a_gid = mm.KaiFaGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_b_gid = mm.KaiFaGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_c_gid = mm.KaiFaGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_d_gid = mm.KaiFaGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_e_gid = mm.KaiFaGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let KaiFaGongHui_bookshelf_f_gid = mm.KaiFaGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_a_gid = mm.TouYanGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_b_gid = mm.TouYanGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_c_gid = mm.TouYanGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_d_gid = mm.TouYanGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_e_gid = mm.TouYanGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let TouYanGongHui_bookshelf_f_gid = mm.TouYanGongHui_bookshelf_f.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_a_gid = mm.SheJiGongHui_bookshelf_a.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_b_gid = mm.SheJiGongHui_bookshelf_b.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_c_gid = mm.SheJiGongHui_bookshelf_c.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_d_gid = mm.SheJiGongHui_bookshelf_d.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_e_gid = mm.SheJiGongHui_bookshelf_e.getTileGIDAt(x, y);
+                        let SheJiGongHui_bookshelf_f_gid = mm.SheJiGongHui_bookshelf_f.getTileGIDAt(x, y);
 
                         buildingGidArr.push(
                             SheJiGongHui_NPC_Trigger_gid,
@@ -408,7 +492,49 @@ export class MapLoadSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
                             KaiFaGongHui_bountyBoard_gid,
                             TouYanGongHui_bountyBoard_gid,
                             ZhiLiGongHui_bountyBoard_gid,
-                            SheJiGongHui_bountyBoard_gid
+                            SheJiGongHui_bountyBoard_gid,
+                            FanYiGongHui_bookshelf_a_gid,
+                            FanYiGongHui_bookshelf_b_gid,
+                            FanYiGongHui_bookshelf_c_gid,
+                            FanYiGongHui_bookshelf_d_gid,
+                            FanYiGongHui_bookshelf_e_gid,
+                            FanYiGongHui_bookshelf_f_gid,
+                            ChanPinGongHui_bookshelf_a_gid,
+                            ChanPinGongHui_bookshelf_b_gid,
+                            ChanPinGongHui_bookshelf_c_gid,
+                            ChanPinGongHui_bookshelf_d_gid,
+                            ChanPinGongHui_bookshelf_e_gid,
+                            ChanPinGongHui_bookshelf_f_gid,
+                            XuanChuanGongHui_bookshelf_a_gid,
+                            XuanChuanGongHui_bookshelf_b_gid,
+                            XuanChuanGongHui_bookshelf_c_gid,
+                            XuanChuanGongHui_bookshelf_d_gid,
+                            XuanChuanGongHui_bookshelf_e_gid,
+                            XuanChuanGongHui_bookshelf_f_gid,
+                            YiShuGongHui_bookshelf_a_gid,
+                            YiShuGongHui_bookshelf_b_gid,
+                            YiShuGongHui_bookshelf_c_gid,
+                            YiShuGongHui_bookshelf_d_gid,
+                            YiShuGongHui_bookshelf_e_gid,
+                            YiShuGongHui_bookshelf_f_gid,
+                            KaiFaGongHui_bookshelf_a_gid,
+                            KaiFaGongHui_bookshelf_b_gid,
+                            KaiFaGongHui_bookshelf_c_gid,
+                            KaiFaGongHui_bookshelf_d_gid,
+                            KaiFaGongHui_bookshelf_e_gid,
+                            KaiFaGongHui_bookshelf_f_gid,
+                            TouYanGongHui_bookshelf_a_gid,
+                            TouYanGongHui_bookshelf_b_gid,
+                            TouYanGongHui_bookshelf_c_gid,
+                            TouYanGongHui_bookshelf_d_gid,
+                            TouYanGongHui_bookshelf_e_gid,
+                            TouYanGongHui_bookshelf_f_gid,
+                            SheJiGongHui_bookshelf_a_gid,
+                            SheJiGongHui_bookshelf_b_gid,
+                            SheJiGongHui_bookshelf_c_gid,
+                            SheJiGongHui_bookshelf_d_gid,
+                            SheJiGongHui_bookshelf_e_gid,
+                            SheJiGongHui_bookshelf_f_gid
                         );
                         break;
                     case 'HYDAOSpace':

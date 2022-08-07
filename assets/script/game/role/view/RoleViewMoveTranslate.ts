@@ -38,46 +38,16 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                         /** 只有本地玩家才会拿到RoleViewPlayerState，所以理论上说后面一个if是没用的，但加个保险貌似也没问题，就先放这儿吧 */
                         if (this.node.getComponent(RoleViewPlayerState)) {
                             if (this.node.getComponent(RoleViewPlayerState).role.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
-                                switch (tile.buildingID) {
-                                    case 0: 
+                                let npcDialogArr = [0,1,2,3,4,5,6,7,8,9];
+                                let bookshelfArr = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101];
+                                switch (true) {
+                                    case npcDialogArr.indexOf(tile.buildingID) != -1: 
                                         var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 1; //用来告诉npcDialog撞到了哪个公会
+                                        var uiArgs = tile.buildingID + 1; //用来告诉npcDialog撞到了哪个公会
                                         break;
-                                    case 1: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 2; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 2: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 3; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 3: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 4; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 4: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 5; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 5: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 6; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 6: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 7; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 7: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 8; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 8: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 9; //用来告诉npcDialog撞到了哪个公会
-                                        break;
-                                    case 9: 
-                                        var uiToOpen = UIID.Demo_npcDialog;
-                                        var uiArgs = 10; //用来告诉npcDialog撞到了哪个公会
+                                    case bookshelfArr.indexOf(tile.buildingID) != -1:
+                                        var uiToOpen = UIID.Demo_webview800600;
+                                        var uiArgs = tile.buildingID; //打开对应编号的URL
                                         break;
                                     default:
                                         break;
@@ -174,15 +144,18 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         break;
                                     case 19: // amdao
                                         // 打开一个提示框，然后点击直接跳转到相对应的dao
-                                        var uiArgs = -1; //用来保证没有UI打开
+                                        var uiToOpen = UIID.Demo_popupConfirm;
+                                        var uiArgs = 19;
                                         break;
                                     case 20: // haidao
                                         // 打开一个提示框，然后点击直接跳转到相对应的dao
-                                        var uiArgs = -1; //用来保证没有UI打开
+                                        var uiToOpen = UIID.Demo_popupConfirm;
+                                        var uiArgs = 20;
                                         break;
                                     case 21: // seedao
                                         // 打开一个提示框，然后点击直接跳转到相对应的dao
-                                        var uiArgs = -1; //用来保证没有UI打开
+                                        var uiToOpen = UIID.Demo_popupConfirm;
+                                        var uiArgs = 21; //用来保证没有UI打开
                                         break;
                                     default:
                                         console.log("default switch in building check. some wrong.");
@@ -190,18 +163,24 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         break;
                                 }
                             } else if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
-                                switch (tile.buildingID) {
-                                    case 10:
+                                console.log("tile building id.......", tile.buildingID);
+                                let webviewArr = [10, 11, 16, 17, 19, 21, 22, 24, 25, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51];
+                                let rookieTaskArr = [12, 18, 20, 23, 26, 29];
+                                let bountyBoardArr = [39, 52, 55, 54, 55, 56, 57, 58, 59];
+                                let activityBoardArr = [50];
+                                var uiArgs = tile.buildingID;
+                                switch (true) {
+                                    case webviewArr.indexOf(tile.buildingID) != -1:
                                         var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 10;
                                         break;
-                                    case 11:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 11;
-                                        break;
-                                    case 12:
+                                    case rookieTaskArr.indexOf(tile.buildingID) != -1:
                                         var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 12;
+                                        break;
+                                    case bountyBoardArr.indexOf(tile.buildingID) != -1:
+                                        var uiToOpen = UIID.Demo_bountyBoard;
+                                        break;
+                                    case activityBoardArr.indexOf(tile.buildingID) != -1:
+                                        var uiToOpen = UIID.Demo_activityBoard;
                                         break;
                                         //** 这三个是投研的，先不处理 */
                                     // case 13:
@@ -216,214 +195,16 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     //     var uiToOpen = UIID.Demo_rookieTask;
                                     //     var uiArgs = 15;
                                     //     break;
-                                    case 16:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 16;
-                                        break;
-                                    case 17:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 17;
-                                        break;
-                                    case 18:
-                                        var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 18;
-                                        break;
-                                    case 19:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 19;
-                                        break;
-                                    case 20:
-                                        var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 20;
-                                        break;
-                                    case 21:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 21;
-                                        break;
-                                    case 22:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 22;
-                                        break;
-                                    case 23:
-                                        var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 23;
-                                        break;
-                                    case 24:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 24;
-                                        break;
-                                    case 25:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 25;
-                                        break;
-                                    case 26:
-                                        var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 26;
-                                        break;
-                                    case 27:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 27;
-                                        break;
-                                    case 28: 
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 28;
-                                        break;
-                                    case 29:
-                                        var uiToOpen = UIID.Demo_rookieTask;
-                                        var uiArgs = 29;
-                                        break;
-                                    case 30: 
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 30;
-                                        break;
-                                    case 31:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 31;
-                                        break;
-                                    case 32:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 32;
-                                        break;
-                                    case 33:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 33;
-                                        break;
-                                    case 34:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 34;
-                                        break;
-                                    case 35:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 35;
-                                        break;
-                                    case 36:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 36;
-                                        break;
-                                    case 37:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 37;
-                                        break;
-                                    case 38:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 38;
-                                        break;
-                                    case 39:
-                                        var uiToOpen = UIID.Demo_bountyBoard;
-                                        var uiArgs = 39;
-                                        break;
-                                    case 40:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 40;
-                                        break;
-                                    case 41:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 41;
-                                        break;
-                                    case 42:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 42;
-                                        break;
-                                    case 43:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 43;
-                                        break;
-                                    case 44:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 44;
-                                        break;
-                                    case 45:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 45;
-                                        break;
-                                    case 46:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 46;
-                                        break;
-                                    case 47:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 47;
-                                        break;
-                                    case 48:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 48;
-                                        break;
-                                    case 49:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 49;
-                                        break;
-                                    case 50:
-                                        var uiToOpen = UIID.Demo_activityBoard;
-                                        var uiArgs = 50;
-                                        break;
-                                    case 51:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 51;
-                                        break;
-                                    case 52:
-                                    case 53:
-                                    case 54:
-                                    case 55:
-                                    case 56:
-                                    case 57:
-                                    case 58:
-                                    case 59:
-                                        var uiToOpen = UIID.Demo_bountyBoard;
-                                        var uiArgs = 52;
-                                        break;
                                     default:
                                         console.log("没有这个编号的障碍物");
                                         break;
                                 }
                             } else if (smc.room.RoomModel.roomName == 'HYDAORoom') {
-                                switch (tile.buildingID) {
-                                    case 0:
+                                let hydaoWebviewArr = [0,1,2,3,4,5,6,7,8,9,10,11]
+                                switch (true) {
+                                    case hydaoWebviewArr.indexOf(tile.buildingID) != -1:
                                         var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 1;
-                                        break;
-                                    case 1:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 2;
-                                        break;
-                                    case 2:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 3;
-                                        break;
-                                    case 3:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 4;
-                                        break;
-                                    case 4:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 5;
-                                        break;
-                                    case 5:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 6;
-                                        break;
-                                    case 6:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 7;
-                                        break;
-                                    case 7:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 8;
-                                        break;
-                                    case 8:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 9;
-                                        break;
-                                    case 9:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 10;
-                                        break;
-                                    case 10:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 11;
-                                        break;
-                                    case 11:
-                                        var uiToOpen = UIID.Demo_webview800600;
-                                        var uiArgs = 12;
+                                        var uiArgs = tile.buildingID + 1;
                                         break;
                                     default:
                                         console.log("没有这个编号的障碍物");

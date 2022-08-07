@@ -53,7 +53,9 @@ export enum UIID {
     /** 新手任务弹窗 */
     Demo_rookieTask,
     /** 活动看板 */
-    Demo_activityBoard
+    Demo_activityBoard,
+    /** 确认弹窗 */
+    Demo_popupConfirm
 }
 
 /** 打开界面方式的配置数据 */
@@ -81,4 +83,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_bigTower]: { layer: LayerType.UI, prefab: "gui/game/bigTower" },
     [UIID.Demo_rookieTask]: { layer: LayerType.UI, prefab: "gui/game/rookieTask" },
     [UIID.Demo_activityBoard]: { layer: LayerType.UI, prefab: "gui/game/activityBoard" },
+    [UIID.Demo_popupConfirm]: { layer: LayerType.UI, prefab: "gui/game/popupConfirm" },
 }

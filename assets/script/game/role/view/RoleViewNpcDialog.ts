@@ -93,17 +93,19 @@ export class RoleViewNpcDialog extends CCComp {
         "会议区\r\n公会和社区的大小会议会在这里举行，每晚8点蹲守周会，有事没事欢迎参加~",
         "娱乐区\r\n这里有游戏室、音乐台和电影院供成员一起玩耍！对！就是这里party！party！",
         "冥想区\r\n进入冥想区，你将进入空灵状态，失去与外界的一切联系，接收不到社区任何消息提醒，直到你走出冥想区。",
-        "小黑屋\r\n在社区有恶性互动的成员会被关进小黑屋，坐牢！无法与他人交流，失去所有交互行为的权限！"
+        "小黑屋\r\n在社区有恶性互动的成员会被关进小黑屋，坐牢！无法与他人交流，失去所有交互行为的权限！",
+        "好了，现在你对我们已经有了一定的了解了，就请开始你在SeeDAO的探索吧！"
     ];
 
     private publicSpaceGuideCameraData: { x: number, y: number, width: number, height: number }[] = [
-        { x: 2718, y: 4660, width: 135, height: 180 },
-        { x: 2094, y: 4113, width: 400, height: 675 },
-        { x: 3050, y: 4292, width: 515, height: 480 },
-        { x: 3042, y: 3368, width: 800, height: 435 },
-        { x: 3818, y: 4390, width: 390, height: 535 },
-        { x: 3900, y: 4945, width: 207, height: 250 },
-        { x: 3518, y: 4934, width: 155, height: 220 }
+        { x: 0, y: 0, width: 0, height: 0 },
+        { x: -482, y: -1960, width: 135, height: 180 },
+        { x: -908, y: -1733, width: 400, height: 675 },
+        { x: -150, y: -1572, width: 515, height: 480 },
+        { x: -158, y: -648, width: 800, height: 435 },
+        { x: 618, y: -1670, width: 390, height: 535 },
+        { x: 700, y: -2225, width: 207, height: 250 },
+        { x: 318, y: -2214, width: 155, height: 220 }
     ];
     private seeDaoGuideCameraData: { x: number, y: number, width: number, height: number }[] = [
         { x: -160, y: -1340, width: 715, height: 590},
@@ -332,10 +334,13 @@ export class RoleViewNpcDialog extends CCComp {
         } else {
             this.curPageNum += 1;
             this.updatePageNum();
-            
-            /** 移动镜头 */
-            var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-            node.getComponent(MapViewControl).moveCameraForGuide(v3(-this.curSpaceCameraData[this.curPageNum - 1].x, -this.curSpaceCameraData[this.curPageNum - 1].y), this.curSpaceCameraData[this.curPageNum - 1].width, this.curSpaceCameraData[this.curPageNum - 1].height);
+            if (this.curPageNum == this.curSpaceGuideContent.length) {
+                //最后一步不动镜头
+            } else {
+                /** 移动镜头 */
+                var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
+                node.getComponent(MapViewControl).moveCameraForGuide(v3(-this.curSpaceCameraData[this.curPageNum - 1].x, -this.curSpaceCameraData[this.curPageNum - 1].y), this.curSpaceCameraData[this.curPageNum - 1].width, this.curSpaceCameraData[this.curPageNum - 1].height);
+            }
 
             this.dialogContent.getComponent(Label).string = this.curSpaceGuideContent[this.curPageNum-1];
             this.previousBtn.active = true;

@@ -40,6 +40,50 @@ export class RoleViewWebview extends CCComp {
     cancelBtn: Node = null!;
     
     private id = 0;
+    private bookShelfUrlArr: string[] = [
+        'https://v1.embednotion.com/embed/b5f2561bc43547588be2169ad8763c17',
+        'https://v1.embednotion.com/embed/4af547c30c734120bfca5de465b3db65',
+        'https://v1.embednotion.com/embed/b5f20fe8ba69460cba8ed3d48a2ae5cf',
+        'https://v1.embednotion.com/embed/76d03686c5924ebcbc478347965c1454',
+        'https://v1.embednotion.com/embed/5e4c2c2069e6403b8dfbdb560ebb8c8f',
+        'https://v1.embednotion.com/embed/a446ce08945c48fb913dc724231895d0',
+        'https://v1.embednotion.com/embed/57a3d80d544e4c2d8813edb01befb915',
+        'https://v1.embednotion.com/embed/5ab575162e2841298fa983263b1cde28',
+        'https://v1.embednotion.com/embed/618f8db630654cea8663d6fa82e5ef3b',
+        'https://v1.embednotion.com/embed/d0e7dfa2d1d84905a2d621b7e31dfca3',
+        'https://v1.embednotion.com/embed/eca0e3abbb5740b88dd69e61bb68aa8c',
+        'https://v1.embednotion.com/embed/0536fcd98085492cb6ebcc67abb1bce6',
+        'https://v1.embednotion.com/embed/d0ef0169819245e691fa63a84a3db77d',
+        'https://v1.embednotion.com/embed/77f6f4a2dc674c048d2d16e4dca76cb8',
+        'https://v1.embednotion.com/embed/d4a7d803fdb940e690db6c38c5408d71',
+        'https://v1.embednotion.com/embed/00ad7dd7856f4e70929288efb1899c2e',
+        'https://v1.embednotion.com/embed/54ac5923703a4b83b6c94e874deccd68',
+        'https://v1.embednotion.com/embed/0c3d9073756c4197876f692db75bbd2f',
+        'https://v1.embednotion.com/embed/ca1702b447c7401b93ea8f15410265d6',
+        'https://v1.embednotion.com/embed/e7ebfa1b025443c999f4c06f4768f026',
+        'https://v1.embednotion.com/embed/07e4ed0ef2c94015b662ad1e512e7edf',
+        'https://v1.embednotion.com/embed/ac5b21f9c1734a9eab38743e4d918699',
+        'https://v1.embednotion.com/embed/9377a465fdb146b2b37a28c934c65364',
+        'https://v1.embednotion.com/embed/dc2044d8c50d4817ba90d5506e7799f2',
+        'https://v1.embednotion.com/embed/d03d8619759b4730a743b94142e30335',
+        'https://v1.embednotion.com/embed/a0e4b338892743de86a120286bed27f6',
+        'https://v1.embednotion.com/embed/af1b6dcb970540b880f6e55457bb78ce',
+        'https://v1.embednotion.com/embed/d08b7723fb784755b6d70727ee4fcdea',
+        'https://v1.embednotion.com/embed/366df2d6e8e6473d9ef4514632db0f06',
+        'https://v1.embednotion.com/embed/7e255d1a9e2c4c6c98c11a1be71dff7f',
+        'https://v1.embednotion.com/embed/463a3ccc05304c8bba452fe6396f124f',
+        'https://v1.embednotion.com/embed/8bf8c86b9aab410391f34796a69381df',
+        'https://v1.embednotion.com/embed/dcc12632a22f42108e5d50f405479c24',
+        'https://v1.embednotion.com/embed/500e4f1fbdf24c7baf6c6aa06bfe07c8',
+        'https://v1.embednotion.com/embed/38ac9584e3bc42aea83786c5f23cc7ce',
+        'https://v1.embednotion.com/embed/002607c7982f45c4a10914349706060b',
+        'https://v1.embednotion.com/embed/07cb37e0e22c46be9f1d9266d9792ba6',
+        'https://v1.embednotion.com/embed/6e39d2db5b78440eaec5b461cb0cca4b',
+        'https://v1.embednotion.com/embed/90ac15cf7bd54255befc519207d4ed4a',
+        'https://v1.embednotion.com/embed/15c6865677ea418b8c69191718932623',
+        'https://v1.embednotion.com/embed/427de0b3189044e2992bcaa5d5cf855b',
+        'https://v1.embednotion.com/embed/dcd1a05d424e41a7921a6cb41ee874a7'
+    ];
 
     onLoad() {
         this.id = this.node.getComponent(DelegateComponent).viewParams.params;
@@ -158,7 +202,7 @@ export class RoleViewWebview extends CCComp {
                 case 42:
                     this.webView.getComponent(WebView).url = 'https://bemuse.ninja/';
                     break;
-                case 44:
+                case 43:
                     this.webView.getComponent(WebView).url = 'https://tetranoid.io/';
                     break;
                 case 44:
@@ -184,6 +228,51 @@ export class RoleViewWebview extends CCComp {
                     break;
                 case 51:
                     this.webView.getComponent(WebView).url = 'https://app.tryeraser.com/integration/sgtest/123-abc-456?layout=canvas';
+                    break;
+                case 60:
+                case 61:
+                case 62:
+                case 63:
+                case 64:
+                case 65:
+                case 66:
+                case 67:
+                case 68:
+                case 69:
+                case 70:
+                case 71:
+                case 72:
+                case 73:
+                case 74:
+                case 75:
+                case 76:
+                case 77:
+                case 78:
+                case 79:
+                case 70:
+                case 81:
+                case 82:
+                case 83:
+                case 84:
+                case 85:
+                case 86:
+                case 87:
+                case 88:
+                case 89:
+                case 80:
+                case 91:
+                case 92:
+                case 93:
+                case 94:
+                case 95:
+                case 96:
+                case 97:
+                case 99:
+                case 99:
+                case 100:
+                case 101:
+                    this.webView.getComponent(WebView).url = this.bookShelfUrlArr[this.id - 60];
+                    console.log(this.bookShelfUrlArr[this.id - 60]);
                     break;
                 default:
                     console.log('no such link case. some wrong here.');
