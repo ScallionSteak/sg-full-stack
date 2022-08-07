@@ -63,15 +63,19 @@ export class RoleViewRookieTask extends CCComp {
     }
 
     closeSelf() {
+        this.node.active = false;
         smc.room.RoomModel.guildGuideStatus[this.guildID] = 5; //下次打开npc dialog时，应该显示领取新手任务
         var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-        console.log(node);
         var x = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardX;
         var y = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardY;
         var width = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardWidth;
         var height = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardHeight;
-        node.getComponent(MapViewControl).moveCameraForGuide(v3(x, y), width, height);
-        oops.gui.remove(UIID.Demo_rookieTask);
+        var pos: Vec3 = v3(x, y);
+        node.getComponent(MapViewControl).moveCameraForGuide(pos, width, height);
+        setTimeout(()=>{
+            oops.gui.remove(UIID.Demo_rookieTask);
+        }, 3000);
+        
     }
 
     reset(): void {
