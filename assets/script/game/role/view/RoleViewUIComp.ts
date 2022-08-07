@@ -21,6 +21,7 @@ import { RoomReenterDaoBtnList } from '../../room/view/RoomReenterDaoBtnList';
 import { MapViewControl } from '../../scene/view/MapViewControl';
 import { RoomEnterDaoBtnList } from '../../room/view/RoomEnterDaoBtnList';
 import { HttpRequestForDS } from '../../../../../extensions/oops-framework/assets/core/network/http';
+import { RoleViewChannelItem } from './RoleViewChannelItem';
 const { ccclass, property } = _decorator;
 
 /** 角色摇撼控制 */
@@ -30,6 +31,10 @@ export class RoleViewUIComp extends CCComp {
 
     @property({ type: EditBox })
     chatContent: EditBox = null!;
+    @property({ type: Node })
+    channelContentLayer: Node = null!;
+    @property({ type: Prefab })
+    channelItem: Prefab = null!;
 
     @property({ type: Node })
     labelTitle: Node = null!;
@@ -71,11 +76,41 @@ export class RoleViewUIComp extends CCComp {
     public collisionSelf: Role = null;
     public collisionOther: Role = null;
 
+    private channelInfoArr: {name: string, attendeeCount: string, belongTo: string, date: string}[] = [
+        { name: 'SeeDAO公共频道', attendeeCount: '120', belongTo: 'SeeDAO', date: '2022/08/12'},
+        { name: '产品公会治理讨论', attendeeCount: '18', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '公会身份要怎么上链', attendeeCount: '33', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品公会应该如何OB', attendeeCount: '3', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品X开发如何搞事情', attendeeCount: '90', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品公会', attendeeCount: '9', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'ACGN二次元地下基地', attendeeCount: '50', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '游戏化社区-SG', attendeeCount: '10', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'NFT何去何从', attendeeCount: '99', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'DAO真的是未来吗', attendeeCount: '999', belongTo: 'SeeDAO', date: '2022/08/12' }
+    ];
+
     start() {
         this.target = this.ent as Role;
         this.loadRoomList();
         this.initMiniMap();
         this.updatePlayerInfoOnBottomBar();
+        this.initDemoChatChannel();
+    }
+
+    initDemoChatChannel() {
+        for(var i = 0; i < this.channelInfoArr.length; i++) {
+            var node = instantiate(this.channelItem);
+            node.parent = this.channelContentLayer;
+            node.getComponent(RoleViewChannelItem).initData(this.channelInfoArr[i].name, this.channelInfoArr[i].attendeeCount, this.channelInfoArr[i].belongTo, this.channelInfoArr[i].date);
+        }
+    }
+
+    showCreateChannel() {
+        oops.gui.open(UIID.Demo_createChannel);
+    }
+
+    showChannelPopup() {
+        oops.gui.open(UIID.Demo_channelPopup);
     }
 
     initMiniMap() {

@@ -55,7 +55,11 @@ export enum UIID {
     /** 活动看板 */
     Demo_activityBoard,
     /** 确认弹窗 */
-    Demo_popupConfirm
+    Demo_popupConfirm,
+    /** 创建聊天频道 */
+    Demo_createChannel,
+    /** 在屏幕当中显示的聊天界面 */
+    Demo_channelPopup
 }
 
 /** 打开界面方式的配置数据 */
@@ -84,4 +88,6 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Demo_rookieTask]: { layer: LayerType.UI, prefab: "gui/game/rookieTask" },
     [UIID.Demo_activityBoard]: { layer: LayerType.UI, prefab: "gui/game/activityBoard" },
     [UIID.Demo_popupConfirm]: { layer: LayerType.UI, prefab: "gui/game/popupConfirm" },
+    [UIID.Demo_createChannel]: { layer: LayerType.UI, prefab: "gui/game/createChannel" },
+    [UIID.Demo_channelPopup]: { layer: LayerType.UI, prefab: "gui/game/channelPopup" },
 }
