@@ -21,6 +21,7 @@ export class RoleViewAnimator extends Component {
 
     start() {
         smc.room.RoomModel.players.forEach(d => {
+            console.log("aaaaaaaaaaaaaaaaaaaa", this.node);
             if (d.RoleModel.id == smc.room.RoomModel.owner.RoleModel.id) {
                 this.roleModelID = localStorage.getItem('roleModelID');
             } else if (d.RoleModel.id == this.node.getComponent(RoleViewComp).ent.get(RoleModelComp).id) {

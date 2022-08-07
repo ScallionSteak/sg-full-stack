@@ -299,7 +299,7 @@ export class RoleViewNpcDialog extends CCComp {
     nextPage() {
         console.log(this.curPageNum);
         if (this.curPageNum == this.curSpaceGuideContent.length) {
-            this.endGuide();
+            // this.endGuide(); 为方便录视频，不存完成引导的状态
             oops.gui.remove(UIID.Demo_npcDialog);
         } else {
             this.curPageNum += 1;

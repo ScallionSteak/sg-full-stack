@@ -22,7 +22,8 @@ export class RoleViewPlayerState extends Component {
     role: Role = null;
 
     onLoad() {
-        this.role = this.getComponent(RoleViewComp).ent as Role;
+        this.role = smc.room.RoomModel.owner.RoleView.ent as Role;
+        // this.role = this.getComponent(RoleViewComp).ent as Role;
         this.schedule(this.updateState, config.game.server.player_state_update_rate);
     }
 

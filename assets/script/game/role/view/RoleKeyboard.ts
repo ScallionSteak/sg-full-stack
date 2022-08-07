@@ -15,7 +15,8 @@ export class RoleKeyboard extends Component {
     private tiledMap: [] = [];
 
     start() {
-        this.role = this.getComponent(RoleViewComp).ent as Role;
+        this.role = smc.room.RoomModel.owner.RoleView.ent as Role;
+        // this.role = this.getComponent(RoleViewComp).ent as Role;
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_PRESSING, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);

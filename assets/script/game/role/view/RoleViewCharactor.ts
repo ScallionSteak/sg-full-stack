@@ -9,6 +9,7 @@ import { moveMessagePortToContext } from "worker_threads";
 import { MoveTo } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTo";
 import { MoveTranslate } from "../../../../../extensions/oops-framework/assets/core/game/move/MoveTranslate";
 import { ecs } from "../../../../../tsrpc_server/src/core/ecs/ECS";
+import { smc } from "../../common/ecs/SingletonModuleComp";
 import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
 import { RoleKeyboard } from "./RoleKeyboard";
@@ -63,7 +64,8 @@ export class RoleViewCharactor extends Component {
         var move = this.getComponent(RoleViewMoveTranslate) || this.addComponent(RoleViewMoveTranslate);
 
         if (move) {
-            move.speed = this.getComponent(RoleViewComp).ent.get(RoleModelComp).speed;
+            move.speed = smc.room.RoomModel.owner.RoleModel.speed
+            // move.speed = this.getComponent(RoleViewComp).ent.get(RoleModelComp).speed;
             move.velocity.x = data.vector.x;
             move.velocity.y = data.vector.y;
             this.rva.run(data);
