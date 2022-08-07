@@ -78,6 +78,7 @@ export class RoleViewNpcDialog extends CCComp {
         "Welcome to the Support Center\r\nIf you have any questions, please contact us here. A mysterious person passing by will answer your questions here~",
         "Congratulations! You have completed the whole tutorial. Welcome to SG. Let's explore Web3 together!"
     ];
+    
 
     private seeDaoGuideContent: string[] = [
         "Seedao展示馆\r\n截至目前，SeeDAO已有十个公会。社区成员接近8000人，实质贡献者超过了/600名。此外，SeeDAO已经完成了估值3000万美金的A轮融资，投资人包括HashKey Capital、HashGlobal、Nervos、Tess Venture、MaskNetwork、ChainIDE、火凤资本。这里陈列了关于seedao的历史资料和档案，你可以在这里查阅一切关于seedao的故事~",
@@ -94,6 +95,32 @@ export class RoleViewNpcDialog extends CCComp {
         "冥想区\r\n进入冥想区，你将进入空灵状态，失去与外界的一切联系，接收不到社区任何消息提醒，直到你走出冥想区。",
         "小黑屋\r\n在社区有恶性互动的成员会被关进小黑屋，坐牢！无法与他人交流，失去所有交互行为的权限！"
     ];
+
+    private publicSpaceGuideCameraData: { x: number, y: number, width: number, height: number }[] = [
+        { x: 2718, y: 4660, width: 135, height: 180 },
+        { x: 2094, y: 4113, width: 400, height: 675 },
+        { x: 3050, y: 4292, width: 515, height: 480 },
+        { x: 3042, y: 3368, width: 800, height: 435 },
+        { x: 3818, y: 4390, width: 390, height: 535 },
+        { x: 3900, y: 4945, width: 207, height: 250 },
+        { x: 3518, y: 4934, width: 155, height: 220 }
+    ];
+    private seeDaoGuideCameraData: { x: number, y: number, width: number, height: number }[] = [
+        { x: -160, y: -1340, width: 715, height: 590},
+        { x: -1130, y: -1330, width: 330, height: 350 },
+        { x: -770, y: -1510, width: 350, height: 255 },
+        { x: -1195, y: -1680, width: 350, height: 295 },
+        { x: -1515, y: -1155, width: 340, height: 370 },
+        { x: -760, y: -1150, width: 360, height: 360 },
+        { x: -500, y: -1300, width: 610, height: 520 },
+        { x: -1900, y: -1520, width: 290, height: 290 },
+        { x: 400, y: -780, width: 1080, height: 380 },
+        { x: -400, y: 900, width: 720, height: 600 },
+        { x: 530, y: 770, width: 760, height: 470 },
+        { x: -2290, y: -740, width: 750, height: 580 },
+        { x: 2540, y: -2050, width: 810, height: 600 }
+    ];
+    private curSpaceCameraData: { x: number, y: number, width: number, height: number }[] = [];
     private curSpaceGuideContent: string[] = [];
     private curDao = '';
     private curPageNum = 1;
@@ -140,6 +167,7 @@ export class RoleViewNpcDialog extends CCComp {
         this.curDao = roomName;
         if (roomName == 'PublicSpaceRoom') {
             this.curSpaceGuideContent = this.publicSpaceGuideContent;
+            this.curSpaceCameraData = this.publicSpaceGuideCameraData;
             this.nextBtn.active = false;
             this.letsGoBtn.active = true;
             this.showDaoListBtn.active = true;
@@ -181,6 +209,7 @@ export class RoleViewNpcDialog extends CCComp {
                } 
             } else {
                 this.curSpaceGuideContent = this.seeDaoGuideContent;
+                this.curSpaceCameraData = this.seeDaoGuideCameraData;
                 this.dialogContent.getComponent(Label).string = this.curSpaceGuideContent[0];
                 this.previousBtn.active = false;
                 this.totalPage.getComponent(Label).string = String(this.curSpaceGuideContent.length);
@@ -297,13 +326,17 @@ export class RoleViewNpcDialog extends CCComp {
     }
 
     nextPage() {
-        console.log(this.curPageNum);
         if (this.curPageNum == this.curSpaceGuideContent.length) {
             // this.endGuide(); 为方便录视频，不存完成引导的状态
             oops.gui.remove(UIID.Demo_npcDialog);
         } else {
             this.curPageNum += 1;
             this.updatePageNum();
+            
+            /** 移动镜头 */
+            var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
+            node.getComponent(MapViewControl).moveCameraForGuide(v3(-this.curSpaceCameraData[this.curPageNum - 1].x, -this.curSpaceCameraData[this.curPageNum - 1].y), this.curSpaceCameraData[this.curPageNum - 1].width, this.curSpaceCameraData[this.curPageNum - 1].height);
+
             this.dialogContent.getComponent(Label).string = this.curSpaceGuideContent[this.curPageNum-1];
             this.previousBtn.active = true;
             this.nextBtn.active = true;
