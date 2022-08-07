@@ -39,7 +39,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                         if (this.node.getComponent(RoleViewPlayerState)) {
                             if (this.node.getComponent(RoleViewPlayerState).role.RoleModel.id === smc.room.RoomModel.owner.RoleModel.id) {
                                 let npcDialogArr = [0,1,2,3,4,5,6,7,8,9];
-                                let bookshelfArr = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101];
+                                let bookshelfArr = [30, 31, 32, 33, 34, 35, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101];
                                 switch (true) {
                                     case npcDialogArr.indexOf(tile.buildingID) != -1: 
                                         var uiToOpen = UIID.Demo_npcDialog;
@@ -83,7 +83,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                     case 2: //support center界面还没做
                                         var uiArgs = -1; //用来保证没有UI打开
                                         break;
-                                    case 3: //bigtower大概是钟楼，界面也还没做
+                                    case 3: //bigtower钟楼
                                         var uiToOpen = UIID.Demo_bigTower;
                                         var uiArgs = 0; //0无意义，只是因为后面有个if判断，这样用来确认有UI要打开
                                         break;
@@ -164,7 +164,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                 }
                             } else if (smc.room.RoomModel.roomName == 'SeeDAORoom') {
                                 console.log("tile building id.......", tile.buildingID);
-                                let webviewArr = [10, 11, 16, 17, 19, 21, 22, 24, 25, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51];
+                                let webviewArr = [10, 11, 16, 17, 19, 21, 22, 24, 25, 27, 28, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51];
                                 let rookieTaskArr = [12, 18, 20, 23, 26, 29];
                                 let bountyBoardArr = [39, 52, 55, 54, 55, 56, 57, 58, 59];
                                 let activityBoardArr = [50];
