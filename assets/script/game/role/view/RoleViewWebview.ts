@@ -249,7 +249,7 @@ export class RoleViewWebview extends CCComp {
                 case 77:
                 case 78:
                 case 79:
-                case 70:
+                case 80:
                 case 81:
                 case 82:
                 case 83:
@@ -259,7 +259,7 @@ export class RoleViewWebview extends CCComp {
                 case 87:
                 case 88:
                 case 89:
-                case 80:
+                case 90:
                 case 91:
                 case 92:
                 case 93:
@@ -267,7 +267,7 @@ export class RoleViewWebview extends CCComp {
                 case 95:
                 case 96:
                 case 97:
-                case 99:
+                case 98:
                 case 99:
                 case 100:
                 case 101:
@@ -356,8 +356,10 @@ export class RoleViewWebview extends CCComp {
             this.webviewGroup.active = false;
             if (link1or2 == 1) {
                 this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[guildID].link1;
+                smc.room.RoomModel.guildGuideStatus[guildID] = 2; //假定这个webview是第一份问卷
             } else {
                 this.newWindowLink.getComponent(Label).string = smc.room.RoomModel.roomGuildGuideData.json[guildID].link2;
+                smc.room.RoomModel.guildGuideStatus[guildID] = 4; //假定这个webview是第二份问卷
             }
             
         }

@@ -166,7 +166,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                 console.log("tile building id.......", tile.buildingID);
                                 let webviewArr = [10, 11, 16, 17, 19, 21, 22, 24, 25, 27, 28, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51];
                                 let rookieTaskArr = [12, 18, 20, 23, 26, 29];
-                                let bountyBoardArr = [39, 52, 55, 54, 55, 56, 57, 58, 59];
+                                let bountyBoardArr = [39, 52, 53, 54, 55, 56, 57, 58, 59];
                                 let activityBoardArr = [50];
                                 var uiArgs = tile.buildingID;
                                 switch (true) {
