@@ -147,7 +147,7 @@ export class RoleViewMoveTranslate extends MoveTranslate {
                                         var uiToOpen = UIID.Demo_popupConfirm;
                                         var uiArgs = 19;
                                         break;
-                                    case 20: // haidao
+                                    case 20: // haydao
                                         // 打开一个提示框，然后点击直接跳转到相对应的dao
                                         var uiToOpen = UIID.Demo_popupConfirm;
                                         var uiArgs = 20;

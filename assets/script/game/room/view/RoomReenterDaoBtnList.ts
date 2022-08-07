@@ -52,7 +52,6 @@ export class RoomReenterDaoBtnList extends Component {
     }
 
     initRoomInfo(roomInfo) {
-        console.log(roomInfo.name);
         switch (roomInfo.name) {
             case 'PublicSpaceRoom':
                 this.roomLogo.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/sgLogo');
