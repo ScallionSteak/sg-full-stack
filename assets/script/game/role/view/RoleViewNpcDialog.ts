@@ -121,7 +121,7 @@ export class RoleViewNpcDialog extends CCComp {
         { x: 400, y: -780, width: 1080, height: 380 },
         { x: -400, y: 900, width: 720, height: 600 },
         { x: 530, y: 770, width: 760, height: 470 },
-        { x: -2290, y: -740, width: 750, height: 580 },
+        { x: -2290, y: -920, width: 750, height: 580 },
         { x: 2540, y: -2050, width: 810, height: 600 }
     ];
     private curSpaceCameraData: { x: number, y: number, width: number, height: number }[] = [];

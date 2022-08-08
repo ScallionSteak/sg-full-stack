@@ -63,6 +63,22 @@ export class RoomModelComp extends ecs.Comp {
     //     NFT_ClubGuideStatus: 0
     // };
     guildGuideStatus: number[] = [0,0,0,0,0,0,0,0,0,0];
+
+    /** 聊天频道的demo数据这里临时放一下 */
+    channelInfoArr: { name: string, attendeeCount: string, belongTo: string, date: string }[] = [
+        { name: 'SeeDAO公共频道', attendeeCount: '120', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品公会治理讨论', attendeeCount: '18', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '公会身份要怎么上链', attendeeCount: '33', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品公会应该如何OB', attendeeCount: '3', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品X开发如何搞事情', attendeeCount: '90', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '产品公会', attendeeCount: '9', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'ACGN二次元地下基地', attendeeCount: '50', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: '游戏化社区-SG', attendeeCount: '10', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'NFT何去何从', attendeeCount: '99', belongTo: 'SeeDAO', date: '2022/08/12' },
+        { name: 'DAO真的是未来吗', attendeeCount: '999', belongTo: 'SeeDAO', date: '2022/08/12' }
+    ];
+    /** channel状态demo期间这里临时存放，读取省事儿 */
+    channelStatus: number = 0;
     
     /** 玩家自己 */
     owner: Role = null!;
