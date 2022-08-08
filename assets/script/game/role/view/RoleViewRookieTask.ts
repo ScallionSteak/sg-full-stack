@@ -63,18 +63,21 @@ export class RoleViewRookieTask extends CCComp {
     }
 
     closeSelf() {
-        this.node.active = false;
         smc.room.RoomModel.guildGuideStatus[this.guildID] = 5; //下次打开npc dialog时，应该显示领取新手任务
-        var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-        var x = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardX;
-        var y = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardY;
-        var width = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardWidth;
-        var height = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardHeight;
-        var pos: Vec3 = v3(x, y);
-        node.getComponent(MapViewControl).moveCameraForGuide(pos, width, height);
-        setTimeout(()=>{
-            oops.gui.remove(UIID.Demo_rookieTask);
-        }, 3000);
+        oops.gui.remove(UIID.Demo_rookieTask);
+
+        /** 镜头移动有莫名其妙的问题，明明和前面几步一样，但位置移的对的，阴影大小却是错的，没搞懂什么原因，先注掉 */
+        // this.node.active = false;
+        // var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
+        // var x = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardX;
+        // var y = - smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardY;
+        // var width = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardWidth;
+        // var height = smc.room.RoomModel.roomGuildGuideData.json[this.guildID].blackboardHeight;
+        // var pos: Vec3 = v3(x, y);
+        // node.getComponent(MapViewControl).moveCameraForGuide(pos, width, height);
+        // setTimeout(()=>{
+        //     oops.gui.remove(UIID.Demo_rookieTask);
+        // }, 3000);
         
     }
 

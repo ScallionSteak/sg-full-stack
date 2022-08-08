@@ -131,6 +131,7 @@ export class RoleViewNpcDialog extends CCComp {
     private seeDaoGuildGuideData: any;
     private guildID = 0;
     private isCheckFileDone = false;
+    private cameraMoved = false;
 
     onLoad() {
         var roomName = smc.room.RoomModel.roomName;
@@ -231,8 +232,12 @@ export class RoleViewNpcDialog extends CCComp {
              * 这里应该是一个tween把引过去，回来，显示窗口，进度进一步都做掉
              */
             case 0:
-                smc.room.RoomModel.guildGuideStatus[this.guildID] = 1; //前进一步
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1, true, false);
+                if (!this.cameraMoved) {
+                    this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase1, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase1);
+                } else {
+                    this.moveCameraBack(true, false);
+                    smc.room.RoomModel.guildGuideStatus[this.guildID] = 1; //前进一步    
+                }
                 break;
             /** 接上一步，这个时候只要关闭窗口就好 */
             case 1:
@@ -252,11 +257,19 @@ export class RoleViewNpcDialog extends CCComp {
                 break;
             /** 这个3，就是上一步变的，这里要引去看下一个建筑*/
             case 3:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2, false, false);
+                if (!this.cameraMoved) {
+                    this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase2, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase2);
+                } else {
+                    this.moveCameraBack(false, false);
+                }
                 break;
             /** 这个4，是在填完第二份问卷关闭时改变的，这里应该要引去看下一个建筑*/
             case 4:
-                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase3, false, false);
+                if (!this.cameraMoved) {
+                    this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].buildingXPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingYPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingWidthPhase3, this.seeDaoGuildGuideData.json[this.guildID].buildingHeightPhase3);
+                } else {
+                    this.moveCameraBack(false, false);
+                }
                 break;
             case 5:
                 /** 最后一步，不需要做什么了 */
@@ -268,13 +281,20 @@ export class RoleViewNpcDialog extends CCComp {
         }
     }
 
-    moveCamera(x: string, y: string, width: string, height: string, newDialogAfter: boolean, isCheckFile: boolean) {
-        this.node.active = false;
+    /** 单纯把镜头移动移过去，不做任何处理 */
+    moveCamera(x: string, y: string, width: string, height: string) {
         var pos: Vec3 = v3( - Number(x), - Number(y));
-        var moveDuration = 3;
         var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-        node.getComponent(MapViewControl).moveCameraForGuide(pos, Number(width), Number(height));
-        setTimeout(()=> {
+        node.getComponent(MapViewControl).moveCameraForGuide(pos, Number(width), Number(height));    
+        this.cameraMoved = true;    
+    }
+
+    /** 把镜头移回来，移回来的时候判断下一步要变化dialog显示的内容，或者打开新dialog */
+    moveCameraBack(newDialogAfter: boolean, isCheckFile: boolean) {
+        var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
+        node.getComponent(MapViewControl).moveCameraBack();        
+        setTimeout(() => {
+            this.cameraMoved = false;  
             if (isCheckFile) {
                 this.dialogContent.getComponent(Label).string = this.seeDaoGuildGuideData.json[this.guildID].fileEndTip;
                 this.node.active = true;
@@ -286,15 +306,19 @@ export class RoleViewNpcDialog extends CCComp {
                     oops.gui.open(UIID.Demo_npcDialog, this.guildID + 1); //传0不行，所以传的时候要+1
                 }
             }
-        }, moveDuration*1000);
-        
+        }, 1000);
     }
 
     checkFile() {
         if (this.isCheckFileDone) {
             this.confirmClose();
         } else {
-            this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].fileBuildingX, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingY, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingWidth, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingHeight, true, true);
+            if (!this.cameraMoved) {
+                this.moveCamera(this.seeDaoGuildGuideData.json[this.guildID].fileBuildingX, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingY, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingWidth, this.seeDaoGuildGuideData.json[this.guildID].fileBuildingHeight);
+            } else {
+                this.moveCameraBack(true, true);
+            }
+            
         }
     }
 
@@ -330,18 +354,29 @@ export class RoleViewNpcDialog extends CCComp {
     }
 
     nextPage() {
+        var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
         if (this.curPageNum == this.curSpaceGuideContent.length) {
             // this.endGuide(); 为方便录视频，不存完成引导的状态
             oops.gui.remove(UIID.Demo_npcDialog);
         } else {
-            this.curPageNum += 1;
-            this.updatePageNum();
-            if (this.curPageNum == this.curSpaceGuideContent.length) {
-                //最后一步不动镜头
+            if (this.curPageNum + 1 == this.curSpaceGuideContent.length) {
+                //最后一步镜头移回来
+                this.curPageNum += 1;
+                this.updatePageNum();
+                this.cameraMoved = false;
+                node.getComponent(MapViewControl).moveCameraBack();
             } else {
                 /** 移动镜头 */
-                var node = this.node.parent.parent.getChildByPath('LayerGame/spaceMap');
-                node.getComponent(MapViewControl).moveCameraForGuide(v3(-this.curSpaceCameraData[this.curPageNum - 1].x, -this.curSpaceCameraData[this.curPageNum - 1].y), this.curSpaceCameraData[this.curPageNum - 1].width, this.curSpaceCameraData[this.curPageNum - 1].height);
+                if (!this.cameraMoved) {
+                    this.cameraMoved = true;
+                    node.getComponent(MapViewControl).moveCameraForGuide(v3(-this.curSpaceCameraData[this.curPageNum].x, -this.curSpaceCameraData[this.curPageNum].y), this.curSpaceCameraData[this.curPageNum].width, this.curSpaceCameraData[this.curPageNum].height);
+                    this.curPageNum += 1;
+                    this.updatePageNum();
+                } else {
+                    this.cameraMoved = false;
+                    node.getComponent(MapViewControl).moveCameraBack();
+                }
+                
             }
 
             this.dialogContent.getComponent(Label).string = this.curSpaceGuideContent[this.curPageNum-1];

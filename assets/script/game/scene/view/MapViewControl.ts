@@ -135,13 +135,13 @@ export class MapViewControl extends Component {
     moveCameraForGuide(pos: Vec3, width: number, height: number) {
         console.log(pos.x, pos.y, width, height);
         var moveDuration = 1;
-        var originX = this.follow_position.x;
-        var originY = this.follow_position.y;
         this.isInGuide = true;
         tween(this.map).to(moveDuration, {position: pos}).call(()=> {
             console.log("before set value", this.maskHole.getComponent(UITransform).height, this.maskHole.getComponent(UITransform).width);
+            console.log("mask size", this.maskHole.children[0].getComponent(UITransform).width, this.maskHole.children[0].getComponent(UITransform).height);
             this.maskHole.getComponent(UITransform).setContentSize(width, height);
             this.maskHole.active = true;            
+            console.log("mask size after", this.maskHole.children[0].getComponent(UITransform).width, this.maskHole.children[0].getComponent(UITransform).height);
             console.log("after set value", this.maskHole.getComponent(UITransform).height, this.maskHole.getComponent(UITransform).width);
             this.blinkFocus.active = false;
             // tween(this.blinkFocus).hide().delay(0.5).show().delay(0.5).union().repeat(3).call(()=>{
@@ -151,13 +151,14 @@ export class MapViewControl extends Component {
             //         this.isInGuide = false;
             //     }).start();
             // }).start();
-            tween(this.map).delay(1).call(() => {
-                this.maskHole.active = false;
-                this.blinkFocus.active = false;
-                tween(this.map).to(moveDuration, { position: new Vec3(originX, originY, 0) }).call(() => {
-                    this.isInGuide = false;
-                }).start();
-            }).start();
+        }).start();
+    }
+
+    moveCameraBack() {
+        this.maskHole.active = false;
+        this.blinkFocus.active = false;
+        tween(this.map).to(1, { position: new Vec3(this.follow_position.x, this.follow_position.y, 0) }).call(() => {
+            this.isInGuide = false;
         }).start();
     }
 
