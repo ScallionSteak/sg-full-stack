@@ -3256,7 +3256,7 @@
         "height": 30,
         "rawWidth": 345,
         "rawHeight": 30,
-        "borderTop": 0,
+        "borderTop": 4,
         "borderBottom": 20,
         "borderLeft": 24,
         "borderRight": 24,

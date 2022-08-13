@@ -3,7 +3,7 @@
  * @Date: 2022-06-27
  */
 
-import { AudioSource, EditBox, EventTouch, Label, Node, Sprite, SpriteAtlas, v3, Vec3, _decorator } from 'cc';
+import { AudioSource, EditBox, EventTouch, Label, Node, Sprite, SpriteAtlas, Toggle, UITransform, v3, Vec3, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -38,16 +38,36 @@ export class RoleViewMiniMapLocation extends CCComp {
     initLocation(name: string, type: string, id: number) {
         this.locationID = id;
         this.locationName.getComponent(Label).string = name;
-        if (type == 'big') {
-            this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/bigLocationMark');
-        } else if (type == 'small') {
-            this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/smallLocationMark');
-            this.locationNameBg.active = false;
+        this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/smallLocationMark');
+        this.locationNameBg.getComponent(UITransform).width = this.locationName.getComponent(UITransform).width;
+        if (this.node.getComponent(Toggle).isChecked) {
+            this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/bigLocationMark');    
         }
     }
 
     showIntroduction() {
         this.node.parent.parent.parent.getComponent(RoleViewMiniMapIntroduction).showIntroduction(this.locationID);
+    }
+
+    onLocationCheck() {
+        //把自己的标签设成大标签
+        this.locationNameBg.active = true;
+        this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/bigLocationMark');
+        this.locationName.getComponent(Label).fontSize = 16;
+        this.locationNameBg.getComponent(UITransform).width = this.locationName.getComponent(UITransform).width;
+        //把之前选中的那个标签恢复成小标签
+        for (var i = 0; i < this.node.parent.children.length; i++) {
+            if (!this.node.parent.children[i].getComponent(Toggle).isChecked) {
+                this.node.parent.children[i].getComponent(RoleViewMiniMapLocation).resetToUncheck();
+            }
+        }
+    }
+
+    resetToUncheck() {
+        this.locationNameBg.active = false;
+        this.locationSprite.getComponent(Sprite).spriteFrame = this.UIAtlas.getSpriteFrame('main/smallLocationMark');
+        this.locationName.getComponent(Label).fontSize = 12;
+        this.locationNameBg.getComponent(UITransform).width = this.locationName.getComponent(UITransform).width;
     }
 
     reset(): void {
