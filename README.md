@@ -1,6 +1,9 @@
-## oops framework + tsrpc 房间类游戏全栈解决方案
-此产品实现了MOBA类游戏网络层基础功能，可用于二次开发扩展协议实现自定义逻辑或学习全栈游戏开发。
+This is the codebase of DAOLink.
 
+Art work credits - LimeZu (https://limezu.itch.io/).
+
+
+========================================以下为技术说明========================================
 产品前后端全采用TypeScript语言实现，同时业务代码使用同一套ECS框架设计，前后端代码风格接近，便于理解学习。
 
 前端框架采用 [oops framework](https://store.cocos.com/app/detail/3558) 做为业务框架。
@@ -101,17 +104,3 @@
     - pm2 start ecosystem.config.js --env develop 启动调试环境
     - pm2 delete all 停止所有服务器
 - tsrpc教程[参考](https://tsrpc.cn/)
-
-## 联系作者
-交流QQ群：798575969
-
-## 购买须知
-本产品为付费虚拟商品，一经购买成功概不退款，请支付前谨慎确认购买内容。
-
-## 作者其它产品
-#### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
-#### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
-#### [游戏地图模块 oops-rpg-2d](https://store.cocos.com/app/detail/3675)
-#### [新手引导模块 oops-guide](https://store.cocos.com/app/detail/3653)
-#### [开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
-#### [开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
