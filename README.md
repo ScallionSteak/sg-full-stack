@@ -3,7 +3,7 @@ This is the codebase of DAOLink.
 Art work credits - LimeZu (https://limezu.itch.io/).
 
 
-========================================以下为技术说明========================================
+==============以下为技术说明==============
 产品前后端全采用TypeScript语言实现，同时业务代码使用同一套ECS框架设计，前后端代码风格接近，便于理解学习。
 
 前端框架采用 [oops framework](https://store.cocos.com/app/detail/3558) 做为业务框架。
